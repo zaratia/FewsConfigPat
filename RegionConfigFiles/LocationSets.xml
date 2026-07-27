@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<locationSets version="1.1" xmlns="http://www.wldelft.nl/fews" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.wldelft.nl/fews http://fews.wldelft.nl/schemas/version1.0/locationSets.xsd">
+	<!-- All Location Sets Built from csv and shp files. See MapLayerFiles for source-->
+	<!--- Water Survey of Canada Hydrometric Stations - Available at https://dd.weather.gc.ca/hydrometric/doc/ -->
+
+	<locationSet id="Idrometri_PAT">
+		<csvFile>
+			<file>AnagraficaIDROMETRI_PAT.csv</file>
+			<geoDatum>UTM32N</geoDatum>
+			<id>%id_sensore%</id>
+			<name>%sito%</name>
+			<x>%est%</x>
+			<y>%nord%</y>
+			<z>%quota%</z>
+		</csvFile>
+	</locationSet>	
+	
+	<locationSet id="WSCStations">
+		<sortingLocationAttributeId>ID</sortingLocationAttributeId>
+		<csvFile>
+			<file>hydrometric_StationList.csv</file>
+			<geoDatum>WGS 1984</geoDatum>
+			<id>%ID%</id>
+			<name>%Name / Nom%</name>
+			<x>%Longitude%</x>
+			<y>%Latitude%</y>
+			<attribute id="ID" name="Station Code">
+				<text>%ID%</text>
+			</attribute>
+			<attribute id="NAME" name="Name">
+				<text>%Name / Nom%</text>
+			</attribute>
+			<attribute id="X" name="Longitude">
+				<text>%Longitude%</text>
+			</attribute>
+			<attribute id="Y" name="Latitude">
+				<text>%Latitude%</text>
+			</attribute>
+			<attribute id="Region" name="Region">
+				<text>%Prov/Terr%</text>
+			</attribute>
+		</csvFile>
+	</locationSet>
+	<!--- ECCC Meteo Stations - Available at https://dd.weather.gc.ca/hydrometric/doc/ -->
+	<locationSet id="EcccStations">
+		<csvFile>
+			<file>swob-xml_station_list.csv</file>
+			<geoDatum>WGS 1984</geoDatum>
+			<id>%MSC_ID%</id>
+			<name>%Name%</name>
+			<x>%Longitude%</x>
+			<y>%Latitude%</y>
+			<z>%Elevation(m)%</z>
+			<attribute id="EcccId" name="Station Code">
+				<text>%MSC_ID%</text>
+			</attribute>
+			<attribute id="Region" name="Region">
+				<text>%Province/Territory%</text>
+			</attribute>
+		</csvFile>
+	</locationSet>
+	<!--- ECCC Meteo Stations from Partners - Available at https://dd.weather.gc.ca/hydrometric/doc/ -->
+	<locationSet id="EcccPartnerStations">
+		<csvFile>
+			<file>swob-xml_partner_station_list.csv</file>
+			<geoDatum>WGS 1984</geoDatum>
+			<id>%# MSC ID%</id>
+			<name>%EN name%</name>
+			<x>%Longitude%</x>
+			<y>%Latitude%</y>
+			<z>%Elevation%</z>
+			<attribute id="ID" name="Station Code">
+				<text>%# MSC ID%</text>
+			</attribute>
+			<attribute id="Region" name="Region">
+				<text>%Province%</text>
+			</attribute>
+		</csvFile>
+	</locationSet>
+	<!-- Create LocationSets based on Attributes-->
+	<locationSet id="WSCStationsByRegion">
+		<subLocationSetIdFunction>WSCStations@Region@</subLocationSetIdFunction>
+		<locationSetId>WSCStations</locationSetId>
+	</locationSet>
+	<!--Build LocationSets for Displays-->
+	<locationSet id="ModelMeteoStations">
+		<locationSetId>ECCCStationsNT</locationSetId>
+	</locationSet>
+	<locationSet id="DisplayMeteoStations">
+		<locationSetId>ECCCStationsNT</locationSetId>
+	</locationSet>
+	<locationSet id="DisplayHydroStations">
+		<locationSetId>WSCStationsNT</locationSetId>
+		<locationSetId>WSCStationsYT</locationSetId>
+	</locationSet>
+	<!--Build additional LocationSets-->
+	<locationSet id="EcccAllStations">
+		<locationSetId>EcccPartnerStations</locationSetId>
+		<locationSetId>EcccStations</locationSetId>
+	</locationSet>
+	<!--Comment-->
+	<locationSet id="ECCCStationsNT">
+		<locationSetId>EcccAllStations</locationSetId>
+		<constraints>
+			<anyValid>
+				<attributeTextEquals id="Region" equals="Northwest Territories"/>
+				<attributeTextEquals id="Region" equals="NT"/>
+			</anyValid>
+		</constraints>
+	</locationSet>
+	<locationSet id="ECCCStationsYT">
+		<locationSetId>EcccAllStations</locationSetId>
+		<constraints>
+			<anyValid>
+				<attributeTextEquals id="Region" equals="Yukon"/>
+				<attributeTextEquals id="Region" equals="YT"/>
+			</anyValid>
+		</constraints>
+	</locationSet>
+</locationSets>

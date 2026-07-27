@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<clientConfiguration xmlns="http://www.wldelft.nl/fews"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.wldelft.nl/fews
+http://fews.wldelft.nl/schemas/version1.0/clientConfig.xsd">
+	<clientType>Operator Client</clientType>
+	<otherRootConfigFiles>
+		<name>fews-stable-202401-137166-patch.jar</name>
+		<name>oc_global.properties</name>
+		<name>oc_clientConfig.xml</name>
+	</otherRootConfigFiles>
+	<connection id="MC00" name="Prd">
+		<databaseServer>
+			<url>jdbc:postgresql://10.15.235.23:5432/fewsdb00</url>
+			<user>fews00</user>
+			<encryptedPassword>gph4+sxUS0w=s</encryptedPassword>
+		</databaseServer>
+	</connection>
+	<jvmOption>-Xmn1024m</jvmOption>
+	<jvmOption>-Xmx1500m</jvmOption>
+	<autoExportModuleDataSet name="jcef" exportDir="Modules"/>
+</clientConfiguration>

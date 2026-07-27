@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2014 rel. 2 sp1 (http://www.altova.com) by Afdeling ICT (Stichting Deltares) -->
+<topology xmlns="http://www.wldelft.nl/fews" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.wldelft.nl/fews http://fews.wldelft.nl/schemas/version1.0/topology.xsd">
+	<enableAutoRun>false</enableAutoRun>
+	<enableAutoSelectParameters>true</enableAutoSelectParameters>
+	<enableSelectNodesFromMap>false</enableSelectNodesFromMap>
+	<nodes id="Information_Sources" name="Information Sources">
+		<nodes id="Delft-FEWS">
+			<node id="Delft-FEWS_Documentation" name="Documentation">
+				<mainPanel>web browser display</mainPanel>
+				<url>https://publicwiki.deltares.nl/display/FEWSDOC/Home</url>
+				<localRun>false</localRun>
+				<showRunApprovedForecastButton>false</showRunApprovedForecastButton>
+			</node>
+			<node id="Delft-FEWS_UserGuide" name="User Guide">
+				<mainPanel>web browser display</mainPanel>
+				<url>https://publicwiki.deltares.nl/display/FEWSDOC/Using+Delft-FEWS+-+User+Guide</url>
+				<localRun>false</localRun>
+				<showRunApprovedForecastButton>false</showRunApprovedForecastButton>
+			</node>
+			<node id="Delft-FEWS_Website" name="Web Page">
+				<mainPanel>web browser display</mainPanel>
+				<url>https://oss.deltares.nl/web/delft-fews/</url>
+				<localRun>false</localRun>
+				<showRunApprovedForecastButton>false</showRunApprovedForecastButton>
+			</node>
+		</nodes>
+		<nodes id="Operational Data">
+			<node id="ECCC" name="Environment and Climate Change Canada (ECCC)">
+				<mainPanel>web browser display</mainPanel>
+				<url>https://weather.gc.ca/</url>
+				<localRun>false</localRun>
+				<showRunApprovedForecastButton>false</showRunApprovedForecastButton>
+			</node>
+			<node id="WSC" name="Water Survey of Canada (WSC)">
+				<mainPanel>web browser display</mainPanel>
+				<url>https://wateroffice.ec.gc.ca/</url>
+				<localRun>false</localRun>
+				<showRunApprovedForecastButton>false</showRunApprovedForecastButton>
+			</node>
+			<node id="NOAA" name="National Oceanic and Atmospheric Administration (NOAA)">
+				<mainPanel>web browser display</mainPanel>
+				<url>https://www.ncei.noaa.gov/products/weather-climate-models/global-forecast</url>
+				<localRun>false</localRun>
+				<showRunApprovedForecastButton>false</showRunApprovedForecastButton>
+			</node>
+		</nodes>
+	</nodes>
+	<nodes id="ImportStationObservations" name="Import Station Observations">
+		<node id="ImportWSCHourly" name="Import Hourly Hydro Station Data (WSC, past day)">
+			<workflowId>ImportWSCHourly</workflowId>
+			<graceTime unit="hour" multiplier="24"/>
+			<gridDisplaySelection>
+				<groupId>HydrologicalStations</groupId>
+				<plotId>RecentObservedDischarge</plotId>
+			</gridDisplaySelection>
+			<localRun>false</localRun>
+			<showRunApprovedForecastButton>true</showRunApprovedForecastButton>
+		</node>
+		<node id="ImportWSCDaily" name="Import Daily Hydro Station Data (WSC, past month)">
+			<workflowId>ImportWSCDaily</workflowId>
+			<graceTime unit="hour" multiplier="24"/>
+			<gridDisplaySelection>
+				<groupId>HydrologicalStations</groupId>
+				<plotId>RecentObservedDischarge</plotId>
+			</gridDisplaySelection>
+			<localRun>false</localRun>
+			<showRunApprovedForecastButton>true</showRunApprovedForecastButton>
+		</node>
+	</nodes>
+	<nodes id="ImportMeteoForecasts" name="Import Meteo Forecasts ">
+		<node id="ImportRDPA" name="ECCC RDPA (Regional Deterministic Precip Analysis)">
+			<workflowId>ImportRDPAGrids</workflowId>
+			<graceTime unit="hour" multiplier="6"/>
+			<gridDisplaySelection>
+				<groupId>RDPA</groupId>
+				<plotId>RDPAPrecipitation</plotId>
+			</gridDisplaySelection>
+			<localRun>false</localRun>
+			<showRunApprovedForecastButton>true</showRunApprovedForecastButton>
+		</node>
+		<node id="ImportGDPS" name="ECCC GDPS (Global Deterministic Pred Sys)">
+			<workflowId>ImportGDPSGrids</workflowId>
+			<graceTime unit="hour" multiplier="6"/>
+			<gridDisplaySelection>
+				<groupId>GDPS</groupId>
+				<plotId>GDPSPrecipitation</plotId>
+			</gridDisplaySelection>
+			<localRun>false</localRun>
+			<showRunApprovedForecastButton>true</showRunApprovedForecastButton>
+		</node>
+		<node id="ImportREPS" name="ECCC REPS (Regional Ensemble Pred Sys)">
+			<workflowId>ImportREPSGrids</workflowId>
+			<graceTime unit="hour" multiplier="6"/>
+			<gridDisplaySelection>
+				<groupId>REPS</groupId>
+				<plotId>REPSPrecipitation</plotId>
+			</gridDisplaySelection>
+			<localRun>false</localRun>
+			<showRunApprovedForecastButton>true</showRunApprovedForecastButton>
+		</node>
+		<node id="ImportGFS" name="NOAA GFS (Global Pred Sys)">
+			<workflowId>ImportGFSGrids</workflowId>
+			<graceTime unit="hour" multiplier="6"/>
+			<gridDisplaySelection>
+				<groupId>GFS</groupId>
+				<plotId>GFSPrecipitation</plotId>
+			</gridDisplaySelection>
+			<localRun>false</localRun>
+			<showRunApprovedForecastButton>true</showRunApprovedForecastButton>
+		</node>
+	</nodes>
+</topology>

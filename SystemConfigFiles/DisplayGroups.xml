@@ -1,0 +1,339 @@
+<!-- edited with XMLSpy v2014 rel. 2 sp1 (http://www.altova.com) by Afdeling ICT (Stichting Deltares) -->
+<displayGroups xmlns="http://www.wldelft.nl/fews" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.wldelft.nl/fews http://fews.wldelft.nl/schemas/version1.0/displayGroups.xsd" version="1.0">
+	<!--Plot Templates Section-->
+	<!--Plot Template - WSC Data Data-->
+	<plot id="WSCHourlyTemplate">
+		<subplot>
+			<line>
+				<color>blue</color>
+				<lineStyle>constant</lineStyle>
+				<axis>left</axis>
+				<visibleInLegend>true</visibleInLegend>
+				<visibleInTable>true</visibleInTable>
+				<visibleInPlot>true</visibleInPlot>
+				<timeSeriesSet>
+					<moduleInstanceId>ImportWSC</moduleInstanceId>
+					<valueType>scalar</valueType>
+					<parameterId>QR.obs</parameterId>
+					<locationSetId>DisplayMeteoStations</locationSetId>
+					<timeSeriesType>external historical</timeSeriesType>
+					<timeStep unit="minute" multiplier="5"/>
+					<relativeViewPeriod unit="day" start="-2" end="0"/>
+					<readWriteMode>read only</readWriteMode>
+				</timeSeriesSet>
+			</line>
+			<line>
+				<color>red</color>
+				<lineStyle>dashdot</lineStyle>
+				<axis>right</axis>
+				<visibleInLegend>true</visibleInLegend>
+				<visibleInTable>false</visibleInTable>
+				<visibleInPlot>true</visibleInPlot>
+				<timeSeriesSet>
+					<moduleInstanceId>ImportWSC</moduleInstanceId>
+					<valueType>scalar</valueType>
+					<parameterId>HG.obs</parameterId>
+					<locationSetId>DisplayMeteoStations</locationSetId>
+					<timeSeriesType>external historical</timeSeriesType>
+					<timeStep unit="minute" multiplier="5"/>
+					<relativeViewPeriod unit="day" start="-2" end="0"/>
+					<readWriteMode>read only</readWriteMode>
+				</timeSeriesSet>
+			</line>
+		</subplot>
+	</plot>
+	<!--Plot Template - RDPA Data-->
+	<plot id="RDPATemplate">
+		<subplot>
+			<line>
+				<color>red</color>
+				<lineStyle>bar</lineStyle>
+				<axis>left</axis>
+				<label>RDPA Basin Precip -  hourly [mm]</label>
+				<timeSeriesSet>
+					<moduleInstanceId>ProcessRdpa</moduleInstanceId>
+					<valueType>scalar</valueType>
+					<parameterId>PC.sim</parameterId>
+					<locationSetId>DisplayMeteoStations</locationSetId>
+					<timeSeriesType>external historical</timeSeriesType>
+					<timeStep unit="hour" multiplier="6"/>
+					<relativeViewPeriod unit="day" start="-14" end="0"/>
+					<readWriteMode>add originals</readWriteMode>
+				</timeSeriesSet>
+			</line>
+		</subplot>
+	</plot>
+	<!--Plot Templates - NWP Data -->
+	<plot id="HRDPSTemplate">
+		<subplot>
+			<line>
+				<timeSeriesSet>
+					<moduleInstanceId>ProcessHrdps</moduleInstanceId>
+					<valueType>scalar</valueType>
+					<parameterId>PC.nwp</parameterId>
+					<locationSetId>DisplayMeteoStations</locationSetId>
+					<timeSeriesType>external forecasting</timeSeriesType>
+					<timeStep unit="hour" multiplier="1"/>
+					<readWriteMode>read only</readWriteMode>
+				</timeSeriesSet>
+			</line>
+		</subplot>
+		<subplot>
+			<line>
+				<timeSeriesSet>
+					<moduleInstanceId>ProcessHrdps</moduleInstanceId>
+					<valueType>scalar</valueType>
+					<parameterId>TA.nwp</parameterId>
+					<locationSetId>DisplayMeteoStations</locationSetId>
+					<timeSeriesType>external forecasting</timeSeriesType>
+					<timeStep unit="hour" multiplier="1"/>
+					<readWriteMode>read only</readWriteMode>
+				</timeSeriesSet>
+			</line>
+		</subplot>
+	</plot>
+	<plot id="GDPSTemplate">
+		<subplot>
+			<line>
+				<timeSeriesSet>
+					<moduleInstanceId>ProcessGdps</moduleInstanceId>
+					<valueType>scalar</valueType>
+					<parameterId>PC.nwp</parameterId>
+					<locationSetId>DisplayMeteoStations</locationSetId>
+					<timeSeriesType>external forecasting</timeSeriesType>
+					<timeStep unit="hour" multiplier="3"/>
+					<readWriteMode>read only</readWriteMode>
+				</timeSeriesSet>
+			</line>
+		</subplot>
+		<subplot>
+			<line>
+				<timeSeriesSet>
+					<moduleInstanceId>ProcessGdps</moduleInstanceId>
+					<valueType>scalar</valueType>
+					<parameterId>TA.nwp</parameterId>
+					<locationSetId>DisplayMeteoStations</locationSetId>
+					<timeSeriesType>external forecasting</timeSeriesType>
+					<timeStep unit="hour" multiplier="3"/>
+					<readWriteMode>read only</readWriteMode>
+				</timeSeriesSet>
+			</line>
+		</subplot>
+	</plot>
+	<plot id="REPSPCTemplate">
+		<subplot>
+			<line>
+				<color>blue</color>
+				<lineStyle>solid</lineStyle>
+				<axis>left</axis>
+				<timeSeriesSet>
+					<moduleInstanceId>ProcessReps</moduleInstanceId>
+					<valueType>scalar</valueType>
+					<parameterId>PC.nwp.acc</parameterId>
+					<locationSetId>DisplayMeteoStations</locationSetId>
+					<timeSeriesType>external forecasting</timeSeriesType>
+					<timeStep unit="hour" multiplier="3"/>
+					<readWriteMode>read only</readWriteMode>
+					<ensembleId>REPS</ensembleId>
+				</timeSeriesSet>
+			</line>
+		</subplot>
+		<subplot>
+			<line>
+				<color>blue</color>
+				<lineStyle>solid;thick</lineStyle>
+				<axis>left</axis>
+				<label>mean</label>
+				<timeSeriesSet>
+					<moduleInstanceId>ProcessReps</moduleInstanceId>
+					<valueType>scalar</valueType>
+					<parameterId>PC.nwp.acc</parameterId>
+					<qualifierId>mean</qualifierId>
+					<locationSetId>DisplayMeteoStations</locationSetId>
+					<timeSeriesType>external forecasting</timeSeriesType>
+					<timeStep unit="hour" multiplier="3"/>
+					<readWriteMode>read complete forecast</readWriteMode>
+				</timeSeriesSet>
+			</line>
+			<area>
+				<color>blue</color>
+				<opaquenessPercentage>50</opaquenessPercentage>
+				<label>25%-75%</label>
+				<timeSeriesSet>
+					<moduleInstanceId>ProcessReps</moduleInstanceId>
+					<valueType>scalar</valueType>
+					<parameterId>PC.nwp.acc</parameterId>
+					<qualifierId>25%</qualifierId>
+					<locationSetId>DisplayMeteoStations</locationSetId>
+					<timeSeriesType>external forecasting</timeSeriesType>
+					<timeStep unit="hour" multiplier="3"/>
+					<readWriteMode>read complete forecast</readWriteMode>
+				</timeSeriesSet>
+				<timeSeriesSet>
+					<moduleInstanceId>ProcessReps</moduleInstanceId>
+					<valueType>scalar</valueType>
+					<parameterId>PC.nwp.acc</parameterId>
+					<qualifierId>75%</qualifierId>
+					<locationSetId>DisplayMeteoStations</locationSetId>
+					<timeSeriesType>external forecasting</timeSeriesType>
+					<timeStep unit="hour" multiplier="3"/>
+					<readWriteMode>read complete forecast</readWriteMode>
+				</timeSeriesSet>
+			</area>
+			<area>
+				<color>light blue</color>
+				<opaquenessPercentage>50</opaquenessPercentage>
+				<label>Min-Max</label>
+				<timeSeriesSet>
+					<moduleInstanceId>ProcessReps</moduleInstanceId>
+					<valueType>scalar</valueType>
+					<parameterId>PC.nwp.acc</parameterId>
+					<qualifierId>min</qualifierId>
+					<locationSetId>DisplayMeteoStations</locationSetId>
+					<timeSeriesType>external forecasting</timeSeriesType>
+					<timeStep unit="hour" multiplier="3"/>
+					<readWriteMode>read complete forecast</readWriteMode>
+				</timeSeriesSet>
+				<timeSeriesSet>
+					<moduleInstanceId>ProcessReps</moduleInstanceId>
+					<valueType>scalar</valueType>
+					<parameterId>PC.nwp.acc</parameterId>
+					<qualifierId>max</qualifierId>
+					<locationSetId>DisplayMeteoStations</locationSetId>
+					<timeSeriesType>external forecasting</timeSeriesType>
+					<timeStep unit="hour" multiplier="3"/>
+					<readWriteMode>read complete forecast</readWriteMode>
+				</timeSeriesSet>
+			</area>
+		</subplot>
+	</plot>
+	<plot id="REPSTATemplate">
+		<subplot>
+			<line>
+				<color>green</color>
+				<lineStyle>solid</lineStyle>
+				<axis>left</axis>
+				<timeSeriesSet>
+					<moduleInstanceId>ProcessReps</moduleInstanceId>
+					<valueType>scalar</valueType>
+					<parameterId>TA.nwp</parameterId>
+					<locationSetId>DisplayMeteoStations</locationSetId>
+					<timeSeriesType>external forecasting</timeSeriesType>
+					<timeStep unit="hour" multiplier="3"/>
+					<readWriteMode>read only</readWriteMode>
+					<ensembleId>REPS</ensembleId>
+				</timeSeriesSet>
+			</line>
+		</subplot>
+		<subplot>
+			<line>
+				<color>green</color>
+				<lineStyle>solid;thick</lineStyle>
+				<axis>left</axis>
+				<label>mean</label>
+				<timeSeriesSet>
+					<moduleInstanceId>ProcessReps</moduleInstanceId>
+					<valueType>scalar</valueType>
+					<parameterId>TA.nwp</parameterId>
+					<qualifierId>mean</qualifierId>
+					<locationSetId>DisplayMeteoStations</locationSetId>
+					<timeSeriesType>external forecasting</timeSeriesType>
+					<timeStep unit="hour" multiplier="3"/>
+					<readWriteMode>read complete forecast</readWriteMode>
+				</timeSeriesSet>
+			</line>
+			<area>
+				<color>green</color>
+				<opaquenessPercentage>50</opaquenessPercentage>
+				<label>25%-75%</label>
+				<timeSeriesSet>
+					<moduleInstanceId>ProcessReps</moduleInstanceId>
+					<valueType>scalar</valueType>
+					<parameterId>TA.nwp</parameterId>
+					<qualifierId>25%</qualifierId>
+					<locationSetId>DisplayMeteoStations</locationSetId>
+					<timeSeriesType>external forecasting</timeSeriesType>
+					<timeStep unit="hour" multiplier="3"/>
+					<readWriteMode>read complete forecast</readWriteMode>
+				</timeSeriesSet>
+				<timeSeriesSet>
+					<moduleInstanceId>ProcessReps</moduleInstanceId>
+					<valueType>scalar</valueType>
+					<parameterId>TA.nwp</parameterId>
+					<qualifierId>75%</qualifierId>
+					<locationSetId>DisplayMeteoStations</locationSetId>
+					<timeSeriesType>external forecasting</timeSeriesType>
+					<timeStep unit="hour" multiplier="3"/>
+					<readWriteMode>read complete forecast</readWriteMode>
+				</timeSeriesSet>
+			</area>
+			<area>
+				<color>green1</color>
+				<opaquenessPercentage>50</opaquenessPercentage>
+				<label>Min-Max</label>
+				<timeSeriesSet>
+					<moduleInstanceId>ProcessReps</moduleInstanceId>
+					<valueType>scalar</valueType>
+					<parameterId>TA.nwp</parameterId>
+					<qualifierId>min</qualifierId>
+					<locationSetId>DisplayMeteoStations</locationSetId>
+					<timeSeriesType>external forecasting</timeSeriesType>
+					<timeStep unit="hour" multiplier="3"/>
+					<readWriteMode>read complete forecast</readWriteMode>
+				</timeSeriesSet>
+				<timeSeriesSet>
+					<moduleInstanceId>ProcessReps</moduleInstanceId>
+					<valueType>scalar</valueType>
+					<parameterId>TA.nwp</parameterId>
+					<qualifierId>max</qualifierId>
+					<locationSetId>DisplayMeteoStations</locationSetId>
+					<timeSeriesType>external forecasting</timeSeriesType>
+					<timeStep unit="hour" multiplier="3"/>
+					<readWriteMode>read complete forecast</readWriteMode>
+				</timeSeriesSet>
+			</area>
+		</subplot>
+	</plot>
+	<!--Display Groups -->
+	<displayGroup id="ImportWSCHourly" name="WSC Stations Hourly">
+		<nodeId>ImportWSCHourly</nodeId>
+		<singleLocationDisplays>
+			<locationSetId>DisplayMeteoStations</locationSetId>
+			<plotId>WSCHourlyTemplate</plotId>
+		</singleLocationDisplays>
+	</displayGroup>
+	<displayGroup name="RDPA">
+		<nodeId>RDPA</nodeId>
+		<displayGroup id="RDPA" name="RDPA">
+			<nodeId>ImportRDPA</nodeId>
+			<singleLocationDisplays>
+				<locationSetId>DisplayMeteoStations</locationSetId>
+				<plotId>RDPATemplate</plotId>
+			</singleLocationDisplays>
+		</displayGroup>
+	</displayGroup>
+	<displayGroup name="GDPS">
+		<nodeId>GDPS</nodeId>
+		<displayGroup id="GDPS" name="GDPS">
+			<nodeId>ImportGDPS</nodeId>
+			<singleLocationDisplays>
+				<locationSetId>DisplayMeteoStations</locationSetId>
+				<plotId>GDPSTemplate</plotId>
+			</singleLocationDisplays>
+		</displayGroup>
+	</displayGroup>
+	<displayGroup name="REPSEnsemble">
+		<nodeId>REPSEnsemble</nodeId>
+		<displayGroup id="REPSEnsemble" name="REPSEnsemble">
+			<nodeId>ImportREPS</nodeId>
+			<singleLocationDisplays>
+				<locationSetId>DisplayMeteoStations</locationSetId>
+				<plotId>REPSPCTemplate</plotId>
+			</singleLocationDisplays>
+			<singleLocationDisplays>
+				<locationSetId>DisplayMeteoStations</locationSetId>
+				<plotId>REPSTATemplate</plotId>
+			</singleLocationDisplays>
+		</displayGroup>
+	</displayGroup>
+</displayGroups>

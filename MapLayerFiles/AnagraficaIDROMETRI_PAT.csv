@@ -1,0 +1,5 @@
+id_sensore,sito,corpo,bacino,strumento,grandezza,est,nord,quota,ente_propr
+28210,Ala,torrente Ala,Adige,Idrometro,Livello Idrometrico,656052.045417309,5069185.62561907,210,PAT - Ufficio Dighe
+28206,Avio,torrente Aviana,Adige,Idrometro,Livello Idrometrico,650723.454353983,5066068.33057773,154,PAT - Ufficio Dighe
+30785,Borghetto,fiume Adige,Adige,Idrometro,Livello Idrometrico,650112.872377653,5062985.00931873,125,PAT - Ufficio Dighe
+1011325,Ala - Maso Le Pozze,,Adige,Temperatura,Temperatura aria,657305.0,5072278.0,-9999.0,PAT - Ufficio Dighe

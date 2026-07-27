@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<modifierTypes xmlns="http://www.wldelft.nl/fews" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.wldelft.nl/fews http://fews.wldelft.nl/schemas/version1.0/modifierTypes.xsd">
+	<rollbackOverlappingModifiers>false</rollbackOverlappingModifiers>
+	<spatialProfileModifier id="GDPSSpatialProfile" name="GDPS Spatial Profile">
+		<expiryTime unit="day" multiplier="2"/>
+		<userDefinedDescriptionField id="Comment" descriptionField="Comment"/>
+		<timeSeries>
+			<moduleInstanceId>ImportGDPS</moduleInstanceId>
+			<parameterId>PC.nwp</parameterId>
+		</timeSeries>
+		<timeSeries>
+			<moduleInstanceId>ImportGDPS</moduleInstanceId>
+			<parameterId>TA.nwp</parameterId>
+		</timeSeries>
+		<descriptiveFunctionGroups>
+			<descriptiveFunctionGroup name="Basic statistics">
+				<descriptiveFunction function="startTime" ignoreMissings="true"/>
+				<descriptiveFunction function="endTime" ignoreMissings="true"/>
+				<descriptiveFunction function="timeLength" ignoreMissings="true"/>
+			</descriptiveFunctionGroup>
+			<descriptiveFunctionGroup name="Accumulation">
+				<descriptiveFunction function="movingAccumulationMax" ignoreMissings="true">
+					<timeSpan unit="hour" multiplier="1"/>
+					<timeSpan unit="hour" multiplier="2"/>
+					<timeSpan unit="hour" multiplier="3"/>
+					<timeSpan unit="hour" multiplier="4"/>
+					<timeSpan unit="hour" multiplier="6"/>
+					<timeSpan unit="hour" multiplier="12"/>
+					<timeSpan unit="hour" multiplier="24"/>
+					<timeSpan unit="hour" multiplier="48"/>
+					<timeSpan unit="hour" multiplier="72"/>
+					<timeSpan unit="hour" multiplier="96"/>
+					<timeSpan unit="hour" multiplier="120"/>
+				</descriptiveFunction>
+				<descriptiveFunction function="sum" ignoreMissings="true"/>
+			</descriptiveFunctionGroup>
+		</descriptiveFunctionGroups>
+	</spatialProfileModifier>
+	<modifiersGroup id="GDPSSpatialProfile">
+		<modifierId>GDPSSpatialProfile</modifierId>
+	</modifiersGroup>
+</modifierTypes>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<transformationModule xmlns="http://www.wldelft.nl/fews" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.wldelft.nl/fews http://fews.wldelft.nl/schemas/version1.0/transformationModule.xsd" version="1.0">
+	<!--Input-->
+	<variable>
+		<variableId>Gridded_parameter</variableId>
+		<timeSeriesSet>
+			<moduleInstanceId>$InputModuleInstanceId$</moduleInstanceId>
+			<valueType>grid</valueType>
+			<parameterId>$ParameterId$</parameterId>
+			<locationId>$InputGridId$</locationId>
+			<timeSeriesType>$TimeSeriesType$</timeSeriesType>
+			<timeStep unit="hour" multiplier="$TimeStepHour$"/>
+			<readWriteMode>read complete forecast</readWriteMode>
+			<ensembleId>$EnsembleId$</ensembleId>
+		</timeSeriesSet>
+	</variable>
+	<!--Output-->
+	<variable>
+		<variableId>Station_parameter</variableId>
+		<timeSeriesSet>
+			<moduleInstanceId>$MODULE_INSTANCE_ID$</moduleInstanceId>
+			<valueType>scalar</valueType>
+			<parameterId>$ParameterId$</parameterId>
+			<locationSetId>$StationLocationSetId$</locationSetId>
+			<timeSeriesType>$TimeSeriesType$</timeSeriesType>
+			<timeStep unit="hour" multiplier="$TimeStepHour$"/>
+			<readWriteMode>read complete forecast</readWriteMode>
+			<ensembleId>$EnsembleId$</ensembleId>
+		</timeSeriesSet>
+	</variable>
+	<!--Transformations-->
+	<transformation id="station_parameter">
+		<interpolationSpatial>
+			<closestDistance>
+				<inputVariable>
+					<variableId>Gridded_parameter</variableId>
+				</inputVariable>
+				<distanceGeoDatum>UTM12N</distanceGeoDatum>
+				<outputVariable>
+					<variableId>Station_parameter</variableId>
+				</outputVariable>
+			</closestDistance>
+		</interpolationSpatial>
+	</transformation>
+</transformationModule>

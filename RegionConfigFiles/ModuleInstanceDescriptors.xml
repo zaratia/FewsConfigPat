@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<moduleInstanceDescriptors xmlns="http://www.wldelft.nl/fews" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.wldelft.nl/fews http://fews.wldelft.nl/schemas/version1.0/moduleInstanceDescriptors.xsd" version="1.0">
+	<!--Import -->
+	<moduleInstanceDescriptor id="ImportEccc"/>
+	<moduleInstanceDescriptor id="ImportGDPS"/>
+	<moduleInstanceDescriptor id="ImportGFS"/>
+	<moduleInstanceDescriptor id="ImportHRDPA"/>
+	<moduleInstanceDescriptor id="ImportNAM"/>
+	<moduleInstanceDescriptor id="ImportRDPA"/>
+	<moduleInstanceDescriptor id="ImportREPS"/>
+	<moduleInstanceDescriptor id="ImportWSC"/>
+	<moduleInstanceDescriptor id="ImportWSCDaily"/>
+	<moduleInstanceDescriptor id="ImportWSCHistoric"/>
+	<moduleInstanceDescriptor id="ImportWSCHourly"/>
+	<!--Import PAT-->
+	<moduleInstanceDescriptor id="ImportCSV"/>
+	<!-- Process -->
+	<moduleInstanceDescriptor id="MergeGDPS"/>
+	<moduleInstanceDescriptor id="MergeHistoricGrids"/>
+	<moduleInstanceDescriptor id="ModifyGDPS"/>
+	<moduleInstanceDescriptor id="ModifyHistoricGrids"/>
+	<moduleInstanceDescriptor id="ProcessEcccScalar"/>
+	<moduleInstanceDescriptor id="ProcessGdps"/>
+	<moduleInstanceDescriptor id="ProcessGfs"/>
+	<moduleInstanceDescriptor id="ProcessRdpa"/>
+	<moduleInstanceDescriptor id="ProcessReps"/>
+	<!--Set Forecast Length for Forecasts -->
+	<moduleInstanceDescriptor id="SetForecastLengthGDPS"/>
+</moduleInstanceDescriptors>

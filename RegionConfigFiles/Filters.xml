@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2014 rel. 2 sp1 (http://www.altova.com) by Afdeling ICT (Stichting Deltares) -->
+<filters version="1.1" xmlns="http://www.wldelft.nl/fews" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.wldelft.nl/fews http://fews.wldelft.nl/schemas/version1.0/filters.xsd">
+	
+	<!-- Add default filter Id -->
+	<defaultFilterId>DatiMisurati</defaultFilterId>
+
+	<!-- First Level Filters -->
+	<filter id="DatiMisurati" name="Dati Misurati">
+		<mapExtentId>Trentino</mapExtentId>
+		<child foreignKey="IdrometriPAT"/>
+		<child foreignKey="PluviometriPAT"/>
+		<child foreignKey="TermometriPAT"/>
+	</filter>
+
+	<!-- Timeseries in filter - PAT -->
+	<filter id="IdrometriPAT" name="H [m]">
+		<timeSeriesSet>
+			<moduleInstanceId>ImportCSV</moduleInstanceId>
+			<valueType>scalar</valueType>
+			<parameterId>H.obs</parameterId>
+			<locationSetId>Idrometri_PAT</locationSetId>
+			<timeSeriesType>external historical</timeSeriesType>
+			<timeStep unit="minute" multiplier="5"/>
+			<relativeViewPeriod unit="day" start="-5" end="0"/>
+			<readWriteMode>read only</readWriteMode>
+		</timeSeriesSet>
+	</filter>
+	<filter id="PluviometriPAT" name="P [mm]">
+		<timeSeriesSet>
+			<moduleInstanceId>ImportCSV</moduleInstanceId>
+			<valueType>scalar</valueType>
+			<parameterId>P.obs</parameterId>
+			<locationSetId>Idrometri_PAT</locationSetId>
+			<timeSeriesType>external historical</timeSeriesType>
+			<timeStep unit="minute" multiplier="5"/>
+			<relativeViewPeriod unit="day" start="-5" end="0"/>
+			<readWriteMode>read only</readWriteMode>
+		</timeSeriesSet>
+	</filter>
+	<filter id="TermometriPAT" name="T [°C]">
+		<timeSeriesSet>
+			<moduleInstanceId>ImportCSV</moduleInstanceId>
+			<valueType>scalar</valueType>
+			<parameterId>T.obs</parameterId>
+			<locationSetId>Idrometri_PAT</locationSetId>
+			<timeSeriesType>external historical</timeSeriesType>
+			<timeStep unit="hour" multiplier="1"/>
+			<relativeViewPeriod unit="day" start="-5" end="0"/>
+			<readWriteMode>read only</readWriteMode>
+		</timeSeriesSet>
+	</filter>
+
+</filters>

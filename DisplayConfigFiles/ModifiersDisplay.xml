@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- édité avec XMLSpy v2017 rel. 3 (http://www.altova.com) par Dominic Roussel (MIN. DU DEV. DURABLE, DE L'ENV) -->
+<modifierDisplay xmlns="http://www.wldelft.nl/fews" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.wldelft.nl/fews http://fews.wldelft.nl/schemas/version1.0/modifierDisplay.xsd">
+	<showImportButton>false</showImportButton>
+	<showExportButton>false</showExportButton>
+	<showCreateModifierButton>true</showCreateModifierButton>
+	<showApplyToButton>false</showApplyToButton>
+	<timeSeriesModifiersDisplayConfig>
+		<showTimeShiftModifierButtons>true</showTimeShiftModifierButtons>
+		<showTablePanel>true</showTablePanel>
+		<showChartPanel>false</showChartPanel>
+		<defaultOperationType>Timeseries</defaultOperationType>
+	</timeSeriesModifiersDisplayConfig>
+</modifierDisplay>

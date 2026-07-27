@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2014 rel. 2 sp1 (http://www.altova.com) by Afdeling ICT (Stichting Deltares) -->
+<workflowDescriptors xmlns="http://www.wldelft.nl/fews" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.wldelft.nl/fews http://fews.wldelft.nl/schemas/version1.0/workflowDescriptors.xsd" version="1.0">
+	<!--Import Scalar Data Workflows-->
+	<workflowDescriptor id="ImportWSCDaily" name="Import Daily Hydro Station Data (WSC)" visible="true" forecast="false" autoApprove="false" allowApprove="false"/>
+	<workflowDescriptor id="ImportWSCHourly" name="Import Hourly Hydro Station Data (WSC)" visible="true" forecast="false" autoApprove="false" allowApprove="false"/>
+	<!-- Retrieve and Import ECCC from GeoMet WebCoverage Service -->
+	<workflowDescriptor id="ImportRDPAGrids" name="Import RDPA (Regional Deterministic Precip Analysis)" forecast="false" allowApprove="false" visible="true">
+		<description>Retrieve Forecast Grids from Web Coverage Service (WCS)</description>
+		<cardinalTimeStep id="GMT_6hourly"/>
+	</workflowDescriptor>
+	<workflowDescriptor id="ImportGDPSGrids" name="Import GDPS (Global Deterministic Pred Sys)" forecast="false" allowApprove="false" visible="true">
+		<description>Retrieve Forecast Grids from Web Coverage Service (WCS)</description>
+		<cardinalTimeStep id="GMT_12hourly"/>
+	</workflowDescriptor>
+	<workflowDescriptor id="ImportREPSGrids" name="Import REPS (Regional Ensemble Pred Sys)" forecast="false" allowApprove="false" visible="true">
+		<description>Retrieve Forecast Grids from Web Coverage Service (WCS)</description>
+		<cardinalTimeStep id="GMT_12hourly"/>
+	</workflowDescriptor>
+	<!-- Retrieve and Import NOAA from Server Workflows -->
+	<workflowDescriptor id="ImportGFSGrids" name="Import GFS (NOAA Global Forecast Sys)" forecast="false" allowApprove="false" visible="true">
+		<description>Retrieve Forecast Grids from NOMADS server</description>
+		<cardinalTimeStep timeZone="GMT" unit="hour" multiplier="6"/>
+	</workflowDescriptor>
+
+	<!--PAT-->
+		<workflowDescriptor id="ImportCSVstations" name="Import station data from CSV" visible="true" forecast="false" autoApprove="false" allowApprove="false"/>
+	<!--PAT-->
+
+	<!--Processing-->
+	<workflowDescriptor id="Process_Gdps" name="Process GDPS" visible="false" forecast="false" autoApprove="true" allowApprove="false"/>
+	<workflowDescriptor id="Process_Reps" name="Process REPS" visible="false" forecast="false" autoApprove="true" allowApprove="false"/>
+	<rootNode>
+		<node name="Import PAT station data">
+			<workflowId>ImportCSVstations</workflowId>
+		</node>
+		<node name="Import Station Observations">
+			<workflowId>ImportWSCDaily</workflowId>
+			<workflowId>ImportWSCHourly</workflowId>
+		</node>
+		<node name="Import Meteo Forecasts">
+			<workflowId>ImportRDPAGrids</workflowId>
+			<workflowId>ImportGDPSGrids</workflowId>
+			<workflowId>ImportREPSGrids</workflowId>
+			<workflowId>ImportGFSGrids</workflowId>
+		</node>
+	</rootNode>
+</workflowDescriptors>

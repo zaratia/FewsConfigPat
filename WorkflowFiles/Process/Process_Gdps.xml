@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workflow xmlns="http://www.wldelft.nl/fews" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.wldelft.nl/fews http://fews.wldelft.nl/schemas/version1.0/workflow.xsd" version="1.1">
+<!-- Preprocess Precipitation-->
+	<activity>
+		<properties>
+			<string key="InputModuleInstanceId" value="ImportGDPS"/>
+			<string key="ParameterId" value="PC.nwp"/>
+			<string key="TimeSeriesType" value="external forecasting"/>
+			<string key="TimeStepHour" value="3"/>
+			<string key="InputGridId" value="GDPS"/>
+			<string key="StationLocationSetId" value="DisplayMeteoStations"/>
+			<string key="EnsembleId" value="main"/>
+		</properties>
+		<runIndependent>true</runIndependent>
+		<moduleInstanceId>ProcessGdps</moduleInstanceId>
+		<moduleConfigFileName>PreprocessAccumulatedParametersNWPTemplate</moduleConfigFileName>
+	</activity>
+	<!-- Accumulate Precipitation-->
+		<activity>
+		<properties>
+			<string key="LocationSetId" value="DisplayMeteoStations"/>
+			<string key="InputModuleInstanceId" value="ProcessGdps"/>
+			<string key="InputParameterId" value="PC.nwp"/>
+			<string key="OutputParameterId" value="PC.nwp.acc"/>
+			<string key="TimeStepHour" value="3"/>
+			<string key="TimeSeriesType" value="external forecasting"/>
+			<string key="EnsembleId" value="main"/>
+		</properties>
+		<runIndependent>true</runIndependent>
+		<moduleInstanceId>ProcessGdps</moduleInstanceId>
+		<moduleConfigFileName>AccumulateForecastPrecipTemplate</moduleConfigFileName>
+	</activity>
+	<!-- Preprocess Temperature-->
+	<activity>
+		<properties>
+			<string key="InputModuleInstanceId" value="ImportGDPS"/>
+			<string key="ParameterId" value="TA.nwp"/>
+			<string key="TimeSeriesType" value="external forecasting"/>
+			<string key="TimeStepHour" value="3"/>
+			<string key="InputGridId" value="GDPS"/>
+			<string key="StationLocationSetId" value="DisplayMeteoStations"/>
+			<string key="EnsembleId" value="main"/>
+		</properties>
+		<runIndependent>true</runIndependent>
+		<moduleInstanceId>ProcessGdps</moduleInstanceId>
+		<moduleConfigFileName>PreprocessInstantaneousParametersNWPTemplate</moduleConfigFileName>
+	</activity>
+</workflow>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<clientConfiguration xsi:schemaLocation="http://www.wldelft.nl/fews http://fews.wldelft.nl/schemas/version1.0/clientConfig.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.wldelft.nl/fews">
+<title>WebServices Client</title>
+<clientType>Web Services</clientType>
+   <otherRootConfigFiles>
+      <name>ws_global.properties</name>
+   </otherRootConfigFiles>
+</clientConfiguration>

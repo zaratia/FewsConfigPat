@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<timeSeriesImportRun xmlns="http://www.wldelft.nl/fews" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.wldelft.nl/fews
+http://fews.wldelft.nl/schemas/version1.0/timeSeriesImportRun.xsd">
+	<import>
+		<general>
+			<importType>generalCSV</importType>
+			<folder>$IMPORT_FOLDER$/CSV</folder>
+			<fileNamePatternFilter>*.csv</fileNamePatternFilter>
+			<failedFolder>$IMPORT_FAILED_FOLDER$</failedFolder>
+			<backupFolder>$IMPORT_BACKUP_FOLDER$</backupFolder>
+			<table>
+				<locationColumn name="statid"/> 
+				<parameterColumn name="type"/>
+				<dateTimeColumn name="time" pattern="yyyy-MM-dd HH:mm:ss"/>
+				<valueColumn name="value"/>
+			</table>
+			<idMapId>idImportCSV</idMapId>
+			<unitConversionsId>ImportUnitConversions</unitConversionsId>
+			<importTimeZone>
+				<timeZoneOffset>+00:00</timeZoneOffset>
+			</importTimeZone>
+			<dataFeedId>Import.CSV</dataFeedId>
+			<expiryTime unit="day" multiplier="365"/>
+			<skipFirstLinesCount>0</skipFirstLinesCount>
+		</general>
+		<timeSeriesSet>
+			<moduleInstanceId>ImportCSV</moduleInstanceId>
+			<valueType>scalar</valueType>
+			<parameterId>T.obs</parameterId>
+			<locationSetId>Idrometri_PAT</locationSetId>
+			<timeSeriesType>external historical</timeSeriesType>
+			<timeStep unit="hour" multiplier="1"/>
+			<readWriteMode>add originals</readWriteMode>			
+			<synchLevel>1</synchLevel>
+		</timeSeriesSet>
+        <!--timeSeriesSet>
+			<moduleInstanceId>Import_timeseries</moduleInstanceId>
+			<valueType>scalar</valueType>
+			<parameterId>STO.obs</parameterId>
+			<locationSetId>centroidi_distretti</locationSetId>
+			<timeSeriesType>external historical</timeSeriesType>
+			<timeStep unit="day" multiplier="1"/>
+			<readWriteMode>add originals</readWriteMode>			
+			<synchLevel>1</synchLevel>
+		</timeSeriesSet-->
+	</import>
+</timeSeriesImportRun>
