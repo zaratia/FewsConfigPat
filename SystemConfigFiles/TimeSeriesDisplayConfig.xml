@@ -156,6 +156,13 @@
 			<markerStyle>x</markerStyle>
 			<markerSize>2</markerSize>
 		</parameterDisplayOptions>
+		<parameterDisplayOptions id="P.obs">
+			<preferredColor>blue</preferredColor>
+			<lineStyle>bar</lineStyle>
+			<min>0</min>
+			<max>2</max>
+			<inverted>false</inverted>
+		</parameterDisplayOptions>
 		<parameterDisplayOptions id="PC.obs">
 			<preferredColor>blue</preferredColor>
 			<lineStyle>bar</lineStyle>

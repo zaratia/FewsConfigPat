@@ -24,7 +24,10 @@
 	</workflowDescriptor>
 
 	<!--PAT-->
-		<workflowDescriptor id="ImportCSVstations" name="Import station data from CSV" visible="true" forecast="false" autoApprove="false" allowApprove="false"/>
+		<workflowDescriptor id="ImportCSVstations" name="Import station data from CSV\ and CSV_NE\" visible="true" forecast="false" autoApprove="false" allowApprove="false"/>
+		<workflowDescriptor id="Export_timeseries_OA_NETCDF" name="Export station data to OA" visible="true" forecast="false" autoApprove="false" allowApprove="false"/>
+		<workflowDescriptor id="OpenArchive_Import" name="Import station data from OA" visible="true" forecast="false" autoApprove="false" allowApprove="false"/>
+		<workflowDescriptor id="ImportCSVcentroids" name="Import basin centroids data from CSV" visible="true" forecast="false" autoApprove="false" allowApprove="false"/>
 	<!--PAT-->
 
 	<!--Processing-->
@@ -33,6 +36,15 @@
 	<rootNode>
 		<node name="Import PAT station data">
 			<workflowId>ImportCSVstations</workflowId>
+		</node>
+		<node name="Export PAT station data to OpenArchive">
+			<workflowId>Export_timeseries_OA_NETCDF</workflowId>
+		</node>
+		<node name="Import PAT station data from OpenArchive">
+			<workflowId>OpenArchive_Import</workflowId>
+		</node>
+		<node name="Import PAT centroid data">
+			<workflowId>ImportCSVcentroids</workflowId>
 		</node>
 		<node name="Import Station Observations">
 			<workflowId>ImportWSCDaily</workflowId>

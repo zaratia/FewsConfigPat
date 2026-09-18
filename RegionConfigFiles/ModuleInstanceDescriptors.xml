@@ -13,7 +13,11 @@
 	<moduleInstanceDescriptor id="ImportWSCHistoric"/>
 	<moduleInstanceDescriptor id="ImportWSCHourly"/>
 	<!--Import PAT-->
-	<moduleInstanceDescriptor id="ImportCSV"/>
+	<moduleInstanceDescriptor id="Import_stations_CSV"/>
+	<moduleInstanceDescriptor id="Import_stations_CSV_nonequid"/>
+	<moduleInstanceDescriptor id="Import_Station"/>
+	<moduleInstanceDescriptor id="Archive_Export_Observed"/>
+	<moduleInstanceDescriptor id="Import_centroids_CSV"/>
 	<!-- Process -->
 	<moduleInstanceDescriptor id="MergeGDPS"/>
 	<moduleInstanceDescriptor id="MergeHistoricGrids"/>

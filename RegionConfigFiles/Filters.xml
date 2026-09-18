@@ -6,49 +6,75 @@
 	<defaultFilterId>DatiMisurati</defaultFilterId>
 
 	<!-- First Level Filters -->
-	<filter id="DatiMisurati" name="Dati Misurati">
+	<filter id="DatiMisurati" name="Gauge data">
 		<mapExtentId>Trentino</mapExtentId>
-		<child foreignKey="IdrometriPAT"/>
 		<child foreignKey="PluviometriPAT"/>
 		<child foreignKey="TermometriPAT"/>
+		<child foreignKey="TermometriPAT_ne"/>
 	</filter>
-
-	<!-- Timeseries in filter - PAT -->
-	<filter id="IdrometriPAT" name="H [m]">
-		<timeSeriesSet>
-			<moduleInstanceId>ImportCSV</moduleInstanceId>
-			<valueType>scalar</valueType>
-			<parameterId>H.obs</parameterId>
-			<locationSetId>Idrometri_PAT</locationSetId>
-			<timeSeriesType>external historical</timeSeriesType>
-			<timeStep unit="minute" multiplier="5"/>
-			<relativeViewPeriod unit="day" start="-5" end="0"/>
-			<readWriteMode>read only</readWriteMode>
-		</timeSeriesSet>
+	<filter id="basins" name="Brenta basins">
+		<mapExtentId>Trentino</mapExtentId>
+		<child foreignKey="krigtemp"/>
+		<child foreignKey="krigprec"/>
 	</filter>
-	<filter id="PluviometriPAT" name="P [mm]">
+	<filter id="krigtemp" name="Kriging temperature [°C]">
 		<timeSeriesSet>
-			<moduleInstanceId>ImportCSV</moduleInstanceId>
-			<valueType>scalar</valueType>
-			<parameterId>P.obs</parameterId>
-			<locationSetId>Idrometri_PAT</locationSetId>
-			<timeSeriesType>external historical</timeSeriesType>
-			<timeStep unit="minute" multiplier="5"/>
-			<relativeViewPeriod unit="day" start="-5" end="0"/>
-			<readWriteMode>read only</readWriteMode>
-		</timeSeriesSet>
-	</filter>
-	<filter id="TermometriPAT" name="T [°C]">
-		<timeSeriesSet>
-			<moduleInstanceId>ImportCSV</moduleInstanceId>
+			<moduleInstanceId>Import_centroids_CSV</moduleInstanceId>
 			<valueType>scalar</valueType>
 			<parameterId>T.obs</parameterId>
-			<locationSetId>Idrometri_PAT</locationSetId>
+			<locationSetId>Centroids_Brenta</locationSetId>
 			<timeSeriesType>external historical</timeSeriesType>
 			<timeStep unit="hour" multiplier="1"/>
 			<relativeViewPeriod unit="day" start="-5" end="0"/>
 			<readWriteMode>read only</readWriteMode>
 		</timeSeriesSet>
 	</filter>
-
+	<filter id="krigprec" name="Kriging precipitation [mm]">
+		<timeSeriesSet>
+			<moduleInstanceId>Import_centroids_CSV</moduleInstanceId>
+			<valueType>scalar</valueType>
+			<parameterId>P.obs</parameterId>
+			<locationSetId>Centroids_Brenta</locationSetId>
+			<timeSeriesType>external historical</timeSeriesType>
+			<timeStep unit="hour" multiplier="1"/>
+			<relativeViewPeriod unit="day" start="-5" end="0"/>
+			<readWriteMode>read only</readWriteMode>
+		</timeSeriesSet>
+	</filter>
+	<filter id="PluviometriPAT" name="Precipitation [mm]">
+		<timeSeriesSet>
+			<moduleInstanceId>Import_stations_CSV</moduleInstanceId>
+			<valueType>scalar</valueType>
+			<parameterId>P.obs</parameterId>
+			<locationSetId>Stazioni_TP_PAT</locationSetId>
+			<timeSeriesType>external historical</timeSeriesType>
+			<timeStep unit="hour" multiplier="1"/>
+			<relativeViewPeriod unit="day" start="-5" end="0"/>
+			<readWriteMode>read only</readWriteMode>
+		</timeSeriesSet>
+	</filter>
+	<filter id="TermometriPAT" name="Temperature [°C]">
+		<timeSeriesSet>
+			<moduleInstanceId>Import_stations_CSV</moduleInstanceId>
+			<valueType>scalar</valueType>
+			<parameterId>T.obs</parameterId>
+			<locationSetId>Stazioni_TA_PAT</locationSetId>
+			<timeSeriesType>external historical</timeSeriesType>
+			<timeStep unit="hour" multiplier="1"/>
+			<relativeViewPeriod unit="day" start="-5" end="0"/>
+			<readWriteMode>read only</readWriteMode>
+		</timeSeriesSet>
+	</filter>
+	<filter id="TermometriPAT_ne" name="Temperature non equid. [°C]">
+		<timeSeriesSet>
+			<moduleInstanceId>Import_stations_CSV_nonequid</moduleInstanceId>
+			<valueType>scalar</valueType>
+			<parameterId>T.obs</parameterId>
+			<locationSetId>Stazioni_TA_PAT</locationSetId>
+			<timeSeriesType>external historical</timeSeriesType>
+			<timeStep unit="nonequidistant"/>
+			<relativeViewPeriod unit="day" start="-5" end="0"/>
+			<readWriteMode>read only</readWriteMode>
+		</timeSeriesSet>
+	</filter>
 </filters>

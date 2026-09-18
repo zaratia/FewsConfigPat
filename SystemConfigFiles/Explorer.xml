@@ -136,7 +136,28 @@
 			<fillRgbColor>FFFFFF</fillRgbColor>
 			<opaquenessPercentage>20</opaquenessPercentage>
 		</esriShapeLayer>
+		<esriShapeLayer id="Brenta_centroids">
+			<description>Brenta centroids</description>
+			<file>OMS_Project_Brenta_all_centroids.shp</file>
+			<geoDatum>UTM32N</geoDatum>
+			<visible>true</visible>
+			<toolTip>%basinid%</toolTip>
+			<!--lineColor>black</lineColor>
+			<fillRgbColor>FFFFFF</fillRgbColor>
+			<opaquenessPercentage>20</opaquenessPercentage-->
+		</esriShapeLayer>
+		<esriShapeLayer id="Brenta_basins">
+			<description>Brenta basins</description>
+			<file>OMS_Project_Brenta_all_polygons.shp</file>
+			<geoDatum>UTM32N</geoDatum>
+			<visible>true</visible>
+			<toolTip>%basinid%</toolTip>
+			<lineColor>red</lineColor>
+			<fillRgbColor>FFFFFF</fillRgbColor>
+			<opaquenessPercentage>40</opaquenessPercentage>
+		</esriShapeLayer>
 	</map>
+
 	<explorerTasks>
 		<explorerTask name="Data Display">
 			<mnemonic>D</mnemonic>
@@ -239,6 +260,15 @@
 			<toolbarTask>false</toolbarTask>
 			<menubarTask>true</menubarTask>
 			<accelerator>ctrl R</accelerator>
+			<loadAtStartup>true</loadAtStartup>
+		</explorerTask>
+		<explorerTask name="Archive Catalogue">
+			<displayConfigFileName>ArchiveModuleDisplay</displayConfigFileName>
+			<toolbarTask>false</toolbarTask>
+			<menubarTask>true</menubarTask>
+			<!-- accelerator>ctrl o</accelerator -->
+			<!-- permission>AllowArchiveManager</permission -->
+			<toolWindow>false</toolWindow>
 			<loadAtStartup>true</loadAtStartup>
 		</explorerTask>
 	</explorerTasks>

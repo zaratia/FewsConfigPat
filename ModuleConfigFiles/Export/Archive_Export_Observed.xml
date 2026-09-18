@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<exportArchiveModule xmlns="http://www.wldelft.nl/fews" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.wldelft.nl/fews http://fews.wldelft.nl/schemas/version1.0/exportArchiveModule.xsd">
+	<exportObserved>
+		<general>
+			<archiveFolder>$OPENARCHIVE_FOLDER$</archiveFolder>
+			<relativePeriod unit="day" start="-7" end="0"/>
+			<idMapId>IdOpenArchive</idMapId>
+		</general>
+		<activities>
+			<netcdfExportActivities>
+				<netcdfExportActivity>
+					<fileName>Temperature_Observed.nc</fileName>
+					<areaId>Trento</areaId>
+					<sourceId>RealTimeData</sourceId>
+					<ncMetaData>
+						<title>Observed Temperature</title>
+						<institution>PAT</institution>
+						<source>real time data</source>
+					</ncMetaData>
+					<includeComments>true</includeComments>
+					<includeFlags>true</includeFlags>
+					<timeSeriesSet>
+						<moduleInstanceId>Import_stations_CSV_nonequid</moduleInstanceId>
+						<valueType>scalar</valueType>
+						<parameterId>T.obs</parameterId>
+						<locationSetId>Stazioni_TA_PAT</locationSetId>
+						<timeSeriesType>external historical</timeSeriesType>
+						<timeStep unit="nonequidistant"/>
+						<readWriteMode>read only</readWriteMode>
+					</timeSeriesSet>
+				</netcdfExportActivity>
+				<!--netcdfExportActivity>
+					<fileName>Precipitation_Observed.nc</fileName>
+					<areaId>Veneto</areaId>
+					<sourceId>RealTimeData</sourceId>
+					<ncMetaData>
+						<title>Observed Precipitation</title>
+						<institution>ARPAV</institution>
+						<source>real time data</source>
+					</ncMetaData>
+					<includeComments>true</includeComments>
+					<includeFlags>true</includeFlags>
+					<timeSeriesSet>
+						<moduleInstanceId>Import_Station</moduleInstanceId>
+						<valueType>scalar</valueType>
+						<parameterId>P.obs</parameterId>
+						<locationSetId>sirav_stations</locationSetId>
+						<timeSeriesType>external historical</timeSeriesType>
+						<timeStep unit="nonequidistant"/>
+						<readWriteMode>read only</readWriteMode>
+					</timeSeriesSet>
+				</netcdfExportActivity>
+				<netcdfExportActivity>
+					<fileName>Snow_Depth_Observed.nc</fileName>
+					<areaId>Veneto</areaId>
+					<sourceId>RealTimeData</sourceId>
+					<ncMetaData>
+						<title>Observed Snow Depth</title>
+						<institution>ARPAV</institution>
+						<source>real time data</source>
+					</ncMetaData>
+					<includeComments>true</includeComments>
+					<includeFlags>true</includeFlags>
+					<timeSeriesSet>
+						<moduleInstanceId>Import_Station</moduleInstanceId>
+						<valueType>scalar</valueType>
+						<parameterId>SD.obs</parameterId>
+						<locationSetId>sirav_stations</locationSetId>
+						<timeSeriesType>external historical</timeSeriesType>
+						<timeStep unit="nonequidistant"/>
+						<readWriteMode>read only</readWriteMode>
+					</timeSeriesSet>
+				</netcdfExportActivity>
+				<netcdfExportActivity>
+					<fileName>Precipitation_Interpolated_LEB.nc</fileName>
+					<areaId>Veneto</areaId>
+					<sourceId>RealTimeData</sourceId>
+					<ncMetaData>
+						<title>LEB Interpolated Precipitation</title>
+						<institution>ARPAV</institution>
+						<source>real time data</source>
+					</ncMetaData>
+					<includeComments>true</includeComments>
+					<includeFlags>true</includeFlags>
+					<timeSeriesSet>
+						<moduleInstanceId>Interpolate_Precip</moduleInstanceId>
+						<valueType>grid</valueType>
+						<parameterId>TP</parameterId>
+						<locationId>LEB500</locationId>
+						<timeSeriesType>external historical</timeSeriesType>
+						<timeStep unit="hour" multiplier="1"/>
+						<readWriteMode>read only</readWriteMode>
+					</timeSeriesSet>
+				</netcdfExportActivity>
+				<netcdfExportActivity>
+					<fileName>SWE_alpisolut.nc</fileName>
+					<areaId>Alpisolut</areaId>
+					<sourceId>RealTimeSnow</sourceId>
+					<ncMetaData>
+						<title>Alpisolut SWE</title>
+						<institution>AINEVA</institution>
+						<source>real time data</source>
+					</ncMetaData>
+					<includeComments>true</includeComments>
+					<includeFlags>true</includeFlags>
+					<timeSeriesSet>
+						<moduleInstanceId>Import_test_NETCDF</moduleInstanceId>
+						<valueType>grid</valueType>
+						<parameterId>SWE.obs</parameterId>
+						<locationId>alpisolut</locationId>
+						<timeSeriesType>external historical</timeSeriesType>
+						<timeStep unit="day" multiplier="1"/>
+						<readWriteMode>read only</readWriteMode>
+					</timeSeriesSet>
+				</netcdfExportActivity-->
+			</netcdfExportActivities>			
+		</activities>
+	</exportObserved>
+</exportArchiveModule>

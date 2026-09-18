@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<archiveModuleDisplay xmlns="http://www.wldelft.nl/fews" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.wldelft.nl/fews http://fews.wldelft.nl/schemas/version1.0/archiveModuleDisplay.xsd">
+<workFolder>%REGION_HOME%/Work/</workFolder>
+<disableDataDownloadAtOperatorClient>true</disableDataDownloadAtOperatorClient>
+<downloadFolders>
+	<downloadFolderObserved>%REGION_HOME%/OpenArchiveDownload/observed</downloadFolderObserved>
+	<downloadFolderSimulated>%REGION_HOME%/OpenArchiveDownload/simulated</downloadFolderSimulated>
+	<downloadFolderExternalForecasts>%REGION_HOME%/OpenArchiveDownload/externalforecasts</downloadFolderExternalForecasts>
+	<downloadFolderRatingCurves>%REGION_HOME%/OpenArchiveDownload/ratingcurves</downloadFolderRatingCurves>
+	<downloadFolderHistoricalEvents>%REGION_HOME%/OpenArchiveDownload/historicalevents</downloadFolderHistoricalEvents>
+	<downloadFolderForecasterNotes>%REGION_HOME%/OpenArchiveDownload/forecasternotes</downloadFolderForecasterNotes>
+	<downloadFolderConfiguration>%REGION_HOME%/OpenArchiveDownload/configuration</downloadFolderConfiguration>
+	<downloadFolderEventAttachments>%REGION_HOME%/OpenArchiveDownload/attachments</downloadFolderEventAttachments>
+</downloadFolders>
+<archiveImportWorkflowId>OpenArchive_Import</archiveImportWorkflowId>
+</archiveModuleDisplay>

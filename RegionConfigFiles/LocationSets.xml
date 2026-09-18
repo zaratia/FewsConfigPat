@@ -3,7 +3,7 @@
 	<!-- All Location Sets Built from csv and shp files. See MapLayerFiles for source-->
 	<!--- Water Survey of Canada Hydrometric Stations - Available at https://dd.weather.gc.ca/hydrometric/doc/ -->
 
-	<locationSet id="Idrometri_PAT">
+	<!--locationSet id="Idrometri_PAT">
 		<csvFile>
 			<file>AnagraficaIDROMETRI_PAT.csv</file>
 			<geoDatum>UTM32N</geoDatum>
@@ -13,7 +13,48 @@
 			<y>%nord%</y>
 			<z>%quota%</z>
 		</csvFile>
-	</locationSet>	
+	</locationSet-->	
+	
+	<locationSet id="Centroids_Brenta">
+		<csvFile>
+			<file>OMS_Project_Brenta_all_centroids.csv</file>
+			<geoDatum>UTM32N</geoDatum>
+			<id>%centroidid%</id>
+			<name>%basinid%</name>
+			<x>%centrx%</x>
+			<y>%centry%</y>
+			<z>%elev_m%</z>
+		</csvFile>
+	</locationSet>
+
+	<locationSet id="Stazioni_PAT">
+		<csvFile>
+			<file>TN_stations.csv</file>
+			<geoDatum>WGS 1984</geoDatum>
+			<id>%oaid%</id>
+			<name>%nome%</name>
+			<x>%lon%</x>
+			<y>%lat%</y>
+			<z>%elev%</z>
+			<attribute id="type">
+				<text>%type%</text>
+			</attribute>
+		</csvFile>
+	</locationSet>
+	
+	<locationSet id="Stazioni_TP_PAT">
+		<locationSetId>Stazioni_PAT</locationSetId>
+		<constraints>
+			<attributeTextContains id="type" contains="TP"/>
+		</constraints>
+	</locationSet>
+	
+	<locationSet id="Stazioni_TA_PAT">
+		<locationSetId>Stazioni_PAT</locationSetId>
+		<constraints>
+			<attributeTextContains id="type" contains="TA"/>
+		</constraints>
+	</locationSet>
 	
 	<locationSet id="WSCStations">
 		<sortingLocationAttributeId>ID</sortingLocationAttributeId>

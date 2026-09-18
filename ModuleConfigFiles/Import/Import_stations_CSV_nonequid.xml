@@ -4,44 +4,44 @@ http://fews.wldelft.nl/schemas/version1.0/timeSeriesImportRun.xsd">
 	<import>
 		<general>
 			<importType>generalCSV</importType>
-			<folder>$IMPORT_FOLDER$/CSV</folder>
-			<fileNamePatternFilter>*.csv</fileNamePatternFilter>
-			<failedFolder>$IMPORT_FAILED_FOLDER$</failedFolder>
-			<backupFolder>$IMPORT_BACKUP_FOLDER$</backupFolder>
+			<folder>$IMPORT_FOLDER$/CSV_NE</folder>
+			<fileNamePatternFilter>*.*</fileNamePatternFilter>
+			<failedFolder>$IMPORT_FAILED_FOLDER$/CSV_NE</failedFolder>
+			<backupFolder>$IMPORT_BACKUP_FOLDER$/CSV_NE</backupFolder>
 			<table>
 				<locationColumn name="statid"/> 
 				<parameterColumn name="type"/>
 				<dateTimeColumn name="time" pattern="yyyy-MM-dd HH:mm:ss"/>
 				<valueColumn name="value"/>
 			</table>
-			<idMapId>idImportCSV</idMapId>
+			<idMapId>idImport_stations_CSV</idMapId>
 			<unitConversionsId>ImportUnitConversions</unitConversionsId>
 			<importTimeZone>
 				<timeZoneOffset>+00:00</timeZoneOffset>
 			</importTimeZone>
 			<dataFeedId>Import.CSV</dataFeedId>
-			<expiryTime unit="day" multiplier="365"/>
+			<expiryTime unit="day" multiplier="30"/>
 			<skipFirstLinesCount>0</skipFirstLinesCount>
 		</general>
 		<timeSeriesSet>
-			<moduleInstanceId>ImportCSV</moduleInstanceId>
+			<moduleInstanceId>Import_stations_CSV_nonequid</moduleInstanceId>
 			<valueType>scalar</valueType>
-			<parameterId>T.obs</parameterId>
-			<locationSetId>Idrometri_PAT</locationSetId>
+			<parameterId>P.obs</parameterId>
+			<locationSetId>Stazioni_TP_PAT</locationSetId>
 			<timeSeriesType>external historical</timeSeriesType>
-			<timeStep unit="hour" multiplier="1"/>
+			<timeStep unit="nonequidistant"/>
 			<readWriteMode>add originals</readWriteMode>			
 			<synchLevel>1</synchLevel>
 		</timeSeriesSet>
-        <!--timeSeriesSet>
-			<moduleInstanceId>Import_timeseries</moduleInstanceId>
+		<timeSeriesSet>
+			<moduleInstanceId>Import_stations_CSV_nonequid</moduleInstanceId>
 			<valueType>scalar</valueType>
-			<parameterId>STO.obs</parameterId>
-			<locationSetId>centroidi_distretti</locationSetId>
+			<parameterId>T.obs</parameterId>
+			<locationSetId>Stazioni_TA_PAT</locationSetId>
 			<timeSeriesType>external historical</timeSeriesType>
-			<timeStep unit="day" multiplier="1"/>
+			<timeStep unit="nonequidistant"/>
 			<readWriteMode>add originals</readWriteMode>			
 			<synchLevel>1</synchLevel>
-		</timeSeriesSet-->
+		</timeSeriesSet>
 	</import>
 </timeSeriesImportRun>

@@ -12,7 +12,7 @@ http://fews.wldelft.nl/schemas/version1.0/clientConfig.xsd">
 		<databaseServer>
 			<url>jdbc:postgresql://10.15.235.23:5432/fewsdb00</url>
 			<user>fews00</user>
-			<encryptedPassword>gph4+sxUS0w=s</encryptedPassword>
+			<encryptedPassword>gph4+sxUS0w=</encryptedPassword>
 		</databaseServer>
 	</connection>
 	<jvmOption>-Xmn1024m</jvmOption>
