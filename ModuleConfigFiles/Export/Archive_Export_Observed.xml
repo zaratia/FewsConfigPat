@@ -20,12 +20,12 @@
 					<includeComments>true</includeComments>
 					<includeFlags>true</includeFlags>
 					<timeSeriesSet>
-						<moduleInstanceId>Import_stations_CSV_nonequid</moduleInstanceId>
+						<moduleInstanceId>Import_stations_CSV</moduleInstanceId>
 						<valueType>scalar</valueType>
 						<parameterId>T.obs</parameterId>
 						<locationSetId>Stazioni_TA_PAT</locationSetId>
 						<timeSeriesType>external historical</timeSeriesType>
-						<timeStep unit="nonequidistant"/>
+						<timeStep unit="hour" multiplier="1"/>
 						<readWriteMode>read only</readWriteMode>
 					</timeSeriesSet>
 				</netcdfExportActivity>

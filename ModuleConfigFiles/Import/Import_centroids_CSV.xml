@@ -12,6 +12,7 @@ http://fews.wldelft.nl/schemas/version1.0/timeSeriesImportRun.xsd">
 				<locationColumn name="basin_id"/> 
 				<dateTimeColumn name="time" pattern="yyyy-MM-dd HH:mm:ss"/>
 				<valueColumn name="value"/>
+				<parameterColumn name="type"/>
 			</table>
 			<idMapId>idImport_centroids_CSV</idMapId>
 			<unitConversionsId>ImportUnitConversions</unitConversionsId>
@@ -22,21 +23,21 @@ http://fews.wldelft.nl/schemas/version1.0/timeSeriesImportRun.xsd">
 			<expiryTime unit="day" multiplier="30"/>
 			<skipFirstLinesCount>0</skipFirstLinesCount>
 		</general>
-		<!--timeSeriesSet>
+		<timeSeriesSet>
 			<moduleInstanceId>Import_centroids_CSV</moduleInstanceId>
 			<valueType>scalar</valueType>
 			<parameterId>P.obs</parameterId>
-			<locationSetId>Centroids_Brenta</locationSetId>
+			<locationSetId>Centroids_Brenta_TP</locationSetId>
 			<timeSeriesType>external historical</timeSeriesType>
 			<timeStep unit="hour" multiplier="1"/>
 			<readWriteMode>add originals</readWriteMode>			
 			<synchLevel>1</synchLevel>
-		</timeSeriesSet-->
+		</timeSeriesSet>
 		<timeSeriesSet>
 			<moduleInstanceId>Import_centroids_CSV</moduleInstanceId>
 			<valueType>scalar</valueType>
 			<parameterId>T.obs</parameterId>
-			<locationSetId>Centroids_Brenta</locationSetId>
+			<locationSetId>Centroids_Brenta_TA</locationSetId>
 			<timeSeriesType>external historical</timeSeriesType>
 			<timeStep unit="hour" multiplier="1"/>
 			<readWriteMode>add originals</readWriteMode>			

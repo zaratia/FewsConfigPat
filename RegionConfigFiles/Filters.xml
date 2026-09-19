@@ -22,7 +22,7 @@
 			<moduleInstanceId>Import_centroids_CSV</moduleInstanceId>
 			<valueType>scalar</valueType>
 			<parameterId>T.obs</parameterId>
-			<locationSetId>Centroids_Brenta</locationSetId>
+			<locationSetId>Centroids_Brenta_TA</locationSetId>
 			<timeSeriesType>external historical</timeSeriesType>
 			<timeStep unit="hour" multiplier="1"/>
 			<relativeViewPeriod unit="day" start="-5" end="0"/>
@@ -34,7 +34,7 @@
 			<moduleInstanceId>Import_centroids_CSV</moduleInstanceId>
 			<valueType>scalar</valueType>
 			<parameterId>P.obs</parameterId>
-			<locationSetId>Centroids_Brenta</locationSetId>
+			<locationSetId>Centroids_Brenta_TP</locationSetId>
 			<timeSeriesType>external historical</timeSeriesType>
 			<timeStep unit="hour" multiplier="1"/>
 			<relativeViewPeriod unit="day" start="-5" end="0"/>
