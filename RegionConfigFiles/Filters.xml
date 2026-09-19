@@ -65,7 +65,7 @@
 			<readWriteMode>read only</readWriteMode>
 		</timeSeriesSet>
 	</filter>
-	<filter id="TermometriPAT_ne" name="Temperature non equid. [°C]">
+	<!--filter id="TermometriPAT_ne" name="Temperature non equid. [°C]">
 		<timeSeriesSet>
 			<moduleInstanceId>Import_stations_CSV_nonequid</moduleInstanceId>
 			<valueType>scalar</valueType>
@@ -75,6 +75,6 @@
 			<timeStep unit="nonequidistant"/>
 			<relativeViewPeriod unit="day" start="-5" end="0"/>
 			<readWriteMode>read only</readWriteMode>
-		</timeSeriesSet>
+		</timeSeriesSet-->
 	</filter>
 </filters>
