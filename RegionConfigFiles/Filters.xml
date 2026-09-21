@@ -10,7 +10,7 @@
 		<mapExtentId>Trentino</mapExtentId>
 		<child foreignKey="PluviometriPAT"/>
 		<child foreignKey="TermometriPAT"/>
-		<child foreignKey="TermometriPAT_ne"/>
+		<!--child foreignKey="TermometriPAT_ne"/-->
 	</filter>
 	<filter id="basins" name="Brenta basins">
 		<mapExtentId>Trentino</mapExtentId>
@@ -75,6 +75,6 @@
 			<timeStep unit="nonequidistant"/>
 			<relativeViewPeriod unit="day" start="-5" end="0"/>
 			<readWriteMode>read only</readWriteMode>
-		</timeSeriesSet-->
-	</filter>
+		</timeSeriesSet>
+	</filter-->
 </filters>
