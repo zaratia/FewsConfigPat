@@ -44,8 +44,8 @@ http://fews.wldelft.nl/schemas/version1.0/parameters.xsd">
 		<unit>m³/s</unit>
 		<valueResolution>0.001</valueResolution>
 		<!-- PAT -->
-		<parameter id="Q.sim" name="Q.sim">
-			<shortName>Q.sim</shortName>
+		<parameter id="Qout.sim" name="Qout.sim">
+			<shortName>Qout.sim</shortName>
 			<description>Flow</description>
 		</parameter>
 		<!-- PAT -->

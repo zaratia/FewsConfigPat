@@ -30,6 +30,18 @@
 		</constraints>
 	</locationSet>	
 
+	<locationSet id="Q_stations_Brenta">
+		<csvFile>
+			<file>OMS_Project_Brenta_all_qstations.csv</file>
+			<geoDatum>UTM32N</geoDatum>
+			<id>Q%qstationid%</id>
+			<name>%basinid%</name>
+			<x>%centrx%</x>
+			<y>%centry%</y>
+			<z>%elev_m%</z>
+		</csvFile>
+	</locationSet>
+
 	<locationSet id="Stazioni_PAT">
 		<csvFile>
 			<file>TN_stations.csv</file>

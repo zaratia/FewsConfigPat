@@ -12,11 +12,30 @@
 		<child foreignKey="TermometriPAT"/>
 		<!--child foreignKey="TermometriPAT_ne"/-->
 	</filter>
+	<!-- First Level Filters -->
+	<filter id="Idrometri" name="Hydrometers">
+		<mapExtentId>Trentino</mapExtentId>
+		<child foreignKey="hydro_sim"/>
+	</filter>
 	<filter id="basins" name="Brenta basins">
 		<mapExtentId>Trentino</mapExtentId>
 		<child foreignKey="krigtemp"/>
 		<child foreignKey="krigprec"/>
 	</filter>
+
+	<filter id="hydro_sim" name="Simulated discharge[m3/ s]">
+		<timeSeriesSet>
+			<moduleInstanceId>GeoframeHistorical</moduleInstanceId>
+			<valueType>scalar</valueType>
+			<parameterId>Qout.sim</parameterId>
+			<locationSetId>Q_stations_Brenta</locationSetId>
+			<timeSeriesType>simulated historical</timeSeriesType>
+			<timeStep unit="hour" multiplier="1"/>
+			<relativeViewPeriod unit="day" start="-5" end="0"/>
+			<readWriteMode>read only</readWriteMode>
+		</timeSeriesSet>
+	</filter>
+
 	<filter id="krigtemp" name="Kriging temperature [°C]">
 		<timeSeriesSet>
 			<moduleInstanceId>Import_centroids_CSV</moduleInstanceId>
