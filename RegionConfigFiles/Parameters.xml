@@ -43,6 +43,12 @@ http://fews.wldelft.nl/schemas/version1.0/parameters.xsd">
 		<parameterType>instantaneous</parameterType>
 		<unit>m³/s</unit>
 		<valueResolution>0.001</valueResolution>
+		<!-- PAT -->
+		<parameter id="Q.sim" name="Q.sim">
+			<shortName>Q.sim</shortName>
+			<description>Flow</description>
+		</parameter>
+		<!-- PAT -->
 		<parameter id="QI.obs" name="QI.obs">
 			<shortName>QI.obs</shortName>
 			<description>Inflow</description>

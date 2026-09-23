@@ -28,12 +28,16 @@
 		<workflowDescriptor id="Export_timeseries_OA_NETCDF" name="Export station data to OA" visible="true" forecast="false" autoApprove="false" allowApprove="false"/>
 		<workflowDescriptor id="OpenArchive_Import" name="Import station data from OA" visible="true" forecast="false" autoApprove="false" allowApprove="false"/>
 		<workflowDescriptor id="ImportCSVcentroids" name="Import basin centroids data from CSV" visible="true" forecast="false" autoApprove="false" allowApprove="false"/>
+		<workflowDescriptor id="RunGeoframeHistoric" name="Run Geoframe Historical" visible="true" forecast="true"/>
 	<!--PAT-->
 
 	<!--Processing-->
 	<workflowDescriptor id="Process_Gdps" name="Process GDPS" visible="false" forecast="false" autoApprove="true" allowApprove="false"/>
 	<workflowDescriptor id="Process_Reps" name="Process REPS" visible="false" forecast="false" autoApprove="true" allowApprove="false"/>
 	<rootNode>
+		<node name="Run Geoframe">
+			<workflowId>RunGeoframeHistoric</workflowId>
+		</node>
 		<node name="Import PAT station data">
 			<workflowId>ImportCSVstations</workflowId>
 		</node>

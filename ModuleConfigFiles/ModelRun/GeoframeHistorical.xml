@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2014 rel. 2 sp1 (http://www.altova.com) by Afdeling ICT (Stichting Deltares) -->
+<generalAdapterRun xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.wldelft.nl/fews http://fews.wldelft.nl/schemas/version1.0/generalAdapterRun.xsd" xmlns="http://www.wldelft.nl/fews">
+	<general>
+		<description>geoframe</description>
+		<rootDir>%REGION_HOME%/Modules</rootDir>
+		<workDir>%ROOT_DIR%</workDir>
+		<exportDir>%ROOT_DIR%/OMS_Project_Brenta_TempoRealexFEWS/meteo</exportDir>
+		<exportDataSetDir>%ROOT_DIR%/</exportDataSetDir>
+		<exportIdMap>IdExportGeoframeHistoric</exportIdMap>
+		<exportUnitConversionsId>ExportGeoframe</exportUnitConversionsId>
+		<importDir>%ROOT_DIR%/OMS_Project_Brenta_TempoRealexFEWS/INPUT_60/OUTPUT</importDir>		
+		<importIdMap>IdImportGeoframeHistoric</importIdMap>
+		<dumpFileDir>$GA_DUMPFILEDIR$</dumpFileDir>
+		<dumpDir>%ROOT_DIR%/delme_dump</dumpDir>
+		<diagnosticFile>%ROOT_DIR%/log/diag.xml</diagnosticFile>
+		<!--missVal>NaN</missVal>
+		<timeZone>
+			<timeZoneName>$TIMEZONE$</timeZoneName>
+		</timeZone>
+		<startDateTimeFormat>yyyy-MM-dd hh:mm:ss</startDateTimeFormat>
+		<modelTimeStep id="$DAY_TIMESTEP$"/-->
+	</general>
+	<activities>
+		
+		<!-- Clear output folders -->
+		<!--startUpActivities>
+			<purgeActivity>
+				<filter>%ROOT_DIR%/OMS_Project_Brenta_TempoRealexFEWS/meteo/*.*</filter>
+			</purgeActivity>
+		</startUpActivities-->
+
+		<!-- Export state -->
+		<exportActivities>
+			<!--exportStateActivity>
+				<moduleInstanceId>GeoframeHistorical</moduleInstanceId>
+				<stateExportDir>%ROOT_DIR%/spyic-top-files/INPUT_60/initcond</stateExportDir>
+				<stateConfigFile>%ROOT_DIR%/spyic-top-files/INPUT_60/initcond/stateInfo.xml</stateConfigFile>
+				<stateLocations type="directory">
+					<stateLocation>
+						<readLocation>%ROOT_DIR%/spyic-top-files/INPUT_60/initcond</readLocation>
+						<writeLocation>%ROOT_DIR%/spyic-top-files/OUTPUT/</writeLocation>
+					</stateLocation>
+				</stateLocations>
+				<stateSelection>
+					<warmState>
+						<stateSearchPeriod unit="day" start="-100" end="-1"/>
+					</warmState>
+				</stateSelection>
+			</exportStateActivity-->	
+			<!-- Export meteo input NETCDF -->
+			<exportNetcdfActivity>
+				<exportFile>precipitation.nc</exportFile>
+				<timeSeriesSets>
+					<timeSeriesSet>
+						<moduleInstanceId>Import_centroids_CSV</moduleInstanceId>
+						<valueType>scalar</valueType>
+						<parameterId>P.obs</parameterId>
+						<locationSetId>Centroids_Brenta_TP</locationSetId>
+						<timeSeriesType>external historical</timeSeriesType>
+						<timeStep unit="hour" multiplier="1"/>
+						<relativeViewPeriod unit="hour" start="-60" end="0" startOverrulable="true"/>
+						<readWriteMode>add originals</readWriteMode>
+					</timeSeriesSet>
+				</timeSeriesSets>
+			</exportNetcdfActivity>		
+			<!--exportNetcdfActivity>
+				<exportFile>%ROOT_DIR%/spyic-top-files/INPUT_60/meteo/temperature.nc</exportFile>
+				<timeSeriesSets>
+					<timeSeriesSet>
+						<moduleInstanceId>Import_Basin_NETCDF</moduleInstanceId>
+						<valueType>scalar</valueType>
+						<parameterId>slope.obs</parameterId>
+						<locationSetId>bz_grad_centroids_topo60</locationSetId>
+						<timeSeriesType>external historical</timeSeriesType>
+						<timeStep unit="hour" multiplier="1"/>
+						<relativeViewPeriod unit="day" start="-60" end="0" startOverrulable="true"/>
+						<readWriteMode>add originals</readWriteMode>
+					</timeSeriesSet>
+					<timeSeriesSet>
+						<moduleInstanceId>Import_Basin_NETCDF</moduleInstanceId>
+						<valueType>scalar</valueType>
+						<parameterId>intercept.obs</parameterId>
+						<locationSetId>bz_grad_centroids_topo60</locationSetId>
+						<timeSeriesType>external historical</timeSeriesType>
+						<timeStep unit="hour" multiplier="1"/>
+						<relativeViewPeriod unit="day" start="-60" end="0" startOverrulable="true"/>
+						<readWriteMode>add originals</readWriteMode>
+					</timeSeriesSet>
+				</timeSeriesSets>
+			</exportNetcdfActivity-->	
+			<exportRunFileActivity>
+				<exportFile>%ROOT_DIR%/OMS_Project_Brenta_TempoRealexFEWS/fews_delme.xml</exportFile>
+			</exportRunFileActivity>			
+		</exportActivities>
+		
+		<!-- EXECUTE ACTIVITIES -->
+		<executeActivities>		
+			<!--executeActivity>
+				<command>
+					<executable>%ROOT_DIR%/Scripts/activate.bat</executable>
+				</command>
+				<timeOut>60000</timeOut>
+				<ignoreDiagnostics>true</ignoreDiagnostics>
+			</executeActivity-->		<!---->
+			<executeActivity>
+				<command>
+					<executable>%ROOT_DIR%/OMS_Project_Brenta_TempoRealexFEWS/bash_hpc/launch_etp_rrm.bat</executable>
+				</command>
+				<timeOut>60000</timeOut>
+				<ignoreDiagnostics>false</ignoreDiagnostics>
+			</executeActivity>		<!---->
+			<!--executeActivity>
+				<command>
+					<executable>%ROOT_DIR%/Scripts/deactivate.bat</executable>
+				</command>
+				<timeOut>60000</timeOut>
+				<ignoreDiagnostics>true</ignoreDiagnostics>
+			</executeActivity-->
+		</executeActivities>		
+
+		<!-- IMPORT ACTIVITIES -->
+		<importActivities>
+			<importStateActivity>
+				<!-- Snow state -->
+				<stateFile>
+					<importFile>%ROOT_DIR%/spyic-top-files/OUTPUT/state_var_SNOW_baseflow.txt</importFile>
+					<relativeExportFile>state_var_SNOW_baseflow.txt</relativeExportFile>
+				</stateFile>
+				<stateFile>
+					<importFile>%ROOT_DIR%/spyic-top-files/OUTPUT/state_var_SNOW_baseflow_glac.txt</importFile>
+					<relativeExportFile>state_var_SNOW_baseflow_glac.txt</relativeExportFile>
+				</stateFile>
+				<stateFile>
+					<importFile>%ROOT_DIR%/spyic-top-files/OUTPUT/state_var_SNOW_freezed.txt</importFile>
+					<relativeExportFile>state_var_SNOW_freezed.txt</relativeExportFile>
+				</stateFile>
+				<stateFile>
+					<importFile>%ROOT_DIR%/spyic-top-files/OUTPUT/state_var_SNOW_glacmelt.txt</importFile>
+					<relativeExportFile>state_var_SNOW_glacmelt.txt</relativeExportFile>
+				</stateFile>
+				<stateFile>
+					<importFile>%ROOT_DIR%/spyic-top-files/OUTPUT/state_var_SNOW_liqW.txt</importFile>
+					<relativeExportFile>state_var_SNOW_liqW.txt</relativeExportFile>
+				</stateFile>
+				<stateFile>
+					<importFile>%ROOT_DIR%/spyic-top-files/OUTPUT/state_var_SNOW_melt.txt</importFile>
+					<relativeExportFile>state_var_SNOW_melt.txt</relativeExportFile>
+				</stateFile>
+				<stateFile>
+					<importFile>%ROOT_DIR%/spyic-top-files/OUTPUT/state_var_SNOW_rhosnow.txt</importFile>
+					<relativeExportFile>state_var_SNOW_rhosnow.txt</relativeExportFile>
+				</stateFile>
+				<stateFile>
+					<importFile>%ROOT_DIR%/spyic-top-files/OUTPUT/state_var_SNOW_sumT.txt</importFile>
+					<relativeExportFile>state_var_SNOW_sumT.txt</relativeExportFile>
+				</stateFile>
+				<stateFile>
+					<importFile>%ROOT_DIR%/spyic-top-files/OUTPUT/state_var_SNOW_WE.txt</importFile>
+					<relativeExportFile>state_var_SNOW_WE.txt</relativeExportFile>
+				</stateFile>
+				<!-- PDM state -->
+				<stateFile>
+					<importFile>%ROOT_DIR%/spyic-top-files/OUTPUT/state_var_Cstar.txt</importFile>
+					<relativeExportFile>state_var_Cstar.txt</relativeExportFile>
+				</stateFile>
+				<stateFile>
+					<importFile>%ROOT_DIR%/spyic-top-files/OUTPUT/state_var_Qbase.txt</importFile>
+					<relativeExportFile>state_var_Qbase.txt</relativeExportFile>
+				</stateFile>
+				<stateFile>
+					<importFile>%ROOT_DIR%/spyic-top-files/OUTPUT/state_var_Qrunoff_t1.txt</importFile>
+					<relativeExportFile>state_var_Qrunoff_t1.txt</relativeExportFile>
+				</stateFile>
+				<stateFile>
+					<importFile>%ROOT_DIR%/spyic-top-files/OUTPUT/state_var_Qrunoff_t1glac.txt</importFile>
+					<relativeExportFile>state_var_Qrunoff_t1glac.txt</relativeExportFile>
+				</stateFile>
+				<stateFile>
+					<importFile>%ROOT_DIR%/spyic-top-files/OUTPUT/state_var_Qrunoff_t2.txt</importFile>
+					<relativeExportFile>state_var_Qrunoff_t2.txt</relativeExportFile>
+				</stateFile>
+				<stateFile>
+					<importFile>%ROOT_DIR%/spyic-top-files/OUTPUT/state_var_Qrunoff_t2glac.txt</importFile>
+					<relativeExportFile>state_var_Qrunoff_t2glac.txt</relativeExportFile>
+				</stateFile>
+				<stateFile>
+					<importFile>%ROOT_DIR%/spyic-top-files/OUTPUT/state_var_runoff_glac.txt</importFile>
+					<relativeExportFile>state_var_runoff_glac.txt</relativeExportFile>
+				</stateFile>
+				<stateFile>
+					<importFile>%ROOT_DIR%/spyic-top-files/OUTPUT/state_var_runoff.txt</importFile>
+					<relativeExportFile>state_var_runoff.txt</relativeExportFile>
+				</stateFile>
+				<stateFile>
+					<importFile>%ROOT_DIR%/spyic-top-files/OUTPUT/state_var_sgw.txt</importFile>
+					<relativeExportFile>state_var_sgw.txt</relativeExportFile>
+				</stateFile>
+				<stateFile>
+					<importFile>%ROOT_DIR%/spyic-top-files/OUTPUT/state_var_stg.txt</importFile>
+					<relativeExportFile>state_var_stg.txt</relativeExportFile>
+				</stateFile>
+				<!-- transport state -->
+				<stateFile>
+					<importFile>%ROOT_DIR%/spyic-top-files/OUTPUT/state_var_last_flow.txt</importFile>
+					<relativeExportFile>state_var_last_flow.txt</relativeExportFile>
+				</stateFile>
+				<stateFile>
+					<importFile>%ROOT_DIR%/spyic-top-files/OUTPUT/state_var_MC_Qin.txt</importFile>
+					<relativeExportFile>state_var_MC_Qin.txt</relativeExportFile>
+				</stateFile>
+				<stateFile>
+					<importFile>%ROOT_DIR%/spyic-top-files/OUTPUT/state_var_MC_Qout.txt</importFile>
+					<relativeExportFile>state_var_MC_Qout.txt</relativeExportFile>
+				</stateFile>
+				<stateFile>
+					<importFile>%ROOT_DIR%/spyic-top-files/OUTPUT/state_var_reservoir_vol.txt</importFile>
+					<relativeExportFile>state_var_reservoir_vol.txt</relativeExportFile>
+				</stateFile>
+			</importStateActivity>
+			<!--importNetcdfActivity>
+				<importFile>%ROOT_DIR%/spyic-top-files/OUTPUT/out_WE.nc</importFile>
+				<timeSeriesSets>
+					<timeSeriesSet>
+						<moduleInstanceId>Spyictop_Historic</moduleInstanceId>
+						<valueType>scalar</valueType>
+						<parameterId>WE.simulated</parameterId>
+						<locationSetId>bz_centroids_topo60</locationSetId>
+						<timeSeriesType>simulated historical</timeSeriesType>
+						<timeStep unit="hour" multiplier="1"/>
+						<readWriteMode>add originals</readWriteMode>
+					</timeSeriesSet>
+				</timeSeriesSets>
+			</importNetcdfActivity-->
+			<importNetcdfActivity>
+				<importFile>%ROOT_DIR%/spyic-top-files/OUTPUT/flow.nc</importFile>
+				<timeSeriesSets>
+					<timeSeriesSet>
+						<moduleInstanceId>GeoframeHistorical</moduleInstanceId>
+						<valueType>scalar</valueType>
+						<parameterId>Q.sim</parameterId>
+						<locationSetId>Centroids_Brenta_TP</locationSetId>
+						<timeSeriesType>simulated historical</timeSeriesType>
+						<timeStep unit="hour" multiplier="1"/>
+						<readWriteMode>add originals</readWriteMode>
+					</timeSeriesSet>
+				</timeSeriesSets>
+			</importNetcdfActivity>
+		</importActivities>
+	</activities>
+</generalAdapterRun>

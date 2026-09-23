@@ -18,6 +18,9 @@
 	<moduleInstanceDescriptor id="Import_Station"/>
 	<moduleInstanceDescriptor id="Archive_Export_Observed"/>
 	<moduleInstanceDescriptor id="Import_centroids_CSV"/>
+	<!--Forecast PAT-->
+	<moduleInstanceDescriptor id="GeoframeHistorical"/>
+
 	<!-- Process -->
 	<moduleInstanceDescriptor id="MergeGDPS"/>
 	<moduleInstanceDescriptor id="MergeHistoricGrids"/>
