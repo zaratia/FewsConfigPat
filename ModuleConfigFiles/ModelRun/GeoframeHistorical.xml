@@ -5,11 +5,11 @@
 		<description>geoframe</description>
 		<rootDir>%REGION_HOME%/Modules</rootDir>
 		<workDir>%ROOT_DIR%</workDir>
-		<exportDir>%ROOT_DIR%/OMS_Project_Brenta_TempoRealexFEWS/meteo</exportDir>
+		<exportDir>%ROOT_DIR%/OMS_Project_Brenta_TempoRealexFEWS/fews_input</exportDir>
 		<exportDataSetDir>%ROOT_DIR%/</exportDataSetDir>
 		<exportIdMap>IdExportGeoframeHistoric</exportIdMap>
 		<exportUnitConversionsId>ExportGeoframe</exportUnitConversionsId>
-		<importDir>%ROOT_DIR%/OMS_Project_Brenta_TempoRealexFEWS/INPUT_60/OUTPUT</importDir>		
+		<importDir>%ROOT_DIR%/OMS_Project_Brenta_TempoRealexFEWS/fews_output</importDir>		
 		<importIdMap>IdImportGeoframeHistoric</importIdMap>
 		<dumpFileDir>$GA_DUMPFILEDIR$</dumpFileDir>
 		<dumpDir>%ROOT_DIR%/delme_dump</dumpDir>
@@ -57,6 +57,21 @@
 						<valueType>scalar</valueType>
 						<parameterId>P.obs</parameterId>
 						<locationSetId>Centroids_Brenta_TP</locationSetId>
+						<timeSeriesType>external historical</timeSeriesType>
+						<timeStep unit="hour" multiplier="1"/>
+						<relativeViewPeriod unit="hour" start="-60" end="0" startOverrulable="true"/>
+						<readWriteMode>add originals</readWriteMode>
+					</timeSeriesSet>
+				</timeSeriesSets>
+			</exportNetcdfActivity>		
+			<exportNetcdfActivity>
+				<exportFile>temperature.nc</exportFile>
+				<timeSeriesSets>
+					<timeSeriesSet>
+						<moduleInstanceId>Import_centroids_CSV</moduleInstanceId>
+						<valueType>scalar</valueType>
+						<parameterId>T.obs</parameterId>
+						<locationSetId>Centroids_Brenta_TA</locationSetId>
 						<timeSeriesType>external historical</timeSeriesType>
 						<timeStep unit="hour" multiplier="1"/>
 						<relativeViewPeriod unit="hour" start="-60" end="0" startOverrulable="true"/>
