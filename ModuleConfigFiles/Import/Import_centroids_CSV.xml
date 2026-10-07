@@ -4,12 +4,12 @@ http://fews.wldelft.nl/schemas/version1.0/timeSeriesImportRun.xsd">
 	<import>
 		<general>
 			<importType>generalCSV</importType>
-			<folder>$IMPORT_FOLDER$/CSV_CE</folder>
+			<folder>$IMPORT_FOLDER$/CSV_KRI</folder>
 			<fileNamePatternFilter>*.*</fileNamePatternFilter>
-			<failedFolder>$IMPORT_FAILED_FOLDER$/CSV_CE</failedFolder>
-			<backupFolder>$IMPORT_BACKUP_FOLDER$/CSV_CE</backupFolder>
+			<failedFolder>$IMPORT_FAILED_FOLDER$/CSV_KRI</failedFolder>
+			<backupFolder>$IMPORT_BACKUP_FOLDER$/CSV_KRI</backupFolder>
 			<table>
-				<locationColumn name="basin_id"/> 
+				<locationColumn name="statid"/> 
 				<dateTimeColumn name="time" pattern="yyyy-MM-dd HH:mm:ss"/>
 				<valueColumn name="value"/>
 				<parameterColumn name="type"/>
