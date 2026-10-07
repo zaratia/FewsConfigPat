@@ -17,7 +17,7 @@ http://fews.wldelft.nl/schemas/version1.0/timeSeriesImportRun.xsd">
 			<idMapId>idImport_stations_CSV</idMapId>
 			<unitConversionsId>ImportUnitConversions</unitConversionsId>
 			<importTimeZone>
-				<timeZoneOffset>+00:00</timeZoneOffset>
+				<timeZoneOffset>+01:00</timeZoneOffset>
 			</importTimeZone>
 			<dataFeedId>Import.CSV</dataFeedId>
 			<expiryTime unit="day" multiplier="30"/>
