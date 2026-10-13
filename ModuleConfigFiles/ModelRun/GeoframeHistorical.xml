@@ -5,11 +5,11 @@
 		<description>geoframe</description>
 		<rootDir>%REGION_HOME%/Modules</rootDir>
 		<workDir>%ROOT_DIR%</workDir>
-		<exportDir>%ROOT_DIR%/OMS_Project_Brenta_TempoRealexFEWS/fews_input</exportDir>
+		<exportDir>%ROOT_DIR%/OMS_Brenta/fews_input</exportDir>
 		<exportDataSetDir>%ROOT_DIR%/</exportDataSetDir>
 		<exportIdMap>IdExportGeoframeHistoric</exportIdMap>
 		<exportUnitConversionsId>ExportGeoframe</exportUnitConversionsId>
-		<importDir>%ROOT_DIR%/OMS_Project_Brenta_TempoRealexFEWS/fews_output</importDir>		
+		<importDir>%ROOT_DIR%/OMS_Brenta/fews_output</importDir>		
 		<importIdMap>IdImportGeoframeHistoric</importIdMap>
 		<dumpFileDir>$GA_DUMPFILEDIR$</dumpFileDir>
 		<dumpDir>%ROOT_DIR%/delme_dump</dumpDir>
@@ -26,7 +26,7 @@
 		<!-- Clear output folders -->
 		<!--startUpActivities>
 			<purgeActivity>
-				<filter>%ROOT_DIR%/OMS_Project_Brenta_TempoRealexFEWS/meteo/*.*</filter>
+				<filter>%ROOT_DIR%/OMS_Brenta/meteo/*.*</filter>
 			</purgeActivity>
 		</startUpActivities-->
 
@@ -34,12 +34,12 @@
 		<exportActivities>
 			<exportStateActivity>
 				<moduleInstanceId>GeoframeHistorical</moduleInstanceId>
-				<stateExportDir>%ROOT_DIR%/OMS_Project_Brenta_TempoRealexFEWS/initState_files</stateExportDir>
-				<stateConfigFile>%ROOT_DIR%/OMS_Project_Brenta_TempoRealexFEWS/initState_files/stateInfo.xml</stateConfigFile>
+				<stateExportDir>%ROOT_DIR%/OMS_Brenta/initState_files</stateExportDir>
+				<stateConfigFile>%ROOT_DIR%/OMS_Brenta/initState_files/stateInfo.xml</stateConfigFile>
 				<stateLocations type="directory">
 					<stateLocation>
-						<readLocation>%ROOT_DIR%/OMS_Project_Brenta_TempoRealexFEWS/finalState_files</readLocation>
-						<writeLocation>%ROOT_DIR%/OMS_Project_Brenta_TempoRealexFEWS/initState_files</writeLocation>
+						<readLocation>%ROOT_DIR%/OMS_Brenta/finalState_files</readLocation>
+						<writeLocation>%ROOT_DIR%/OMS_Brenta/initState_files</writeLocation>
 					</stateLocation>
 				</stateLocations>
 				<stateSelection>
@@ -80,7 +80,7 @@
 				</timeSeriesSets>
 			</exportNetcdfActivity>
 			<exportRunFileActivity>
-				<exportFile>%ROOT_DIR%/OMS_Project_Brenta_TempoRealexFEWS/fews.xml</exportFile>
+				<exportFile>%ROOT_DIR%/OMS_Brenta/fews.xml</exportFile>
 			</exportRunFileActivity>			
 		</exportActivities>
 		
@@ -88,7 +88,7 @@
 		<executeActivities>		
 			<executeActivity>
 				<command>
-					<executable>%ROOT_DIR%/OMS_Project_Brenta_TempoRealexFEWS/bash_hpc/launch_etp_rrm.bat</executable>
+					<executable>%ROOT_DIR%/OMS_Brenta/bash_hpc/launch_etp_rrm.bat</executable>
 				</command>
 				<timeOut>200000</timeOut>
 				<ignoreDiagnostics>true</ignoreDiagnostics>
@@ -100,7 +100,7 @@
 			<importStateActivity>
 				<!-- Snow state -->
 				<stateFile>
-					<importFile>%ROOT_DIR%/OMS_Project_Brenta_TempoRealexFEWS/finalState_files/finalState_files.zip</importFile>
+					<importFile>%ROOT_DIR%/OMS_Brenta/finalState_files/finalState_files.zip</importFile>
 					<relativeExportFile>initState_files.zip</relativeExportFile>
 				</stateFile>
 			</importStateActivity>
@@ -119,7 +119,7 @@
 				</timeSeriesSets>
 			</importNetcdfActivity-->
 			<importNetcdfActivity>
-				<importFile>%ROOT_DIR%/OMS_Project_Brenta_TempoRealexFEWS/fews_output/RRM_Qout_all.nc</importFile>
+				<importFile>%ROOT_DIR%/OMS_Brenta/fews_output/RRM_Qout_all.nc</importFile>
 				<timeSeriesSets>
 					<timeSeriesSet>
 						<moduleInstanceId>GeoframeHistorical</moduleInstanceId>
