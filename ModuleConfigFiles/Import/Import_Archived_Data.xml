@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<importArchiveModule xmlns="http://www.wldelft.nl/fews" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.wldelft.nl/fews http://fews.wldelft.nl/schemas/version1.0/importArchiveModule.xsd">
+	<importSimulated>
+		<importFolder>$ARCHIVE_DOWNLOAD_FOLDER$/simulated</importFolder>
+	</importSimulated>
+	<importExternalForecast>
+		<importFolder>$ARCHIVE_DOWNLOAD_FOLDER$/externalforecasts</importFolder>
+	</importExternalForecast>
+	<importObserved>
+		<importFolder>$ARCHIVE_DOWNLOAD_FOLDER$/observed</importFolder>
+	</importObserved>
+	<importMessages>
+		<importFolder>$ARCHIVE_DOWNLOAD_FOLDER$/messages</importFolder>
+	</importMessages>
+	<importRatingCurves>
+		<importFolder>$ARCHIVE_DOWNLOAD_FOLDER$/ratingcurves</importFolder>
+	</importRatingCurves>
+	<importHistoricalEvents>
+		<importFolder>$ARCHIVE_DOWNLOAD_FOLDER$/historicalevents</importFolder>
+		<idMapId>IdOpenArchive</idMapId>
+	</importHistoricalEvents>
+</importArchiveModule>

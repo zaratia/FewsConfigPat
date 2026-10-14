@@ -114,7 +114,11 @@ http://fews.wldelft.nl/schemas/version1.0/parameters.xsd">
 		<parameter id="P.obs" name="P.obs">
 			<shortName>P.obs</shortName>
 			<description>Precipitazione</description>
-		</parameter>		
+		</parameter>	
+		<parameter id="P.forecast" name="P.forecast">
+			<shortName>P.forecast</shortName>
+			<description>Forecast precipitation</description>
+		</parameter>			
 		<!-- PAT-->
 		<parameter id="PC.obs" name="Precipitation (obs)">
 			<shortName>Precip (obs)</shortName>
@@ -292,7 +296,11 @@ http://fews.wldelft.nl/schemas/version1.0/parameters.xsd">
 		<parameter id="T.obs" name="T.obs">
 			<shortName>T.obs</shortName>
 			<description>Temperature</description>
-		</parameter>		
+		</parameter>	
+		<parameter id="T.forecast" name="T.forecast">
+			<shortName>T.forecast</shortName>
+			<description>Forecast temperature</description>
+		</parameter>			
 		<!-- PAT-->
 		<parameter id="TA.obs" name="Air Temp (obs)">
 			<shortName>Air Temp (obs)</shortName>

@@ -26,10 +26,20 @@
 	<!--PAT-->
 		<workflowDescriptor id="ImportCSVstations" name="Import station data from CSV\ and CSV_NE\" visible="true" forecast="false" autoApprove="false" allowApprove="false"/>
 		<workflowDescriptor id="Export_timeseries_OA_NETCDF" name="Export station data to OA" visible="true" forecast="false" autoApprove="false" allowApprove="false"/>
-		<workflowDescriptor id="OpenArchive_Import" name="Import station data from OA" visible="true" forecast="false" autoApprove="false" allowApprove="false"/>
 		<workflowDescriptor id="ImportCSVcentroids" name="Import basin centroids data from CSV" visible="true" forecast="false" autoApprove="false" allowApprove="false"/>
 		<workflowDescriptor id="RunGeoframeHistoric" name="Run Geoframe Historical" visible="true" forecast="true"/>
+		<workflowDescriptor id="Import_ECMWF_OAnc" name="Import ECMWF OA netcdf" visible="true" forecast="false" autoApprove="false" allowApprove="false">
+			<cardinalTimeStep timeZone="GMT" unit="hour" multiplier="1"/>
+		</workflowDescriptor>
 	<!--PAT-->
+	
+	<!-- OPEN ARCHIVE PAT-->
+	<workflowDescriptor id="OpenArchive_Import" name="Import station data from OA" visible="true" forecast="false">
+		<description>OpenArchive_Import</description>
+	</workflowDescriptor>
+	<!--workflowDescriptor id="OpenArchive_Export" name="Export a OpenArchive" visible="true" forecast="false">
+		<description>OpenArchive_Export</description>
+	</workflowDescriptor-->
 
 	<!--Processing-->
 	<workflowDescriptor id="Process_Gdps" name="Process GDPS" visible="false" forecast="false" autoApprove="true" allowApprove="false"/>
@@ -55,6 +65,7 @@
 			<workflowId>ImportWSCHourly</workflowId>
 		</node>
 		<node name="Import Meteo Forecasts">
+			<workflowId>Import_ECMWF_OAnc</workflowId>
 			<workflowId>ImportRDPAGrids</workflowId>
 			<workflowId>ImportGDPSGrids</workflowId>
 			<workflowId>ImportREPSGrids</workflowId>

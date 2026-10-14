@@ -3,10 +3,9 @@
 
 <!--parameter internal="T.obs" external="ta"/-->
 <parameter internal="T.obs" external="ta2m"/>
-<!--parameter internal="T.8m.obs" external="ta8m"/>
+<!--parameter internal="T.8m.obs" external="ta8m"/-->
 <parameter internal="P.obs" external="tp"/>
-<parameter internal="P.forecast" external="tp"/>
-<parameter internal="T.forecast" external="ta"/>
+<!--parameter internal="T.forecast" external="ta"/>
 <parameter internal="SD.obs" external="snd"/>
 <parameter internal="TP" external="TP"/>
 <parameter internal="SWE.obs" external="swe"/>
@@ -39,6 +38,8 @@
 <parameter internal="Wind.2m.speed" external="ws2m"/>
 <parameter internal="Wind.10m.speed" external="ws10m"/>
 <parameter internal="ET0.obs" external="et0"/-->
+
+<location internal="ecmwftn" external="ecmwftn"/>
 
 <!--map internalParameter="TP" internalLocation="LEB500" externalParameter="tp" externalLocation="LEB500"/-->
 

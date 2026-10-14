@@ -25,4 +25,10 @@
 		<x>0</x>
 		<y>0</y>
 	</location>
+	<!-- PAT -->
+	<location id="ecmwftn" name="Griglia Trento ECMWF">
+		<x>0</x>
+		<y>0</y>
+	</location>
+	<!-- PAT -->
 </locations>

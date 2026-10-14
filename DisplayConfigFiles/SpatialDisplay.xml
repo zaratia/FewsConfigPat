@@ -1,6 +1,53 @@
 <gridDisplay xmlns="http://www.wldelft.nl/fews" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.wldelft.nl/fews
 http://fews.wldelft.nl/schemas/version1.0/gridDisplay.xsd">
 	<title>Spatial Display</title>
+		
+	<defaults>
+		<parameterGroupId>Precipitation</parameterGroupId>
+		<classBreaks>
+			<unitVisible>true</unitVisible>
+			<break color="FFFFFF" lowerValue="0" opaquenessPercentage="20"/>
+			<break color="99E9FF" lowerValue="0.2" opaquenessPercentage="50"/>
+			<break color="00C8FF" lowerValue="1" opaquenessPercentage="50"/>
+			<break color="0053FF" lowerValue="5" opaquenessPercentage="50"/>
+			<break color="00956A" lowerValue="10" opaquenessPercentage="50"/>
+			<break color="00FA10" lowerValue="25" opaquenessPercentage="50"/>
+			<break color="FFBF00" lowerValue="50" opaquenessPercentage="50"/>
+			<break color="FF8F00" lowerValue="75" opaquenessPercentage="50"/>
+			<break color="FF0000" lowerValue="100" opaquenessPercentage="50"/>
+			<break color="960000" lowerValue="200" opaquenessPercentage="50"/>
+			<break color="FF00CC" lowerValue="400" opaquenessPercentage="50"/>
+		</classBreaks>
+	</defaults>
+	<defaults>
+		<parameterGroupId>Temperature</parameterGroupId>
+		<classBreaks>
+			<lowerColor>blue</lowerColor>
+			<upperColor>light yellow</upperColor>
+			<lowerOpaquenessPercentage>50</lowerOpaquenessPercentage>
+			<upperOpaquenessPercentage>50</upperOpaquenessPercentage>
+			<lowerValue>-30</lowerValue>
+			<lowerValue>-25</lowerValue>
+			<lowerValue>-20</lowerValue>
+			<lowerValue>-15</lowerValue>
+			<lowerValue>-10</lowerValue>
+			<lowerValue>-5</lowerValue>
+			<lowerValue>0</lowerValue>
+			<lowerValue>5</lowerValue>
+			<lowerValue>10</lowerValue>
+			<lowerValue>15</lowerValue>
+			<lowerColor>yellow</lowerColor>
+			<upperColor>red</upperColor>
+			<lowerOpaquenessPercentage>50</lowerOpaquenessPercentage>
+			<upperOpaquenessPercentage>50</upperOpaquenessPercentage>
+			<lowerValue>20</lowerValue>
+			<lowerValue>25</lowerValue>
+			<lowerValue>30</lowerValue>
+			<lowerValue>35</lowerValue>
+			<lowerValue>40</lowerValue>
+		</classBreaks>
+	</defaults>
+	
 	<defaults>
 		<plotGroupId>HydrologicalStations</plotGroupId>
 		<plotGroupId>MeteoStations</plotGroupId>
@@ -132,7 +179,7 @@ http://fews.wldelft.nl/schemas/version1.0/gridDisplay.xsd">
 		<commentPositioning>topLeft</commentPositioning>
 	</defaults>
 	<gridPlotGroup id="HydrologicalStations" name="Hydrological Stations (WSC)">
-		<gridPlot id="RecentObservedDischarge" name="Recent Discharge at Local Stations [m³/s]">
+		<gridPlot id="RecentObservedDischarge" name="Recent Discharge at Local Stations [mï¿½/s]">
 			<timeSeriesSet>
 				<moduleInstanceId>ImportWSC</moduleInstanceId>
 				<valueType>scalar</valueType>
@@ -148,6 +195,45 @@ http://fews.wldelft.nl/schemas/version1.0/gridDisplay.xsd">
 		</gridPlot>
 	</gridPlotGroup>
 	<gridPlotGroup id="MeteoForecasts" name="Meteo Forecasts and Analysis">
+		<!-- PAT -->
+		<gridPlotGroup id="ecmwf" name="ECMWF">
+			<gridPlot id="ECMWF grid Precipitation [mm]">
+				<timeSeriesSet>
+					<moduleInstanceId>Interpolate_ECMWF</moduleInstanceId>
+					<valueType>grid</valueType>
+					<parameterId>P.forecast</parameterId>
+					<locationId>ecmwftn</locationId>
+					<timeSeriesType>external forecasting</timeSeriesType>
+					<timeStep unit="hour"/>	
+					<relativeViewPeriod unit="hour" start="0" end="+72"/>
+					<readWriteMode>add originals</readWriteMode>
+					<synchLevel>6</synchLevel>
+				</timeSeriesSet>
+				<accumulationTimeSpan unit="hour" multiplier="3"/>	
+				<accumulationTimeSpan unit="hour" multiplier="6"/>						
+				<accumulationTimeSpan unit="hour" multiplier="12"/>						
+				<accumulationTimeSpan unit="hour" multiplier="18"/>					
+				<accumulationTimeSpan unit="hour" multiplier="24"/>	
+				<accumulationTimeSpan unit="hour" multiplier="36"/>
+				<accumulationTimeSpan unit="hour" multiplier="48"/>
+				<accumulationTimeSpan unit="hour" multiplier="72"/>
+				<contourLinesColor>alice blue</contourLinesColor>
+			</gridPlot>
+			<gridPlot id="ECMWF grid Temperature [Â°C]">
+				<timeSeriesSet>
+					<moduleInstanceId>Interpolate_ECMWF</moduleInstanceId>
+					<valueType>grid</valueType>
+					<parameterId>T.forecast</parameterId>
+					<locationId>ecmwftn</locationId>
+					<timeSeriesType>external forecasting</timeSeriesType>
+					<timeStep unit="hour"/>	
+					<relativeViewPeriod unit="hour" start="0" end="+72"/>
+					<readWriteMode>add originals</readWriteMode>
+					<synchLevel>6</synchLevel>
+				</timeSeriesSet>
+			</gridPlot>
+		</gridPlotGroup>
+		<!-- PAT -->
 		<gridPlotGroup id="RDPA" name="Regional Deterministic Precip Analysis (RDPA)">
 			<gridPlot id="RDPAPrecipitation" name="Precipitation [mm]">
 				<timeSeriesSet>
@@ -182,7 +268,7 @@ http://fews.wldelft.nl/schemas/version1.0/gridDisplay.xsd">
 				<movieFrameDurationMillis>200</movieFrameDurationMillis>
 				<classBreaksId>Class.Precipitation</classBreaksId>
 			</gridPlot>
-			<gridPlot id="GDPSTemperature " name="Temperature [°C]">
+			<gridPlot id="GDPSTemperature " name="Temperature [ï¿½C]">
 				<timeSeriesSet>
 					<moduleInstanceId>ImportGDPS</moduleInstanceId>
 					<valueType>grid</valueType>
@@ -214,7 +300,7 @@ http://fews.wldelft.nl/schemas/version1.0/gridDisplay.xsd">
 				<movieFrameDurationMillis>200</movieFrameDurationMillis>
 				<classBreaksId>Class.Precipitation</classBreaksId>
 			</gridPlot>
-			<gridPlot id="REPSTemperature " name="Temperature [°C]">
+			<gridPlot id="REPSTemperature " name="Temperature [ï¿½C]">
 				<timeSeriesSet>
 					<moduleInstanceId>ImportREPS</moduleInstanceId>
 					<valueType>grid</valueType>
@@ -246,7 +332,7 @@ http://fews.wldelft.nl/schemas/version1.0/gridDisplay.xsd">
 				<movieFrameDurationMillis>200</movieFrameDurationMillis>
 				<classBreaksId>Class.Precipitation</classBreaksId>
 			</gridPlot>
-			<gridPlot id="GFSTemperature " name="Temperature [°C]">
+			<gridPlot id="GFSTemperature " name="Temperature [ï¿½C]">
 				<timeSeriesSet>
 					<moduleInstanceId>ImportGFS</moduleInstanceId>
 					<valueType>grid</valueType>
