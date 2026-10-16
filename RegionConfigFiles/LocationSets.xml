@@ -34,7 +34,7 @@
 		<csvFile>
 			<file>OMS_Project_Brenta_all_qstations.csv</file>
 			<geoDatum>UTM32N</geoDatum>
-			<id>Q%qstationid%</id>
+			<id>%qstationid%</id>
 			<name>%basinid%</name>
 			<x>%centrx%</x>
 			<y>%centry%</y>

@@ -18,6 +18,10 @@
 	<moduleInstanceDescriptor id="Import_Station"/>
 	<moduleInstanceDescriptor id="Archive_Export_Observed"/>
 	<moduleInstanceDescriptor id="Import_centroids_CSV"/>
+	<moduleInstanceDescriptor id="Import_Archived_Data"/>	
+	<!-- PAT forecast-->
+	<moduleInstanceDescriptor id="Import_ECMWF_OAnc"/>
+	<moduleInstanceDescriptor id="Interpolate_ECMWF"/>
 	<!--Forecast PAT-->
 	<moduleInstanceDescriptor id="GeoframeHistorical"/>
 
@@ -31,6 +35,7 @@
 	<moduleInstanceDescriptor id="ProcessGfs"/>
 	<moduleInstanceDescriptor id="ProcessRdpa"/>
 	<moduleInstanceDescriptor id="ProcessReps"/>
+
 	<!--Set Forecast Length for Forecasts -->
 	<moduleInstanceDescriptor id="SetForecastLengthGDPS"/>
 </moduleInstanceDescriptors>
