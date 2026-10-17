@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<transformationModule version="1.0" xmlns="http://www.wldelft.nl/fews" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.wldelft.nl/fews http://fews.wldelft.nl/schemas/version1.0/transformationModule.xsd">
+	<variable>
+		<variableId>ForecastTemper</variableId>
+		<timeSeriesSet>
+			<moduleInstanceId>Interpolate_ECMWF</moduleInstanceId>
+			<valueType>grid</valueType>
+			<parameterId>T.forecast</parameterId>
+			<locationId>ecmwftn</locationId>
+			<timeSeriesType>external forecasting</timeSeriesType>
+			<timeStep unit="hour" multiplier="1"/>
+			<relativeViewPeriod unit="day" start="-10" end="10" startOverrulable="true"/>
+			<readWriteMode>read only</readWriteMode>
+		</timeSeriesSet>
+	</variable>
+	<variable>
+		<variableId>CentroidTemper</variableId>
+		<timeSeriesSet>
+			<moduleInstanceId>InterpolateForecastTemperNearest</moduleInstanceId>
+			<valueType>scalar</valueType>
+			<parameterId>T.forecast</parameterId>
+			<locationSetId>Centroids_Brenta_TA</locationSetId>
+			<timeSeriesType>external forecasting</timeSeriesType>
+			<timeStep unit="hour" multiplier="1"/>
+			<relativeViewPeriod unit="day" start="-10" end="10" startOverrulable="true"/>
+			<readWriteMode>read only</readWriteMode>
+		</timeSeriesSet>
+	</variable>
+	
+	<transformation id="InterpolateForecastToCentroidsTemper">
+		<interpolationSpatial>
+			<closestDistance>				
+				<inputVariable>
+					<variableId>ForecastTemper</variableId>
+				</inputVariable>
+				<outputVariable>
+					<variableId>CentroidTemper</variableId>
+				</outputVariable>
+			</closestDistance>
+		</interpolationSpatial>
+	</transformation>
+</transformationModule>

@@ -163,6 +163,13 @@
 			<max>2</max>
 			<inverted>false</inverted>
 		</parameterDisplayOptions>
+		<parameterDisplayOptions id="P.forecast">
+			<preferredColor>blue</preferredColor>
+			<lineStyle>bar</lineStyle>
+			<min>0</min>
+			<max>2</max>
+			<inverted>false</inverted>
+		</parameterDisplayOptions>
 		<parameterDisplayOptions id="PC.obs">
 			<preferredColor>blue</preferredColor>
 			<lineStyle>bar</lineStyle>

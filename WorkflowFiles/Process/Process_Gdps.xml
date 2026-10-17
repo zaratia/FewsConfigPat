@@ -3,7 +3,6 @@
 <!-- Preprocess Precipitation-->
 	<activity>
 		<properties>
-			<string key="InputModuleInstanceId" value="ImportGDPS"/>
 			<string key="ParameterId" value="PC.nwp"/>
 			<string key="TimeSeriesType" value="external forecasting"/>
 			<string key="TimeStepHour" value="3"/>

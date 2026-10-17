@@ -2,6 +2,18 @@
 <workflow xmlns="http://www.wldelft.nl/fews" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.wldelft.nl/fews http://fews.wldelft.nl/schemas/version1.0/workflow.xsd" version="1.1">
 	<activity>
 		<runIndependent>true</runIndependent>
-		<moduleInstanceId>Import_ECMWF_OAnc</moduleInstanceId>
+		<moduleInstanceId>Import_ECMWF_OAnc_ta2m</moduleInstanceId>
+	</activity>
+	<activity>
+		<runIndependent>true</runIndependent>
+		<moduleInstanceId>Import_ECMWF_OAnc_tp</moduleInstanceId>
+	</activity>
+	<activity>
+		<runIndependent>true</runIndependent>
+		<moduleInstanceId>InterpolateForecastPrecNearest</moduleInstanceId>
+	</activity>
+	<activity>
+		<runIndependent>true</runIndependent>
+		<moduleInstanceId>InterpolateForecastTemperNearest</moduleInstanceId>
 	</activity>
 </workflow>

@@ -312,16 +312,6 @@
 			</singleLocationDisplays>
 		</displayGroup>
 	</displayGroup>
-	<displayGroup name="GDPS">
-		<nodeId>GDPS</nodeId>
-		<displayGroup id="GDPS" name="GDPS">
-			<nodeId>ImportGDPS</nodeId>
-			<singleLocationDisplays>
-				<locationSetId>DisplayMeteoStations</locationSetId>
-				<plotId>GDPSTemplate</plotId>
-			</singleLocationDisplays>
-		</displayGroup>
-	</displayGroup>
 	<displayGroup name="REPSEnsemble">
 		<nodeId>REPSEnsemble</nodeId>
 		<displayGroup id="REPSEnsemble" name="REPSEnsemble">

@@ -21,6 +21,8 @@
 		<mapExtentId>Trentino</mapExtentId>
 		<child foreignKey="krigtemp"/>
 		<child foreignKey="krigprec"/>
+		<child foreignKey="foretemp"/>
+		<child foreignKey="foreprec"/>
 	</filter>
 
 	<filter id="hydro_sim" name="Simulated discharge[m3/ s]">
@@ -73,6 +75,30 @@
 			<readWriteMode>read only</readWriteMode>
 		</timeSeriesSet>
 	</filter>
+	<filter id="foretemp" name="Forecast temperature [°C]">
+		<timeSeriesSet>
+			<moduleInstanceId>InterpolateForecastTemperNearest</moduleInstanceId>
+			<valueType>scalar</valueType>
+			<parameterId>T.forecast</parameterId>
+			<locationSetId>Centroids_Brenta_TA</locationSetId>
+			<timeSeriesType>external forecasting</timeSeriesType>
+			<timeStep unit="hour" multiplier="1"/>
+			<relativeViewPeriod unit="day" start="-5" end="0"/>
+			<readWriteMode>read only</readWriteMode>
+		</timeSeriesSet>
+	</filter>	
+	<filter id="foreprec" name="Forecast precipitation [mm]">
+		<timeSeriesSet>
+			<moduleInstanceId>InterpolateForecastPrecNearest</moduleInstanceId>
+			<valueType>scalar</valueType>
+			<parameterId>P.forecast</parameterId>
+			<locationSetId>Centroids_Brenta_TP</locationSetId>
+			<timeSeriesType>external forecasting</timeSeriesType>
+			<timeStep unit="hour" multiplier="1"/>
+			<relativeViewPeriod unit="day" start="-5" end="0"/>
+			<readWriteMode>read only</readWriteMode>
+		</timeSeriesSet>
+	</filter>	
 	<filter id="PluviometriPAT" name="Precipitation [mm]">
 		<timeSeriesSet>
 			<moduleInstanceId>Import_stations_CSV</moduleInstanceId>

@@ -24,15 +24,6 @@
             <timeStep unit="hour" multiplier="1"/>  
             <readWriteMode>read complete forecast</readWriteMode>    
         </timeSeriesSet>
-        <timeSeriesSet>
-            <moduleInstanceId>Interpolate_ECMWF</moduleInstanceId>
-            <valueType>grid</valueType>
-            <parameterId>P.forecast</parameterId>       
-            <locationId>ecmwftn</locationId>      
-            <timeSeriesType>external forecasting</timeSeriesType>       
-            <timeStep unit="hour" multiplier="1"/>  
-            <readWriteMode>read complete forecast</readWriteMode>    
-        </timeSeriesSet>
 		<externUnit parameterId="P.forecast" cumulativeSum="false" unit="mm"/>
 		<externUnit parameterId="T.forecast" cumulativeSum="false" unit="oC"/>
 	</import>

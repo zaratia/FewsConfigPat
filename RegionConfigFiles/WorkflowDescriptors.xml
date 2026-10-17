@@ -9,10 +9,6 @@
 		<description>Retrieve Forecast Grids from Web Coverage Service (WCS)</description>
 		<cardinalTimeStep id="GMT_6hourly"/>
 	</workflowDescriptor>
-	<workflowDescriptor id="ImportGDPSGrids" name="Import GDPS (Global Deterministic Pred Sys)" forecast="false" allowApprove="false" visible="true">
-		<description>Retrieve Forecast Grids from Web Coverage Service (WCS)</description>
-		<cardinalTimeStep id="GMT_12hourly"/>
-	</workflowDescriptor>
 	<workflowDescriptor id="ImportREPSGrids" name="Import REPS (Regional Ensemble Pred Sys)" forecast="false" allowApprove="false" visible="true">
 		<description>Retrieve Forecast Grids from Web Coverage Service (WCS)</description>
 		<cardinalTimeStep id="GMT_12hourly"/>
@@ -42,7 +38,6 @@
 	</workflowDescriptor-->
 
 	<!--Processing-->
-	<workflowDescriptor id="Process_Gdps" name="Process GDPS" visible="false" forecast="false" autoApprove="true" allowApprove="false"/>
 	<workflowDescriptor id="Process_Reps" name="Process REPS" visible="false" forecast="false" autoApprove="true" allowApprove="false"/>
 	<rootNode>
 		<node name="Run Geoframe">
@@ -67,7 +62,6 @@
 		<node name="Import Meteo Forecasts">
 			<workflowId>Import_ECMWF_OAnc</workflowId>
 			<workflowId>ImportRDPAGrids</workflowId>
-			<workflowId>ImportGDPSGrids</workflowId>
 			<workflowId>ImportREPSGrids</workflowId>
 			<workflowId>ImportGFSGrids</workflowId>
 		</node>

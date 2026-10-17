@@ -20,10 +20,14 @@
 	<moduleInstanceDescriptor id="Import_centroids_CSV"/>
 	<moduleInstanceDescriptor id="Import_Archived_Data"/>	
 	<!-- PAT forecast-->
-	<moduleInstanceDescriptor id="Import_ECMWF_OAnc"/>
+	<moduleInstanceDescriptor id="Import_ECMWF_OAnc_tp"/>
+	<moduleInstanceDescriptor id="Import_ECMWF_OAnc_ta2m"/>
 	<moduleInstanceDescriptor id="Interpolate_ECMWF"/>
 	<!--Forecast PAT-->
 	<moduleInstanceDescriptor id="GeoframeHistorical"/>
+	<!--Process PAT-->
+	<moduleInstanceDescriptor id="InterpolateForecastPrecNearest"/>
+	<moduleInstanceDescriptor id="InterpolateForecastTemperNearest"/>
 
 	<!-- Process -->
 	<moduleInstanceDescriptor id="MergeGDPS"/>
