@@ -252,37 +252,6 @@ http://fews.wldelft.nl/schemas/version1.0/gridDisplay.xsd">
 				<classBreaksId>Class.Precipitation</classBreaksId>
 			</gridPlot>
 		</gridPlotGroup>
-		<gridPlotGroup id="GDPS" name="Global Deterministic Pred Sys (GDPS) Forecast">
-			<gridPlot id="GDPSPrecipitation " name="Precipitation [mm]">
-				<timeSeriesSet>
-					<moduleInstanceId>ImportGDPS</moduleInstanceId>
-					<valueType>grid</valueType>
-					<parameterId>PC.nwp</parameterId>
-					<locationId>GDPS</locationId>
-					<timeSeriesType>external forecasting</timeSeriesType>
-					<timeStep unit="hour" multiplier="3"/>
-					<readWriteMode>read complete forecast</readWriteMode>
-				</timeSeriesSet>
-				<showThumbnailsPanel>true</showThumbnailsPanel>
-				<numberOfRecentForecasts>3</numberOfRecentForecasts>
-				<movieFrameDurationMillis>200</movieFrameDurationMillis>
-				<classBreaksId>Class.Precipitation</classBreaksId>
-			</gridPlot>
-			<gridPlot id="GDPSTemperature " name="Temperature [�C]">
-				<timeSeriesSet>
-					<moduleInstanceId>ImportGDPS</moduleInstanceId>
-					<valueType>grid</valueType>
-					<parameterId>TA.nwp</parameterId>
-					<locationId>GDPS</locationId>
-					<timeSeriesType>external forecasting</timeSeriesType>
-					<timeStep unit="hour" multiplier="3"/>
-					<readWriteMode>read complete forecast</readWriteMode>
-				</timeSeriesSet>
-				<showThumbnailsPanel>true</showThumbnailsPanel>
-				<numberOfRecentForecasts>4</numberOfRecentForecasts>
-				<classBreaksId>Class.Temperature</classBreaksId>
-			</gridPlot>
-		</gridPlotGroup>
 		<gridPlotGroup id="REPS" name="Regional Ensemble Pred Sys (REPS) Forecast">
 			<gridPlot id="REPSPrecipitation " name="Precipitation [mm]">
 				<timeSeriesSet>

@@ -4,7 +4,7 @@
 		<general>
 			<importType>NETCDF-CF_GRID</importType>
 			<folder>$IMPORT_FOLDER$/NETCDF_FORECAST</folder>
-			<fileNamePatternFilter>*_ecmwf.nc</fileNamePatternFilter>
+			<fileNamePatternFilter>*$meteovar$_ecmwf.nc</fileNamePatternFilter>
 			<!--fileNameObservationDateTimePattern>'3B-HHR-E.MS.MRG.3IMERG.'yyyyMMdd'-S'HHmmss'-E?'</fileNameObservationDateTimePattern-->
 			<failedFolder>$IMPORT_FAILED_FOLDER$/NETCDF_FORECAST</failedFolder>
 			<backupFolder>$IMPORT_BACKUP_FOLDER$/NETCDF_FORECAST</backupFolder>
@@ -18,7 +18,7 @@
         <timeSeriesSet>
             <moduleInstanceId>Interpolate_ECMWF</moduleInstanceId>
             <valueType>grid</valueType>
-            <parameterId>T.forecast</parameterId>       
+            <parameterId>$internal_meteovar$</parameterId>       
             <locationId>ecmwftn</locationId>      
             <timeSeriesType>external forecasting</timeSeriesType>       
             <timeStep unit="hour" multiplier="1"/>  

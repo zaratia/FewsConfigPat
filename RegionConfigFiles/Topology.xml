@@ -79,16 +79,6 @@
 			<localRun>false</localRun>
 			<showRunApprovedForecastButton>true</showRunApprovedForecastButton>
 		</node>
-		<node id="ImportGDPS" name="ECCC GDPS (Global Deterministic Pred Sys)">
-			<workflowId>ImportGDPSGrids</workflowId>
-			<graceTime unit="hour" multiplier="6"/>
-			<gridDisplaySelection>
-				<groupId>GDPS</groupId>
-				<plotId>GDPSPrecipitation</plotId>
-			</gridDisplaySelection>
-			<localRun>false</localRun>
-			<showRunApprovedForecastButton>true</showRunApprovedForecastButton>
-		</node>
 		<node id="ImportREPS" name="ECCC REPS (Regional Ensemble Pred Sys)">
 			<workflowId>ImportREPSGrids</workflowId>
 			<graceTime unit="hour" multiplier="6"/>

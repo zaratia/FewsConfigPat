@@ -3,9 +3,6 @@
     <!-- This Id Mapping is for the Import of Gridded Data Products from the Meterological Service of Canada (MSC) Geomet Services -->
     <!-- Regional Deterministic Precipitation Analysis (RDPA) -->
     <map internalLocation="RDPA" internalParameter="PC.sim" externalLocation="RDPA" externalParameter="RDPA.6F_PR"/>
-        <!-- Global Deterministic Prediction System (GDPS) -->
-    <map internalLocation="GDPS" internalParameter="PC.nwp" externalLocation="none" externalParameter="GDPS.ETA_PR"/>
-    <map internalLocation="GDPS" internalParameter="TA.nwp" externalLocation="none" externalParameter="GDPS.ETA_TT"/>
     <!-- Regional Ensemble Prediction System (REPS) - Surface Precipitation-->
     <map internalLocation="REPS" internalParameter="PC.nwp" internalEnsemble="REPS" internalEnsembleMemberId="0" externalLocation="none" externalParameter="REPS.MEM.ETA_PR.01"/>
     <map internalLocation="REPS" internalParameter="PC.nwp" internalEnsemble="REPS" internalEnsembleMemberId="1" externalLocation="none" externalParameter="REPS.MEM.ETA_PR.02"/>

@@ -323,9 +323,6 @@ http://fews.wldelft.nl/schemas/version1.0/parameters.xsd">
 		<parameter id="TAmax.forecast" name="TAmax.forecast">
 			<shortName>TAmax.forecast</shortName>
 		</parameter>
-		<parameter id="TA.forecast" name="TA.forecast">
-			<shortName>TA.forecast</shortName>
-		</parameter>
 		<parameter id="TA.corr" name="TA.corr">
 			<shortName>TA.corr</shortName>
 		</parameter>
