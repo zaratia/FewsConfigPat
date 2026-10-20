@@ -35,4 +35,6 @@
 	<moduleInstanceDescriptor id="ProcessReps"/>
 
 	<!--Set Forecast Length for Forecasts -->
+
+	<moduleInstanceDescriptor id="ImportGDPS"/>
 </moduleInstanceDescriptors>
