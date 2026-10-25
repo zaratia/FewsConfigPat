@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2014 rel. 2 sp1 (http://www.altova.com) by Afdeling ICT (Stichting Deltares) -->
+<generalAdapterRun xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.wldelft.nl/fews http://fews.wldelft.nl/schemas/version1.0/generalAdapterRun.xsd" xmlns="http://www.wldelft.nl/fews">
+	<general>
+		<description>geoframe ECMWF</description>
+		<rootDir>%REGION_HOME%/Modules</rootDir>
+		<workDir>%ROOT_DIR%</workDir>
+		<exportDir>%ROOT_DIR%/GeoframeHistorical/fews_input</exportDir>
+		<exportDataSetDir>%ROOT_DIR%/</exportDataSetDir>
+		<exportIdMap>IdExportGeoframeHistoric</exportIdMap>
+		<exportUnitConversionsId>ExportGeoframe</exportUnitConversionsId>
+		<importDir>%ROOT_DIR%/GeoframeHistorical/fews_output</importDir>		
+		<importIdMap>IdImportGeoframeHistoric</importIdMap>
+		<dumpFileDir>$GA_DUMPFILEDIR$</dumpFileDir>
+		<dumpDir>%ROOT_DIR%</dumpDir>
+		<diagnosticFile>%ROOT_DIR%/log/diag.xml</diagnosticFile>
+		<!--missVal>NaN</missVal>
+		<timeZone>
+			<timeZoneName>$TIMEZONE$</timeZoneName>
+		</timeZone>
+		<startDateTimeFormat>yyyy-MM-dd hh:mm:ss</startDateTimeFormat>
+		<modelTimeStep id="$DAY_TIMESTEP$"/-->
+	</general>
+	<activities>
+		
+		<!-- Clear output folders -->
+		<!--startUpActivities>
+			<purgeActivity>
+				<filter>%ROOT_DIR%/GeoframeHistorical/meteo/*.*</filter>
+			</purgeActivity>
+		</startUpActivities-->
+
+		<!-- Export state -->
+		<exportActivities>
+			<exportStateActivity>
+				<moduleInstanceId>GeoframeHistorical</moduleInstanceId>
+				<stateExportDir>%ROOT_DIR%/GeoframeHistorical/initState_files</stateExportDir>
+				<stateConfigFile>%ROOT_DIR%/GeoframeHistorical/initState_files/stateInfo.xml</stateConfigFile>
+				<stateLocations type="directory">
+					<stateLocation>
+						<readLocation>%ROOT_DIR%/GeoframeHistorical/finalState_files</readLocation>
+						<writeLocation>%ROOT_DIR%/GeoframeHistorical/initState_files</writeLocation>
+					</stateLocation>
+				</stateLocations>
+				<stateSelection>
+					<warmState>
+						<stateSearchPeriod unit="hour" start="-100" end="-1"/>
+					</warmState>
+				</stateSelection>
+			</exportStateActivity>	
+			<exportDataSetActivity>
+				<moduleDataSetName>GeoframeHistorical</moduleDataSetName>
+			</exportDataSetActivity>
+			<!-- Export meteo input NETCDF -->
+			<exportNetcdfActivity>
+				<exportFile>precipitation.nc</exportFile>
+				<timeSeriesSets>
+					<timeSeriesSet>
+						<moduleInstanceId>InterpolateForecastNearest_template</moduleInstanceId>
+						<valueType>scalar</valueType>
+						<parameterId>P.obs</parameterId>
+						<locationSetId>Centroids_Brenta_TP</locationSetId>
+						<timeSeriesType>external forecasting</timeSeriesType>
+						<timeStep unit="hour" multiplier="1"/>
+						<relativeViewPeriod unit="hour" startOverrulable="true" endOverrulable="true" end="60"/>
+						<readWriteMode>read complete forecast</readWriteMode>
+					</timeSeriesSet>
+				</timeSeriesSets>
+				<!--omitMissingValues>true</omitMissingValues-->
+			</exportNetcdfActivity>		
+			<exportNetcdfActivity>
+				<exportFile>temperature.nc</exportFile>
+				<timeSeriesSets>
+					<timeSeriesSet>
+						<moduleInstanceId>InterpolateForecastNearest_template</moduleInstanceId>
+						<valueType>scalar</valueType>
+						<parameterId>T.obs</parameterId>
+						<locationSetId>Centroids_Brenta_TA</locationSetId>
+						<timeSeriesType>external historical</timeSeriesType>
+						<timeStep unit="hour" multiplier="1"/>
+						<relativeViewPeriod unit="hour" startOverrulable="true" endOverrulable="true" end="60"/>
+						<readWriteMode>read complete forecast</readWriteMode>
+					</timeSeriesSet>
+				</timeSeriesSets>
+				<!--omitMissingValues>true</omitMissingValues-->
+			</exportNetcdfActivity>
+			<exportRunFileActivity>
+				<exportFile>%ROOT_DIR%/GeoframeHistorical/bash_hpc/fews.xml</exportFile>
+			</exportRunFileActivity>			
+		</exportActivities>
+		
+		<!-- EXECUTE ACTIVITIES -->
+		<executeActivities>		
+			<executeActivity>
+				<command>
+					<executable>%ROOT_DIR%/GeoframeHistorical/bash_hpc/launch_etp_rrm.bat</executable>
+				</command>
+				<timeOut>200000</timeOut>
+				<ignoreDiagnostics>true</ignoreDiagnostics>
+			</executeActivity>
+		</executeActivities>		
+
+		<!-- IMPORT ACTIVITIES -->
+		<importActivities>
+			<importStateActivity>
+				<!-- Snow state -->
+				<stateFile>
+					<importFile>%ROOT_DIR%/GeoframeHistorical/finalState_files/finalState_files.zip</importFile>
+					<relativeExportFile>initState_files.zip</relativeExportFile>
+				</stateFile>
+			</importStateActivity>
+			<!--importNetcdfActivity>
+				<importFile>%ROOT_DIR%/spyic-top-files/OUTPUT/out_WE.nc</importFile>
+				<timeSeriesSets>
+					<timeSeriesSet>
+						<moduleInstanceId>Spyictop_Historic</moduleInstanceId>
+						<valueType>scalar</valueType>
+						<parameterId>WE.simulated</parameterId>
+						<locationSetId>bz_centroids_topo60</locationSetId>
+						<timeSeriesType>simulated historical</timeSeriesType>
+						<timeStep unit="hour" multiplier="1"/>
+						<readWriteMode>add originals</readWriteMode>
+					</timeSeriesSet>
+				</timeSeriesSets>
+			</importNetcdfActivity-->
+			<importNetcdfActivity>
+				<importFile>%ROOT_DIR%/GeoframeHistorical/fews_output/RRM_Qout_all.nc</importFile>
+				<timeSeriesSets>
+					<timeSeriesSet>
+						<moduleInstanceId>GeoframeECMWF</moduleInstanceId>
+						<valueType>scalar</valueType>
+						<parameterId>Qout.sim</parameterId>
+						<locationSetId>Q_stations_Brenta</locationSetId>
+						<timeSeriesType>simulated forecasting</timeSeriesType>
+						<timeStep unit="hour" multiplier="1"/>
+						<readWriteMode>add originals</readWriteMode>
+						<ensembleId>main</ensembleId>
+					</timeSeriesSet>
+				</timeSeriesSets>
+			</importNetcdfActivity>
+		</importActivities>
+	</activities>
+</generalAdapterRun>

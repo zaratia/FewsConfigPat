@@ -44,10 +44,7 @@
 			<timeSeriesType>simulated historical</timeSeriesType>
 			<timeStep unit="hour"/>
 			<relativeViewPeriod unit="day" start="-5" end="0"/>
-			<readWriteMode>read complete forecast</readWriteMode>
-			<synchLevel>0</synchLevel>
-			<ensembleId>main</ensembleId>
-			<ensembleMemberIndex>0</ensembleMemberIndex>
+			<readWriteMode>editing visible to all future task runs</readWriteMode>
 		</timeSeriesSet>
 	</filter>
 
