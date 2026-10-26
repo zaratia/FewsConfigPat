@@ -187,7 +187,7 @@
 		</explorerTask>
 		<explorerTask name="Forecast Management">
 			<mnemonic>F</mnemonic>
-			<taskClass>nl.wldelft.fews.gui.plugin.forecasT.forecastDialog</taskClass>
+			<taskClass>nl.wldelft.fews.gui.plugin.forecast.ForecastDialog</taskClass>
 			<toolbarTask>true</toolbarTask>
 			<menubarTask>true</menubarTask>
 			<accelerator>ctrl F</accelerator>

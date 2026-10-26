@@ -22,9 +22,10 @@
 	<!--PAT-->
 		<workflowDescriptor id="ImportCSVstations" name="Import station data from CSV\ and CSV_NE\" visible="true" forecast="false" autoApprove="false" allowApprove="false"/>
 		<workflowDescriptor id="Export_timeseries_OA_NETCDF" name="Export station data to OA" visible="true" forecast="false" autoApprove="false" allowApprove="false"/>
-		<workflowDescriptor id="ImportCSVcentroids" name="Import basin centroids data from CSV" visible="true" forecast="false" autoApprove="false" allowApprove="false"/>
+		<workflowDescriptor id="ImportCSVcentroids" name="Import Kriging basin data from CSV" visible="true" forecast="false" autoApprove="false" allowApprove="false"/>
 		<workflowDescriptor id="RunGeoframeHistoric" name="Run Geoframe Historical" visible="true" forecast="true"/>
-		<workflowDescriptor id="Import_ECMWF_OAnc" name="Import ECMWF OA netcdf" visible="true" forecast="false" autoApprove="false" allowApprove="false">
+		<workflowDescriptor id="RunGeoframeECMWF" name="Run Geoframe ECMWF Forecast" visible="true" forecast="true" autoApprove="false" allowApprove="true"/>
+		<workflowDescriptor id="Import_ECMWF_OAnc" name="Import ECMWF netcdf" visible="true" forecast="false" autoApprove="false" allowApprove="false">
 			<cardinalTimeStep timeZone="GMT" unit="hour" multiplier="1"/>
 		</workflowDescriptor>
 	<!--PAT-->
@@ -40,11 +41,16 @@
 	<!--Processing-->
 	<workflowDescriptor id="Process_Reps" name="Process REPS" visible="false" forecast="false" autoApprove="true" allowApprove="false"/>
 	<rootNode>
-		<node name="Run Geoframe">
-			<workflowId>RunGeoframeHistoric</workflowId>
-		</node>
 		<node name="Import PAT station data">
 			<workflowId>ImportCSVstations</workflowId>
+		</node>
+		<node name="Import PAT interpolated centroid data">
+			<workflowId>ImportCSVcentroids</workflowId>
+			<workflowId>Import_ECMWF_OAnc</workflowId>
+		</node>
+		<node name="Run Geoframe">
+			<workflowId>RunGeoframeHistoric</workflowId>
+			<workflowId>RunGeoframeECMWF</workflowId>
 		</node>
 		<node name="Export PAT station data to OpenArchive">
 			<workflowId>Export_timeseries_OA_NETCDF</workflowId>
@@ -52,15 +58,11 @@
 		<node name="Import PAT station data from OpenArchive">
 			<workflowId>OpenArchive_Import</workflowId>
 		</node>
-		<node name="Import PAT centroid data">
-			<workflowId>ImportCSVcentroids</workflowId>
-		</node>
 		<node name="Import Station Observations">
 			<workflowId>ImportWSCDaily</workflowId>
 			<workflowId>ImportWSCHourly</workflowId>
 		</node>
-		<node name="Import Meteo Forecasts">
-			<workflowId>Import_ECMWF_OAnc</workflowId>
+		<node name="Import Meteo Forecasts Delme">
 			<workflowId>ImportRDPAGrids</workflowId>
 			<workflowId>ImportREPSGrids</workflowId>
 			<workflowId>ImportGFSGrids</workflowId>

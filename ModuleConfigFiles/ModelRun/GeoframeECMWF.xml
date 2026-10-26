@@ -7,10 +7,10 @@
 		<workDir>%ROOT_DIR%</workDir>
 		<exportDir>%ROOT_DIR%/GeoframeHistorical/fews_input</exportDir>
 		<exportDataSetDir>%ROOT_DIR%/</exportDataSetDir>
-		<exportIdMap>IdExportGeoframeHistoric</exportIdMap>
+		<exportIdMap>IdExportGeoframeECMWF</exportIdMap>
 		<exportUnitConversionsId>ExportGeoframe</exportUnitConversionsId>
 		<importDir>%ROOT_DIR%/GeoframeHistorical/fews_output</importDir>		
-		<importIdMap>IdImportGeoframeHistoric</importIdMap>
+		<importIdMap>IdImportGeoframeECMWF</importIdMap>
 		<dumpFileDir>$GA_DUMPFILEDIR$</dumpFileDir>
 		<dumpDir>%ROOT_DIR%</dumpDir>
 		<diagnosticFile>%ROOT_DIR%/log/diag.xml</diagnosticFile>
@@ -58,7 +58,7 @@
 					<timeSeriesSet>
 						<moduleInstanceId>InterpolateForecastNearest_template</moduleInstanceId>
 						<valueType>scalar</valueType>
-						<parameterId>P.obs</parameterId>
+						<parameterId>P.forecast</parameterId>
 						<locationSetId>Centroids_Brenta_TP</locationSetId>
 						<timeSeriesType>external forecasting</timeSeriesType>
 						<timeStep unit="hour" multiplier="1"/>
@@ -74,9 +74,9 @@
 					<timeSeriesSet>
 						<moduleInstanceId>InterpolateForecastNearest_template</moduleInstanceId>
 						<valueType>scalar</valueType>
-						<parameterId>T.obs</parameterId>
+						<parameterId>T.forecast</parameterId>
 						<locationSetId>Centroids_Brenta_TA</locationSetId>
-						<timeSeriesType>external historical</timeSeriesType>
+						<timeSeriesType>external forecasting</timeSeriesType>
 						<timeStep unit="hour" multiplier="1"/>
 						<relativeViewPeriod unit="hour" startOverrulable="true" endOverrulable="true" end="60"/>
 						<readWriteMode>read complete forecast</readWriteMode>
@@ -129,7 +129,7 @@
 					<timeSeriesSet>
 						<moduleInstanceId>GeoframeECMWF</moduleInstanceId>
 						<valueType>scalar</valueType>
-						<parameterId>Qout.sim</parameterId>
+						<parameterId>Qout.forecast</parameterId>
 						<locationSetId>Q_stations_Brenta</locationSetId>
 						<timeSeriesType>simulated forecasting</timeSeriesType>
 						<timeStep unit="hour" multiplier="1"/>

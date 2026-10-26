@@ -23,6 +23,7 @@
 	<moduleInstanceDescriptor id="Interpolate_ECMWF"/> <!-- dummy -->
 	<!--Forecast PAT-->
 	<moduleInstanceDescriptor id="GeoframeHistorical"/>
+	<moduleInstanceDescriptor id="GeoframeECMWF"/>
 	<!--Process PAT-->
 	<moduleInstanceDescriptor id="InterpolateForecastNearest_template"/>
 	

@@ -48,6 +48,10 @@ http://fews.wldelft.nl/schemas/version1.0/parameters.xsd">
 			<shortName>Qout.sim</shortName>
 			<description>Flow</description>
 		</parameter>
+		<parameter id="Qout.forecast" name="Qout.forecast">
+			<shortName>Qout.forecast</shortName>
+			<description>Flow</description>
+		</parameter>
 		<!-- PAT -->
 		<parameter id="QI.obs" name="QI.obs">
 			<shortName>QI.obs</shortName>
