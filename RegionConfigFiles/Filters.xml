@@ -90,7 +90,7 @@
 			<locationSetId>Centroids_Brenta_TA</locationSetId>
 			<timeSeriesType>external forecasting</timeSeriesType>
 			<timeStep unit="hour" multiplier="1"/>
-			<relativeViewPeriod unit="day" start="-5" end="0"/>
+			<relativeViewPeriod unit="day" start="-5" end="5"/>
 			<readWriteMode>read only</readWriteMode>
 		</timeSeriesSet>
 	</filter>	
@@ -102,7 +102,7 @@
 			<locationSetId>Centroids_Brenta_TP</locationSetId>
 			<timeSeriesType>external forecasting</timeSeriesType>
 			<timeStep unit="hour" multiplier="1"/>
-			<relativeViewPeriod unit="day" start="-5" end="0"/>
+			<relativeViewPeriod unit="day" start="-5" end="5"/>
 			<readWriteMode>read only</readWriteMode>
 		</timeSeriesSet>
 	</filter>	
