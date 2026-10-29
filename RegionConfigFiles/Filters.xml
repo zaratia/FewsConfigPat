@@ -10,6 +10,8 @@
 		<mapExtentId>Trentino</mapExtentId>
 		<child foreignKey="PluviometriPAT"/>
 		<child foreignKey="TermometriPAT"/>
+		<child foreignKey="dailyprec"/>
+		<child foreignKey="dailytemp"/>
 		<!--child foreignKey="TermometriPAT_ne"/-->
 	</filter>
 	<!-- First Level Filters -->
@@ -106,6 +108,30 @@
 			<readWriteMode>read only</readWriteMode>
 		</timeSeriesSet>
 	</filter>	
+	<filter id="dailyprec" name="Daily precipitation [mm]">
+		<timeSeriesSet>
+			<moduleInstanceId>Import_Daily_Station</moduleInstanceId>
+			<valueType>scalar</valueType>
+			<parameterId>P.obs</parameterId>
+			<locationSetId>Stazioni_TP_PAT</locationSetId>
+			<timeSeriesType>external historical</timeSeriesType>
+			<timeStep unit="day"/>
+			<relativeViewPeriod unit="day" start="-5" end="0"/>
+			<readWriteMode>read only</readWriteMode>
+		</timeSeriesSet>
+	</filter>
+	<filter id="dailytemp" name="Daily temperature [°C]">
+		<timeSeriesSet>
+			<moduleInstanceId>Import_Daily_Station</moduleInstanceId>
+			<valueType>scalar</valueType>
+			<parameterId>T.obs</parameterId>
+			<locationSetId>Stazioni_TA_PAT</locationSetId>
+			<timeSeriesType>external historical</timeSeriesType>
+			<timeStep unit="day"/>
+			<relativeViewPeriod unit="day" start="-5" end="0"/>
+			<readWriteMode>read only</readWriteMode>
+		</timeSeriesSet>
+	</filter>
 	<filter id="PluviometriPAT" name="Precipitation [mm]">
 		<timeSeriesSet>
 			<moduleInstanceId>Import_stations_CSV</moduleInstanceId>

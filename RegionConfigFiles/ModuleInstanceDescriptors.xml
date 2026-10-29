@@ -17,7 +17,8 @@
 	<moduleInstanceDescriptor id="Import_Station"/>
 	<moduleInstanceDescriptor id="Archive_Export_Observed"/>
 	<moduleInstanceDescriptor id="Import_centroids_CSV"/>
-	<moduleInstanceDescriptor id="Import_Archived_Data"/>	
+	<moduleInstanceDescriptor id="Import_Archived_Data"/>
+	<moduleInstanceDescriptor id="Import_Daily_Station"/>
 	<!-- PAT forecast-->
 	<moduleInstanceDescriptor id="Import_ECMWF_OAnc_template"/>
 	<moduleInstanceDescriptor id="Interpolate_ECMWF"/> <!-- dummy -->
