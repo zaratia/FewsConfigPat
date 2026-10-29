@@ -58,10 +58,10 @@ http://fews.wldelft.nl/schemas/version1.0/gridDisplay.xsd">
 			<geoDatum>WGS 1984</geoDatum>
 			<projection>web_mercator</projection>
 			<defaultExtent id="Trentino">
-				<left>9</left>
+				<left>10</left>
 				<right>12</right>
-				<top>47</top>
-				<bottom>44</bottom>
+				<top>46.65</top>
+				<bottom>45.55</bottom>
 			</defaultExtent>
 			<extraExtent id="Northwest Territories">
 				<left>-120</left>

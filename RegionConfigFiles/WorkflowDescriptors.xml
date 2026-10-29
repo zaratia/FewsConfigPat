@@ -24,7 +24,7 @@
 		<workflowDescriptor id="Export_timeseries_OA_NETCDF" name="Export station data to OA" visible="true" forecast="false" autoApprove="false" allowApprove="false"/>
 		<workflowDescriptor id="ImportCSVcentroids" name="Import Kriging basin data from CSV" visible="true" forecast="false" autoApprove="false" allowApprove="false"/>
 		<workflowDescriptor id="RunGeoframeHistoric" name="Run Geoframe Historical" visible="true" forecast="true"/>
-		<workflowDescriptor id="RunGeoframeECMWF" name="Run Geoframe ECMWF Forecast" visible="true" forecast="true" autoApprove="false" allowApprove="true"/>
+		<workflowDescriptor id="RunGeoframeECMWF" name="Run Geoframe ECMWF Forecast" visible="true" forecast="true" autoApprove="true" allowApprove="true"/>
 		<workflowDescriptor id="Import_ECMWF_OAnc" name="Import ECMWF netcdf" visible="true" forecast="false" autoApprove="false" allowApprove="false">
 			<cardinalTimeStep timeZone="GMT" unit="hour" multiplier="1"/>
 		</workflowDescriptor>

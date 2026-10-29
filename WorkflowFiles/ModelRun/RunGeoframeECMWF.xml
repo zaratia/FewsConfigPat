@@ -1,5 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <workflow xmlns="http://www.wldelft.nl/fews" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.wldelft.nl/fews http://fews.wldelft.nl/schemas/version1.0/workflow.xsd" version="1.1">
+		<!-- import forecast temperature and precipitation grids -->
+	<activity>
+		<properties>
+			<string key="meteovar" value="ta2m"/>
+			<string key="internal_meteovar" value="T.forecast"/>
+		</properties>
+		<runIndependent>true</runIndependent>
+		<moduleInstanceId>Import_ECMWF_OAnc_template</moduleInstanceId>
+	</activity><activity>
+		<properties>
+			<string key="meteovar" value="tp"/>
+			<string key="internal_meteovar" value="P.forecast"/>
+		</properties>
+		<runIndependent>true</runIndependent>
+		<moduleInstanceId>Import_ECMWF_OAnc_template</moduleInstanceId>
+	</activity>	
+	<!-- interpolate to centroids -->
+	<activity>
+		<properties>
+			<string key="internal_var" value="P.forecast"/>
+			<string key="internal_var2" value="P.forecast"/>
+			<string key="locationSetId" value="Centroids_Brenta_TP"/>
+		</properties>
+		<runIndependent>true</runIndependent>
+		<moduleInstanceId>InterpolateForecastNearest_template</moduleInstanceId>
+	</activity>
+	<activity>
+		<properties>
+			<string key="internal_var" value="T.forecast"/>
+			<string key="internal_var2" value="T.forecast"/>
+			<string key="locationSetId" value="Centroids_Brenta_TA"/>
+		</properties>
+		<runIndependent>true</runIndependent>
+		<moduleInstanceId>InterpolateForecastNearest_template</moduleInstanceId>
+	</activity>	
 	<!-- Run Model Historic -->
 	<activity>
 		<runIndependent>true</runIndependent>
