@@ -47,6 +47,16 @@
 		</nodes>
 	</nodes>
 	<nodes id="ImportStationObservations" name="Import Station Observations">
+		<node id="Import_Hourly_CSV" name="Import Hourly Station Data">
+			<workflowId>ImportCSVstations</workflowId>
+			<graceTime unit="hour" multiplier="24"/>
+			<gridDisplaySelection>
+				<groupId>ImportWSCHourly</groupId>
+				<plotId>WSCHourlyTemplate</plotId>
+			</gridDisplaySelection>
+			<localRun>false</localRun>
+			<showRunApprovedForecastButton>true</showRunApprovedForecastButton>
+		</node>
 		<node id="ImportWSCHourly" name="Import Hourly Hydro Station Data (WSC, past day)">
 			<workflowId>ImportWSCHourly</workflowId>
 			<graceTime unit="hour" multiplier="24"/>
@@ -68,9 +78,9 @@
 			<showRunApprovedForecastButton>true</showRunApprovedForecastButton>
 		</node>
 	</nodes>
-	<nodes id="ImportMeteoForecasts" name="Import Meteo Forecasts ">
-		<node id="ImportRDPA" name="ECCC RDPA (Regional Deterministic Precip Analysis)">
-			<workflowId>ImportRDPAGrids</workflowId>
+	<nodes id="QoutForecast" name="Disharge forecast">
+		<node id="GeoframeECMWF" name="Geoframe ECMWF forecast">
+			<workflowId>RunGeoframeECMWF</workflowId>
 			<graceTime unit="hour" multiplier="6"/>
 			<gridDisplaySelection>
 				<groupId>RDPA</groupId>

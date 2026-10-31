@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<transformationModule version="1.0" xmlns="http://www.wldelft.nl/fews" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.wldelft.nl/fews http://fews.wldelft.nl/schemas/version1.0/transformationModule.xsd">
+
+	<variable>
+		<variableId>Qhist</variableId>
+		<timeSeriesSet>
+			<moduleInstanceId>GeoframeHistorical</moduleInstanceId>
+			<valueType>scalar</valueType>
+			<parameterId>Qout.sim</parameterId>
+			<locationSetId>Q_stations_Brenta</locationSetId>
+			<timeSeriesType>simulated historical</timeSeriesType>
+			<timeStep unit="hour" multiplier="1"/>
+			<relativeViewPeriod unit="hour" start="-48" end="120" startOverrulable="true" endOverrulable="true"/>		  
+			<readWriteMode>add originals</readWriteMode>
+		</timeSeriesSet>
+	</variable>	
+
+	<variable>
+		<variableId>Qfore</variableId>
+		<timeSeriesSet>
+			<moduleInstanceId>GeoframeECMWF</moduleInstanceId>
+			<valueType>scalar</valueType>
+			<parameterId>Qout.forecast</parameterId>
+			<locationSetId>Q_stations_Brenta</locationSetId>
+			<timeSeriesType>simulated forecasting</timeSeriesType>
+			<timeStep unit="hour" multiplier="1"/>
+			<relativeViewPeriod unit="hour" start="-48" end="120" startOverrulable="true" endOverrulable="true"/>		  
+			<readWriteMode>add originals</readWriteMode>
+		</timeSeriesSet>
+	</variable>	
+
+	<variable>
+		<variableId>Qmerge</variableId>
+		<timeSeriesSet>
+			<moduleInstanceId>MergeGeoframeECMWF</moduleInstanceId>
+			<valueType>scalar</valueType>
+			<parameterId>Qout.merge</parameterId>
+			<locationSetId>Q_stations_Brenta</locationSetId>
+			<timeSeriesType>external forecasting</timeSeriesType>
+			<timeStep unit="hour" multiplier="1"/>
+			<relativeViewPeriod unit="hour" start="-48" end="120" startOverrulable="true" endOverrulable="true"/>		  
+			<readWriteMode>add originals</readWriteMode>
+		</timeSeriesSet>
+	</variable>	
+
+    <!-- Merge Qout -->
+	<transformation id="MergeQout">
+		<merge>
+			<simple>
+				<inputVariable>
+					<variableId>Qhist</variableId>
+				</inputVariable>
+				<inputVariable>
+					<variableId>Qfore</variableId>
+				</inputVariable>
+				<outputVariable>
+					<variableId>Qmerge</variableId>
+				</outputVariable>
+			</simple>
+		</merge>
+   </transformation>	
+	
+</transformationModule>

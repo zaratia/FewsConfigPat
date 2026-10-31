@@ -44,7 +44,7 @@
 				</stateLocations>
 				<stateSelection>
 					<warmState>
-						<stateSearchPeriod unit="hour" start="-100" end="-1"/>
+						<stateSearchPeriod unit="hour" start="-100" end="0"/>
 					</warmState>
 				</stateSelection>
 			</exportStateActivity>	

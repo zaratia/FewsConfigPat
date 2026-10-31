@@ -178,7 +178,21 @@ http://fews.wldelft.nl/schemas/version1.0/gridDisplay.xsd">
 	<defaults>
 		<commentPositioning>topLeft</commentPositioning>
 	</defaults>
-	<gridPlotGroup id="HydrologicalStations" name="Hydrological Stations (WSC)">
+	<gridPlotGroup id="HydrologicalStations" name="Hydrological Stations (PAT)">
+		<gridPlot id="RecentObservedpREC" name="Recent Precipitation at Local Stations [mm]">
+			<timeSeriesSet>
+				<moduleInstanceId>Import_stations_CSV</moduleInstanceId>
+				<valueType>scalar</valueType>
+				<parameterId>P.obs</parameterId>
+				<locationSetId>Stazioni_TP_PAT</locationSetId>
+				<timeSeriesType>external historical</timeSeriesType>
+				<timeStep unit="hour" multiplier="1"/>
+				<relativeViewPeriod unit="day" start="-15" end="0"/>
+				<readWriteMode>add originals</readWriteMode>
+			</timeSeriesSet>
+			<showThumbnailsPanel>false</showThumbnailsPanel>
+			<classBreaksId>Class.Precipitation</classBreaksId>
+		</gridPlot>
 		<gridPlot id="RecentObservedDischarge" name="Recent Discharge at Local Stations [m�/s]">
 			<timeSeriesSet>
 				<moduleInstanceId>ImportWSC</moduleInstanceId>

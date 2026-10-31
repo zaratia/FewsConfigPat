@@ -35,9 +35,21 @@
 		<runIndependent>true</runIndependent>
 		<moduleInstanceId>InterpolateForecastNearest_template</moduleInstanceId>
 	</activity>	
-	<!-- Run Model Historic -->
+	<!-- Run Model Historic -->	
+	<activity>
+		<runIndependent>true</runIndependent>
+		<moduleInstanceId>GeoframeHistorical</moduleInstanceId>
+	</activity>
+	<!-- Run Model Forecast -->
 	<activity>
 		<runIndependent>true</runIndependent>
 		<moduleInstanceId>GeoframeECMWF</moduleInstanceId>
 	</activity>
+	<!-- Merge Model Forecast -->
+	<activity>
+		<runIndependent>true</runIndependent>	  
+		<moduleInstanceId>MergeGeoframeECMWF</moduleInstanceId>
+		<!--moduleConfigFileName>MergeGeoframeECMWF</moduleConfigFileName-->	  
+	</activity> 
+
 </workflow>

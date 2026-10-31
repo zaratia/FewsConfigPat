@@ -1,8 +1,83 @@
 <!-- edited with XMLSpy v2014 rel. 2 sp1 (http://www.altova.com) by Afdeling ICT (Stichting Deltares) -->
 <displayGroups xmlns="http://www.wldelft.nl/fews" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.wldelft.nl/fews http://fews.wldelft.nl/schemas/version1.0/displayGroups.xsd" version="1.0">
 	<!--Plot Templates Section-->
+
+	<!--Plot Templates - NWP Data -->
+	<plot id="ECMWFtemplate">
+		<subplot>
+			<line>
+				<timeSeriesSet>
+					<moduleInstanceId>GeoframeHistorical</moduleInstanceId>
+					<valueType>scalar</valueType>
+					<parameterId>Qout.sim</parameterId>
+					<locationSetId>Q_stations_Brenta</locationSetId>
+					<timeSeriesType>simulated historical</timeSeriesType>
+					<timeStep unit="hour" multiplier="1"/>
+					<readWriteMode>read only</readWriteMode>
+				</timeSeriesSet>
+			</line>
+			<line>
+				<timeSeriesSet>
+					<moduleInstanceId>GeoframeECMWF</moduleInstanceId>
+					<valueType>scalar</valueType>
+					<parameterId>Qout.forecast</parameterId>
+					<locationSetId>Q_stations_Brenta</locationSetId>
+					<timeSeriesType>simulated forecasting</timeSeriesType>
+					<timeStep unit="hour" multiplier="1"/>
+					<readWriteMode>read only</readWriteMode>
+				</timeSeriesSet>
+			</line>
+		</subplot>
+	</plot>
+
+	<!--Plot Template - Gauge Data -->
+	<plot id="PATHourlyTemplate">
+		<subplot>
+			<plotWeight>1</plotWeight>
+			<line>
+				<color>blue</color>
+				<lineStyle>constant</lineStyle>
+				<axis>left</axis>
+				<visibleInLegend>true</visibleInLegend>
+				<visibleInTable>true</visibleInTable>
+				<visibleInPlot>true</visibleInPlot>
+				<timeSeriesSet>
+					<moduleInstanceId>Import_stations_CSV</moduleInstanceId>
+					<valueType>scalar</valueType>
+					<parameterId>T.obs</parameterId>
+					<locationSetId>Stazioni_TA_PAT</locationSetId>
+					<timeSeriesType>external historical</timeSeriesType>
+					<timeStep unit="hour" multiplier="1"/>
+					<relativeViewPeriod unit="day" start="-10" end="0"/>
+					<readWriteMode>read only</readWriteMode>
+				</timeSeriesSet>
+			</line>
+		</subplot>
+		<subplot>
+			<plotWeight>2</plotWeight>
+			<line>
+				<color>red</color>
+				<lineStyle>bar</lineStyle>
+				<axis>left</axis>
+				<visibleInLegend>true</visibleInLegend>
+				<visibleInTable>true</visibleInTable>
+				<visibleInPlot>true</visibleInPlot>
+				<timeSeriesSet>
+					<moduleInstanceId>Import_stations_CSV</moduleInstanceId>
+					<valueType>scalar</valueType>
+					<parameterId>P.obs</parameterId>
+					<locationSetId>Stazioni_TP_PAT</locationSetId>
+					<timeSeriesType>external historical</timeSeriesType>
+					<timeStep unit="hour" multiplier="1"/>
+					<relativeViewPeriod unit="day" start="-10" end="0"/>
+					<readWriteMode>read only</readWriteMode>
+				</timeSeriesSet>
+			</line>
+		</subplot>
+	</plot>
+
 	<!--Plot Template - WSC Data Data-->
-	<plot id="WSCHourlyTemplate">
+	<!--plot id="WSCHourlyTemplate">
 		<subplot>
 			<line>
 				<color>blue</color>
@@ -41,9 +116,9 @@
 				</timeSeriesSet>
 			</line>
 		</subplot>
-	</plot>
+	</plot-->
 	<!--Plot Template - RDPA Data-->
-	<plot id="RDPATemplate">
+	<!--plot id="RDPATemplate">
 		<subplot>
 			<line>
 				<color>red</color>
@@ -62,9 +137,9 @@
 				</timeSeriesSet>
 			</line>
 		</subplot>
-	</plot>
+	</plot-->
 	<!--Plot Templates - NWP Data -->
-	<plot id="HRDPSTemplate">
+	<!--plot id="HRDPSTemplate">
 		<subplot>
 			<line>
 				<timeSeriesSet>
@@ -119,8 +194,8 @@
 				</timeSeriesSet>
 			</line>
 		</subplot>
-	</plot>
-	<plot id="REPSPCTemplate">
+	</plo-->
+	<!--plot id="REPSPCTemplate">
 		<subplot>
 			<line>
 				<color>blue</color>
@@ -206,8 +281,8 @@
 				</timeSeriesSet>
 			</area>
 		</subplot>
-	</plot>
-	<plot id="REPSTATemplate">
+	</plot-->
+	<!--plot id="REPSTATemplate">
 		<subplot>
 			<line>
 				<color>green</color>
@@ -293,9 +368,23 @@
 				</timeSeriesSet>
 			</area>
 		</subplot>
-	</plot>
+	</plot-->
 	<!--Display Groups -->
-	<displayGroup id="ImportWSCHourly" name="WSC Stations Hourly">
+	<displayGroup id="Import_Hourly_CSV" name="PAT Stations Hourly">
+		<nodeId>Import_Hourly_CSV</nodeId>
+		<singleLocationDisplays>
+			<locationSetId>Stazioni_TP_PAT</locationSetId>
+			<plotId>PATHourlyTemplate</plotId>
+		</singleLocationDisplays>
+	</displayGroup>
+	<displayGroup id="QoutForecast" name="Discharge forecast">
+		<nodeId>QoutForecast</nodeId>
+		<singleLocationDisplays>
+			<locationSetId>Q_stations_Brenta</locationSetId>
+			<plotId>ECMWFtemplate</plotId>
+		</singleLocationDisplays>
+	</displayGroup>
+	<!--displayGroup id="ImportWSCHourly" name="WSC Stations Hourly">
 		<nodeId>ImportWSCHourly</nodeId>
 		<singleLocationDisplays>
 			<locationSetId>DisplayMeteoStations</locationSetId>
@@ -325,5 +414,5 @@
 				<plotId>REPSTATemplate</plotId>
 			</singleLocationDisplays>
 		</displayGroup>
-	</displayGroup>
+	</displayGroup-->
 </displayGroups>

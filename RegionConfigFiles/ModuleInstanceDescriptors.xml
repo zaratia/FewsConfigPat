@@ -22,6 +22,7 @@
 	<!-- PAT forecast-->
 	<moduleInstanceDescriptor id="Import_ECMWF_OAnc_template"/>
 	<moduleInstanceDescriptor id="Interpolate_ECMWF"/> <!-- dummy -->
+	<moduleInstanceDescriptor id="MergeGeoframeECMWF"/>
 	<!--Forecast PAT-->
 	<moduleInstanceDescriptor id="GeoframeHistorical"/>
 	<moduleInstanceDescriptor id="GeoframeECMWF"/>
