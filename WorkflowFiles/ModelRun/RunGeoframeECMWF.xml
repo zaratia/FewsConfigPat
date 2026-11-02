@@ -36,10 +36,10 @@
 		<moduleInstanceId>InterpolateForecastNearest_template</moduleInstanceId>
 	</activity>	
 	<!-- Run Model Historic -->	
-	<activity>
+	<!--activity>
 		<runIndependent>true</runIndependent>
 		<moduleInstanceId>GeoframeHistorical</moduleInstanceId>
-	</activity>
+	</activit-->
 	<!-- Run Model Forecast -->
 	<activity>
 		<runIndependent>true</runIndependent>
