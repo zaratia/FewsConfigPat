@@ -23,8 +23,10 @@
 		<mapExtentId>Trentino</mapExtentId>
 		<child foreignKey="krigtemp"/>
 		<child foreignKey="krigprec"/>
-		<child foreignKey="foretemp"/>
-		<child foreignKey="foreprec"/>
+		<child foreignKey="foretempECMWF"/>
+		<child foreignKey="foreprecECMWF"/>
+		<child foreignKey="foretempicon2iensemble"/>
+		<child foreignKey="foreprecicon2iensemble"/>
 	</filter>
 
 	<filter id="hydro_sim" name="Simulated discharge [m³/s]">
@@ -94,9 +96,9 @@
 			<readWriteMode>read only</readWriteMode>
 		</timeSeriesSet>
 	</filter>
-	<filter id="foretemp" name="Forecast temperature [°C]">
+	<filter id="foretempECMWF" name="Forecast ECMWF temperature [°C]">
 		<timeSeriesSet>
-			<moduleInstanceId>InterpolateForecastNearest_template</moduleInstanceId>
+			<moduleInstanceId>InterpolateForecastNearest_ECMWF</moduleInstanceId>
 			<valueType>scalar</valueType>
 			<parameterId>T.forecast</parameterId>
 			<locationSetId>Centroids_Brenta_TA</locationSetId>
@@ -106,9 +108,9 @@
 			<readWriteMode>read only</readWriteMode>
 		</timeSeriesSet>
 	</filter>	
-	<filter id="foreprec" name="Forecast precipitation [mm]">
+	<filter id="foreprecECMWF" name="Forecast ECMWF precipitation [mm]">
 		<timeSeriesSet>
-			<moduleInstanceId>InterpolateForecastNearest_template</moduleInstanceId>
+			<moduleInstanceId>InterpolateForecastNearest_ECMWF</moduleInstanceId>
 			<valueType>scalar</valueType>
 			<parameterId>P.forecast</parameterId>
 			<locationSetId>Centroids_Brenta_TP</locationSetId>
@@ -116,6 +118,30 @@
 			<timeStep unit="hour" multiplier="1"/>
 			<relativeViewPeriod unit="day" start="-5" end="5"/>
 			<readWriteMode>read only</readWriteMode>
+		</timeSeriesSet>
+	</filter>	
+	<filter id="foretempicon2iensemble" name="Forecast ICON ensemble temperature [°C]">
+		<timeSeriesSet>
+			<moduleInstanceId>InterpolateForecastNearest_ICON2I_Ensemble</moduleInstanceId>
+			<valueType>scalar</valueType>
+			<parameterId>T.forecast</parameterId>
+			<locationSetId>Centroids_Brenta_TA</locationSetId>
+			<timeSeriesType>external forecasting</timeSeriesType>
+			<timeStep unit="hour"/>	
+			<readWriteMode>read complete forecast</readWriteMode>
+			<ensembleId>icon2ieps</ensembleId>
+		</timeSeriesSet>
+	</filter>	
+	<filter id="foreprecicon2iensemble" name="Forecast ICON ensemble precipitation [mm]">
+		<timeSeriesSet>
+			<moduleInstanceId>InterpolateForecastNearest_ICON2I_Ensemble</moduleInstanceId>
+			<valueType>scalar</valueType>
+			<parameterId>P.forecast</parameterId>
+			<locationSetId>Centroids_Brenta_TP</locationSetId>
+			<timeSeriesType>external forecasting</timeSeriesType>
+			<timeStep unit="hour"/>	
+			<readWriteMode>read complete forecast</readWriteMode>
+			<ensembleId>icon2ieps</ensembleId>
 		</timeSeriesSet>
 	</filter>	
 	<filter id="dailyprec" name="Daily precipitation [mm]">

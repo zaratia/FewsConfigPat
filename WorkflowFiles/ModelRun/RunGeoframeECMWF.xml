@@ -7,14 +7,15 @@
 			<string key="internal_meteovar" value="T.forecast"/>
 		</properties>
 		<runIndependent>true</runIndependent>
-		<moduleInstanceId>Import_ECMWF_OAnc_template</moduleInstanceId>
-	</activity><activity>
+		<moduleInstanceId>Import_ECMWF_OAnc</moduleInstanceId>
+	</activity>
+	<activity>
 		<properties>
 			<string key="meteovar" value="tp"/>
 			<string key="internal_meteovar" value="P.forecast"/>
 		</properties>
 		<runIndependent>true</runIndependent>
-		<moduleInstanceId>Import_ECMWF_OAnc_template</moduleInstanceId>
+		<moduleInstanceId>Import_ECMWF_OAnc</moduleInstanceId>
 	</activity>	
 	<!-- interpolate to centroids -->
 	<activity>
@@ -24,7 +25,7 @@
 			<string key="locationSetId" value="Centroids_Brenta_TP"/>
 		</properties>
 		<runIndependent>true</runIndependent>
-		<moduleInstanceId>InterpolateForecastNearest_template</moduleInstanceId>
+		<moduleInstanceId>InterpolateForecastNearest_ECMWF</moduleInstanceId>
 	</activity>
 	<activity>
 		<properties>
@@ -33,7 +34,7 @@
 			<string key="locationSetId" value="Centroids_Brenta_TA"/>
 		</properties>
 		<runIndependent>true</runIndependent>
-		<moduleInstanceId>InterpolateForecastNearest_template</moduleInstanceId>
+		<moduleInstanceId>InterpolateForecastNearest_ECMWF</moduleInstanceId>
 	</activity>	
 	<!-- Run Model Historic -->	
 	<!--activity>

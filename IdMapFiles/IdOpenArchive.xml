@@ -1,44 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <idMap version="1.1" xmlns="http://www.wldelft.nl/fews" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.wldelft.nl/fews http://fews.wldelft.nl/schemas/version1.0/idMap.xsd">
 
-<!--parameter internal="T.obs" external="ta"/-->
 <parameter internal="T.obs" external="ta2m"/>
-<!--parameter internal="T.8m.obs" external="ta8m"/-->
 <parameter internal="P.obs" external="tp"/>
 <parameter internal="T.forecast" external="ta2m"/>
 <parameter internal="P.forecast" external="tp"/>
-<!--parameter internal="SD.obs" external="snd"/>
-<parameter internal="TP" external="TP"/>
-<parameter internal="SWE.obs" external="swe"/>
-<parameter internal="NU.obs" external="cond"/>
-<parameter internal="Wind.dir" external="wd"/>
-<parameter internal="Wind.2m.dir" external="wd2m"/>
-<parameter internal="Wind.5m.dir" external="wd5m"/>
-<parameter internal="Wind.10m.dir" external="wd10m"/>
-<parameter internal="GW.obs" external="livfr"/>
-<parameter internal="GWA.obs" external="livfrass"/>
-<parameter internal="H1.obs" external="lividro1"/>
-<parameter internal="H2.obs" external="lividro2"/>
-<parameter internal="H3.obs" external="lividro3"/>
-<parameter internal="H1.obs" external="h1"/>
-<parameter internal="Q1.obs" external="q1"/>
-<parameter internal="Q2.obs" external="q2"/>
-<parameter internal="Q3.obs" external="q3"/>
-<parameter internal="QD.obs" external="qd"/>
-<parameter internal="QS.obs" external="qs"/>
-<parameter internal="Pressure.obs" external="press"/>
-<parameter internal="SR.obs" external="rad"/>
-<parameter internal="WT.obs" external="th2o"/>
-<parameter internal="GWT.obs" external="gwt"/>
-<parameter internal="HU.2m.obs" external="umid2m"/>
-<parameter internal="HU.5m.obs" external="umid5m"/>
-<parameter internal="HU.8m.obs" external="umid8m"/>
-<parameter internal="V.surf.obs" external="velsup"/>
-<parameter internal="Wind.speed" external="ws"/>
-<parameter internal="Wind.5m.speed" external="ws5m"/>
-<parameter internal="Wind.2m.speed" external="ws2m"/>
-<parameter internal="Wind.10m.speed" external="ws10m"/>
-<parameter internal="ET0.obs" external="et0"/-->
 
 <location internal="ecmwftn" external="ecmwftn"/>
 <location internal="icon2itn" external="icon2itn"/>

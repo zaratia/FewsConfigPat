@@ -20,16 +20,17 @@
 	<moduleInstanceDescriptor id="Import_Archived_Data"/>
 	<moduleInstanceDescriptor id="Import_Daily_Station"/>
 	<!-- PAT forecast-->
-	<moduleInstanceDescriptor id="Import_ECMWF_OAnc_template"/>
 	<moduleInstanceDescriptor id="Interpolate_ECMWF"/> <!-- dummy -->
+	<moduleInstanceDescriptor id="Import_ECMWF_OAnc"/>
 	<moduleInstanceDescriptor id="Import_ICON2I_Ensemble"/> <!-- dummy -->
+	<moduleInstanceDescriptor id="Import_ICON2I_Ensemble_OAnc"/>
 	<moduleInstanceDescriptor id="MergeGeoframeECMWF"/>
 	<!--Forecast PAT-->
 	<moduleInstanceDescriptor id="GeoframeHistorical"/>
 	<moduleInstanceDescriptor id="GeoframeECMWF"/>
 	<!--Process PAT-->
-	<moduleInstanceDescriptor id="InterpolateForecastNearest_template"/>
-	
+	<moduleInstanceDescriptor id="InterpolateForecastNearest_ECMWF"/>	
+	<moduleInstanceDescriptor id="InterpolateForecastNearest_ICON2I_Ensemble"/>	
 	<!-- Process -->
 	<moduleInstanceDescriptor id="MergeHistoricGrids"/>
 	<moduleInstanceDescriptor id="ModifyHistoricGrids"/>

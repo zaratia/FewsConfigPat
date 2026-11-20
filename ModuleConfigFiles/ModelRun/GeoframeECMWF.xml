@@ -56,7 +56,7 @@
 				<exportFile>precipitation.nc</exportFile>
 				<timeSeriesSets>
 					<timeSeriesSet>
-						<moduleInstanceId>InterpolateForecastNearest_template</moduleInstanceId>
+						<moduleInstanceId>InterpolateForecastNearest_ECMWF</moduleInstanceId>
 						<valueType>scalar</valueType>
 						<parameterId>P.forecast</parameterId>
 						<locationSetId>Centroids_Brenta_TP</locationSetId>
@@ -72,7 +72,7 @@
 				<exportFile>temperature.nc</exportFile>
 				<timeSeriesSets>
 					<timeSeriesSet>
-						<moduleInstanceId>InterpolateForecastNearest_template</moduleInstanceId>
+						<moduleInstanceId>InterpolateForecastNearest_ECMWF</moduleInstanceId>
 						<valueType>scalar</valueType>
 						<parameterId>T.forecast</parameterId>
 						<locationSetId>Centroids_Brenta_TA</locationSetId>
