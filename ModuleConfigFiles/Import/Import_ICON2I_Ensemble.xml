@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<timeSeriesImportRun xmlns="http://www.wldelft.nl/fews" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.wldelft.nl/fews http://fews.wldelft.nl/schemas/version1.0/timeSeriesImportRun.xsd">
+	<import>	
+		<general>
+			<importType>NETCDF-CF_GRID</importType>
+			<folder>$IMPORT_FOLDER$/NETCDF_FORECAST</folder>
+			<fileNamePatternFilter>*$meteovar$_icon2ieps.nc</fileNamePatternFilter>
+			<failedFolder>$IMPORT_FAILED_FOLDER$/NETCDF_FORECAST</failedFolder>
+			<backupFolder>$IMPORT_BACKUP_FOLDER$/NETCDF_FORECAST</backupFolder>
+			<idMapId>IdOpenArchive</idMapId>
+			<unitConversionsId>ImportUnitConversions</unitConversionsId>
+			<importTimeZone>
+				<timeZoneOffset>+00:00</timeZoneOffset>
+			</importTimeZone>
+			<expiryTime unit="day" multiplier="7"/>
+		</general>
+            <timeSeriesSet>
+                <moduleInstanceId>Import_ICON2I_Ensemble</moduleInstanceId>
+                <valueType>grid</valueType>
+                <parameterId>$internal_meteovar$</parameterId>
+                <locationId>icon2itn</locationId>
+                <timeSeriesType>external forecasting</timeSeriesType>
+                <timeStep unit="hour"/>	
+                <readWriteMode>read complete forecast</readWriteMode>
+                <ensembleId>icon2ieps</ensembleId>
+            </timeSeriesSet>
+		<externUnit parameterId="P.forecast" cumulativeSum="false" unit="mm"/>
+		<externUnit parameterId="T.forecast" cumulativeSum="false" unit="oC"/>
+	</import>
+</timeSeriesImportRun>

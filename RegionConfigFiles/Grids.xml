@@ -60,5 +60,16 @@
 		<xCellSize>0.10</xCellSize>
 		<yCellSize>0.10</yCellSize>
 	</regular>
+	<regular locationId="icon2itn">
+		<rows>96</rows>
+		<columns>104</columns>
+		<geoDatum>WGS 1984</geoDatum>
+		<firstCellCenter>
+			<x>10.15</x>
+			<y>47.34</y>
+		</firstCellCenter>
+		<xCellSize>0.025</xCellSize>
+		<yCellSize>0.020</yCellSize>
+	</regular>
 	<!-- PAT -->
 </grids>

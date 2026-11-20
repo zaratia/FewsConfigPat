@@ -193,7 +193,7 @@ http://fews.wldelft.nl/schemas/version1.0/gridDisplay.xsd">
 			<showThumbnailsPanel>false</showThumbnailsPanel>
 			<classBreaksId>Class.Precipitation</classBreaksId>
 		</gridPlot>
-		<gridPlot id="RecentObservedDischarge" name="Recent Discharge at Local Stations [m�/s]">
+		<gridPlot id="RecentObservedDischarge" name="Recent Discharge at Local Stations [m³/s]">
 			<timeSeriesSet>
 				<moduleInstanceId>ImportWSC</moduleInstanceId>
 				<valueType>scalar</valueType>
@@ -244,6 +244,43 @@ http://fews.wldelft.nl/schemas/version1.0/gridDisplay.xsd">
 					<relativeViewPeriod unit="hour" start="0" end="+72"/>
 					<readWriteMode>add originals</readWriteMode>
 					<synchLevel>6</synchLevel>
+				</timeSeriesSet>
+			</gridPlot>
+		</gridPlotGroup>
+		<gridPlotGroup id="icon" name="ICON">
+			<gridPlot id="Icon2i ensemble grid Precipitation [mm]">
+				<timeSeriesSet>
+					<moduleInstanceId>Import_ICON2I_Ensemble</moduleInstanceId>
+					<valueType>grid</valueType>
+					<parameterId>P.forecast</parameterId>
+					<locationId>icon2itn</locationId>
+					<timeSeriesType>external forecasting</timeSeriesType>
+					<timeStep unit="hour"/>	
+					<relativeViewPeriod unit="hour" start="0" end="+72"/>
+					<readWriteMode>read complete forecast</readWriteMode>
+					<ensembleId>icon2ieps</ensembleId>
+				</timeSeriesSet>
+				<accumulationTimeSpan unit="hour" multiplier="3"/>	
+				<accumulationTimeSpan unit="hour" multiplier="6"/>						
+				<accumulationTimeSpan unit="hour" multiplier="12"/>						
+				<accumulationTimeSpan unit="hour" multiplier="18"/>					
+				<accumulationTimeSpan unit="hour" multiplier="24"/>	
+				<accumulationTimeSpan unit="hour" multiplier="36"/>
+				<accumulationTimeSpan unit="hour" multiplier="48"/>
+				<accumulationTimeSpan unit="hour" multiplier="72"/>
+				<contourLinesColor>alice blue</contourLinesColor>
+			</gridPlot>
+			<gridPlot id="Icon2i ensemble grid Temperature [°C]">
+				<timeSeriesSet>
+					<moduleInstanceId>Import_ICON2I_Ensemble</moduleInstanceId>
+					<valueType>grid</valueType>
+					<parameterId>T.forecast</parameterId>
+					<locationId>icon2itn</locationId>
+					<timeSeriesType>external forecasting</timeSeriesType>
+					<timeStep unit="hour"/>	
+					<relativeViewPeriod unit="hour" start="0" end="+72"/>
+					<readWriteMode>read complete forecast</readWriteMode>
+					<ensembleId>icon2ieps</ensembleId>
 				</timeSeriesSet>
 			</gridPlot>
 		</gridPlotGroup>

@@ -28,6 +28,9 @@
 		<workflowDescriptor id="Import_ECMWF_OAnc" name="Import ECMWF netcdf" visible="true" forecast="false" autoApprove="false" allowApprove="false">
 			<cardinalTimeStep timeZone="GMT" unit="hour" multiplier="1"/>
 		</workflowDescriptor>
+			<workflowDescriptor id="Import_ICON_OAnc" name="Import ICON OA netcdf" visible="true" forecast="false" autoApprove="false" allowApprove="false">
+			<cardinalTimeStep timeZone="GMT" unit="hour" multiplier="1"/>
+		</workflowDescriptor>
 	<!--PAT-->
 	
 	<!-- OPEN ARCHIVE PAT-->
@@ -47,6 +50,9 @@
 		<node name="Import PAT interpolated centroid data">
 			<workflowId>ImportCSVcentroids</workflowId>
 			<workflowId>Import_ECMWF_OAnc</workflowId>
+		</node>
+		<node name="Import PAT grid forecast">		
+			<workflowId>Import_ICON_OAnc</workflowId>
 		</node>
 		<node name="Run Geoframe">
 			<workflowId>RunGeoframeHistoric</workflowId>
