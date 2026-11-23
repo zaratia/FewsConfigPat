@@ -50,30 +50,6 @@
 		<node id="Import_Hourly_CSV" name="Import Hourly Station Data">
 			<workflowId>ImportCSVstations</workflowId>
 			<graceTime unit="hour" multiplier="24"/>
-			<!--gridDisplaySelection>
-				<groupId>ImportWSCHourly</groupId>
-				<plotId>WSCHourlyTemplate</plotId>
-			</gridDisplaySelection-->
-			<localRun>false</localRun>
-			<showRunApprovedForecastButton>true</showRunApprovedForecastButton>
-		</node>
-		<node id="ImportWSCHourly" name="Import Hourly Hydro Station Data (WSC, past day)">
-			<workflowId>ImportWSCHourly</workflowId>
-			<graceTime unit="hour" multiplier="24"/>
-			<gridDisplaySelection>
-				<groupId>HydrologicalStations</groupId>
-				<plotId>RecentObservedDischarge</plotId>
-			</gridDisplaySelection>
-			<localRun>false</localRun>
-			<showRunApprovedForecastButton>true</showRunApprovedForecastButton>
-		</node>
-		<node id="ImportWSCDaily" name="Import Daily Hydro Station Data (WSC, past month)">
-			<workflowId>ImportWSCDaily</workflowId>
-			<graceTime unit="hour" multiplier="24"/>
-			<gridDisplaySelection>
-				<groupId>HydrologicalStations</groupId>
-				<plotId>RecentObservedDischarge</plotId>
-			</gridDisplaySelection>
 			<localRun>false</localRun>
 			<showRunApprovedForecastButton>true</showRunApprovedForecastButton>
 		</node>
@@ -96,26 +72,6 @@
 				<groupId>RDPA</groupId>
 				<plotId>RDPAPrecipitation</plotId>
 			</gridDisplaySelection-->
-			<localRun>false</localRun>
-			<showRunApprovedForecastButton>true</showRunApprovedForecastButton>
-		</node>
-		<node id="ImportREPS" name="ECCC REPS (Regional Ensemble Pred Sys)">
-			<workflowId>ImportREPSGrids</workflowId>
-			<graceTime unit="hour" multiplier="6"/>
-			<gridDisplaySelection>
-				<groupId>REPS</groupId>
-				<plotId>REPSPrecipitation</plotId>
-			</gridDisplaySelection>
-			<localRun>false</localRun>
-			<showRunApprovedForecastButton>true</showRunApprovedForecastButton>
-		</node>
-		<node id="ImportGFS" name="NOAA GFS (Global Pred Sys)">
-			<workflowId>ImportGFSGrids</workflowId>
-			<graceTime unit="hour" multiplier="6"/>
-			<gridDisplaySelection>
-				<groupId>GFS</groupId>
-				<plotId>GFSPrecipitation</plotId>
-			</gridDisplaySelection>
 			<localRun>false</localRun>
 			<showRunApprovedForecastButton>true</showRunApprovedForecastButton>
 		</node>

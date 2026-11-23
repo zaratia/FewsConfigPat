@@ -2,15 +2,11 @@
 <moduleInstanceDescriptors xmlns="http://www.wldelft.nl/fews" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.wldelft.nl/fews http://fews.wldelft.nl/schemas/version1.0/moduleInstanceDescriptors.xsd" version="1.0">
 	<!--Import -->
 	<moduleInstanceDescriptor id="ImportEccc"/>
-	<moduleInstanceDescriptor id="ImportGFS"/>
 	<moduleInstanceDescriptor id="ImportHRDPA"/>
 	<moduleInstanceDescriptor id="ImportNAM"/>
 	<moduleInstanceDescriptor id="ImportRDPA"/>
-	<moduleInstanceDescriptor id="ImportREPS"/>
 	<moduleInstanceDescriptor id="ImportWSC"/>
-	<moduleInstanceDescriptor id="ImportWSCDaily"/>
 	<moduleInstanceDescriptor id="ImportWSCHistoric"/>
-	<moduleInstanceDescriptor id="ImportWSCHourly"/>
 	<!--Import PAT-->
 	<moduleInstanceDescriptor id="Import_stations_CSV"/>
 	<moduleInstanceDescriptor id="Import_stations_CSV_nonequid"/>

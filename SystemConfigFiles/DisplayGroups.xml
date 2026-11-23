@@ -430,35 +430,4 @@
 			<plotId>plotICON2Iensemble</plotId>
 		</singleLocationDisplays>
 	</displayGroup>
-	<!--displayGroup id="ImportWSCHourly" name="WSC Stations Hourly">
-		<nodeId>ImportWSCHourly</nodeId>
-		<singleLocationDisplays>
-			<locationSetId>DisplayMeteoStations</locationSetId>
-			<plotId>WSCHourlyTemplate</plotId>
-		</singleLocationDisplays>
-	</displayGroup>
-	<displayGroup name="RDPA">
-		<nodeId>RDPA</nodeId>
-		<displayGroup id="RDPA" name="RDPA">
-			<nodeId>ImportRDPA</nodeId>
-			<singleLocationDisplays>
-				<locationSetId>DisplayMeteoStations</locationSetId>
-				<plotId>RDPATemplate</plotId>
-			</singleLocationDisplays>
-		</displayGroup>
-	</displayGroup>
-	<displayGroup name="REPSEnsemble">
-		<nodeId>REPSEnsemble</nodeId>
-		<displayGroup id="REPSEnsemble" name="REPSEnsemble">
-			<nodeId>ImportREPS</nodeId>
-			<singleLocationDisplays>
-				<locationSetId>DisplayMeteoStations</locationSetId>
-				<plotId>REPSPCTemplate</plotId>
-			</singleLocationDisplays>
-			<singleLocationDisplays>
-				<locationSetId>DisplayMeteoStations</locationSetId>
-				<plotId>REPSTATemplate</plotId>
-			</singleLocationDisplays>
-		</displayGroup>
-	</displayGroup-->
 </displayGroups>
