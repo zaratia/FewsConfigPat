@@ -17,7 +17,8 @@
 	<!-- First Level Filters -->
 	<filter id="Idrometri" name="Hydrometers">
 		<mapExtentId>Trentino</mapExtentId>
-		<child foreignKey="hydro_sim"/>
+		<child foreignKey="hydro_sim_ecmwf"/>
+		<child foreignKey="hydro_sim_icon2ieps"/>
 	</filter>
 	<filter id="basins" name="Brenta basins">
 		<mapExtentId>Trentino</mapExtentId>
@@ -29,7 +30,7 @@
 		<child foreignKey="foreprecicon2iensemble"/>
 	</filter>
 
-	<filter id="hydro_sim" name="Simulated discharge [m³/s]">
+	<filter id="hydro_sim_ecmwf" name="Simulated discharge ECMWF [m³/s]">
 		<!--timeSeriesSet>
 			<moduleInstanceId>GeoframeHistorical</moduleInstanceId>
 			<valueType>scalar</valueType>
@@ -69,6 +70,41 @@
 			<timeStep unit="hour"/>
 			<relativeViewPeriod unit="day" start="-5" end="5"/>
 			<readWriteMode>editing visible to all future task runs</readWriteMode>
+		</timeSeriesSet>
+	</filter>
+
+	<filter id="hydro_sim_icon2ieps" name="Simulated discharge ICON2I Ensemble [m³/s]">
+		<timeSeriesSet>
+			<moduleInstanceId>GeoframeHistorical</moduleInstanceId>
+			<valueType>scalar</valueType>
+			<parameterId>Qout.sim</parameterId>
+			<locationSetId>Q_stations_Brenta</locationSetId>
+			<timeSeriesType>simulated historical</timeSeriesType>
+			<timeStep unit="hour"/>
+			<relativeViewPeriod unit="day" start="-5" end="0"/>
+			<readWriteMode>editing visible to all future task runs</readWriteMode>
+		</timeSeriesSet>
+		<timeSeriesSet>
+			<moduleInstanceId>GeoframeICON2Iensemble</moduleInstanceId>
+			<valueType>scalar</valueType>
+			<parameterId>Qout.forecast</parameterId>
+			<locationSetId>Q_stations_Brenta</locationSetId>
+			<timeSeriesType>simulated forecasting</timeSeriesType>
+			<timeStep unit="hour"/>
+			<relativeViewPeriod unit="day" start="-5" end="5"/>
+			<readWriteMode>read complete forecast</readWriteMode>
+			<ensembleId>icon2ieps</ensembleId>
+		</timeSeriesSet>
+		<timeSeriesSet>
+			<moduleInstanceId>MergeGeoframeICON2Iensemble</moduleInstanceId>
+			<valueType>scalar</valueType>
+			<parameterId>Qout.merge</parameterId>
+			<locationSetId>Q_stations_Brenta</locationSetId>
+			<timeSeriesType>external forecasting</timeSeriesType>
+			<timeStep unit="hour"/>
+			<relativeViewPeriod unit="day" start="-5" end="5"/>
+			<readWriteMode>read complete forecast</readWriteMode>
+			<ensembleId>icon2ieps</ensembleId>
 		</timeSeriesSet>
 	</filter>
 

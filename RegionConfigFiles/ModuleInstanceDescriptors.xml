@@ -25,9 +25,11 @@
 	<moduleInstanceDescriptor id="Import_ICON2I_Ensemble"/> <!-- dummy -->
 	<moduleInstanceDescriptor id="Import_ICON2I_Ensemble_OAnc"/>
 	<moduleInstanceDescriptor id="MergeGeoframeECMWF"/>
+	<moduleInstanceDescriptor id="MergeGeoframeICON2Iensemble"/>
 	<!--Forecast PAT-->
 	<moduleInstanceDescriptor id="GeoframeHistorical"/>
 	<moduleInstanceDescriptor id="GeoframeECMWF"/>
+	<moduleInstanceDescriptor id="GeoframeICON2Iensemble"/>
 	<!--Process PAT-->
 	<moduleInstanceDescriptor id="InterpolateForecastNearest_ECMWF"/>	
 	<moduleInstanceDescriptor id="InterpolateForecastNearest_ICON2I_Ensemble"/>	

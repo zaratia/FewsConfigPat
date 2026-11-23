@@ -50,10 +50,10 @@
 		<node id="Import_Hourly_CSV" name="Import Hourly Station Data">
 			<workflowId>ImportCSVstations</workflowId>
 			<graceTime unit="hour" multiplier="24"/>
-			<gridDisplaySelection>
+			<!--gridDisplaySelection>
 				<groupId>ImportWSCHourly</groupId>
 				<plotId>WSCHourlyTemplate</plotId>
-			</gridDisplaySelection>
+			</gridDisplaySelection-->
 			<localRun>false</localRun>
 			<showRunApprovedForecastButton>true</showRunApprovedForecastButton>
 		</node>
@@ -86,6 +86,16 @@
 				<groupId>RDPA</groupId>
 				<plotId>RDPAPrecipitation</plotId>
 			</gridDisplaySelection>
+			<localRun>false</localRun>
+			<showRunApprovedForecastButton>true</showRunApprovedForecastButton>
+		</node>
+		<node id="GeoframeICON2Iensemble" name="Geoframe ICON2I ensemble forecast">
+			<workflowId>RunGeoframeICON2Iensemble</workflowId>
+			<graceTime unit="hour" multiplier="6"/>
+			<!--gridDisplaySelection>
+				<groupId>RDPA</groupId>
+				<plotId>RDPAPrecipitation</plotId>
+			</gridDisplaySelection-->
 			<localRun>false</localRun>
 			<showRunApprovedForecastButton>true</showRunApprovedForecastButton>
 		</node>

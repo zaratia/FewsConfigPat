@@ -25,6 +25,7 @@
 		<workflowDescriptor id="ImportCSVcentroids" name="Import Kriging basin data from CSV" visible="true" forecast="false" autoApprove="false" allowApprove="false"/>
 		<workflowDescriptor id="RunGeoframeHistoric" name="Run Geoframe Historical" visible="true" forecast="true"/>
 		<workflowDescriptor id="RunGeoframeECMWF" name="Run Geoframe ECMWF Forecast" visible="true" forecast="true" autoApprove="true" allowApprove="true"/>
+		<workflowDescriptor id="RunGeoframeICON2Iensemble" name="Run Geoframe ICON2I Ensemble Forecast" visible="true" forecast="true" autoApprove="true" allowApprove="true"/>
 		<workflowDescriptor id="Import_ECMWF_OAnc" name="Import ECMWF netcdf" visible="true" forecast="false" autoApprove="false" allowApprove="false">
 			<cardinalTimeStep timeZone="GMT" unit="hour" multiplier="1"/>
 		</workflowDescriptor>
@@ -55,6 +56,7 @@
 		<node name="Run Geoframe">
 			<workflowId>RunGeoframeHistoric</workflowId>
 			<workflowId>RunGeoframeECMWF</workflowId>
+			<workflowId>RunGeoframeICON2Iensemble</workflowId>
 		</node>
 		<node name="Export PAT station data to OpenArchive">
 			<workflowId>Export_timeseries_OA_NETCDF</workflowId>

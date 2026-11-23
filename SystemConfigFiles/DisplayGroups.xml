@@ -3,7 +3,7 @@
 	<!--Plot Templates Section-->
 
 	<!--Plot Templates - NWP Data -->
-	<plot id="ECMWFtemplate">
+	<plot id="plotECMWF">
 		<subplot>
 			<line>
 				<timeSeriesSet>
@@ -27,6 +27,43 @@
 					<timeStep unit="hour" multiplier="1"/>
 					<relativeViewPeriod unit="day" start="-15" end="+10"></relativeViewPeriod>
 					<readWriteMode>read only</readWriteMode>
+				</timeSeriesSet>
+			</line>
+		</subplot>
+	</plot>
+
+	<plot id="plotICON2Iensemble">
+		<visibilityGroup>Ensemble Spaghetti</visibilityGroup>
+		<visibilityGroup>Ensemble Plumes</visibilityGroup>
+		<subplot>
+			<line>
+				<timeSeriesSet>
+					<moduleInstanceId>GeoframeHistorical</moduleInstanceId>
+					<valueType>scalar</valueType>
+					<parameterId>Qout.sim</parameterId>
+					<locationSetId>Q_stations_Brenta</locationSetId>
+					<timeSeriesType>simulated historical</timeSeriesType>
+					<timeStep unit="hour" multiplier="1"/>
+					<relativeViewPeriod unit="day" start="-15" end="0"></relativeViewPeriod>
+					<readWriteMode>read only</readWriteMode>
+				</timeSeriesSet>
+			</line>
+			<line>
+				<visibilityGroup>Ensemble Spaghetti</visibilityGroup>
+				<visibilityGroup>Ensemble Plumes</visibilityGroup>
+				<color>blue</color>
+				<lineStyle>solid;thick</lineStyle>
+				<visibleInLegend>true</visibleInLegend>
+				<timeSeriesSet>
+					<moduleInstanceId>GeoframeICON2Iensemble</moduleInstanceId>
+					<valueType>scalar</valueType>
+					<parameterId>Qout.forecast</parameterId>
+					<locationSetId>Q_stations_Brenta</locationSetId>
+					<timeSeriesType>simulated forecasting</timeSeriesType>
+					<timeStep unit="hour"/>
+					<relativeViewPeriod unit="day" start="-5" end="5"/>
+					<readWriteMode>read complete forecast</readWriteMode>
+					<ensembleId>icon2ieps</ensembleId>
 				</timeSeriesSet>
 			</line>
 		</subplot>
@@ -379,11 +416,18 @@
 			<plotId>PATHourlyTemplate</plotId>
 		</singleLocationDisplays>
 	</displayGroup>
-	<displayGroup id="QoutForecast" name="Discharge forecast">
+	<displayGroup id="QoutForecast" name="Discharge ECMWF forecast">
 		<nodeId>QoutForecast</nodeId>
 		<singleLocationDisplays>
 			<locationSetId>Q_stations_Brenta</locationSetId>
-			<plotId>ECMWFtemplate</plotId>
+			<plotId>plotECMWF</plotId>
+		</singleLocationDisplays>
+	</displayGroup>	
+	<displayGroup id="QoutForecast" name="Discharge ICON2I ensemble forecast">
+		<nodeId>QoutForecast</nodeId>
+		<singleLocationDisplays>
+			<locationSetId>Q_stations_Brenta</locationSetId>
+			<plotId>plotICON2Iensemble</plotId>
 		</singleLocationDisplays>
 	</displayGroup>
 	<!--displayGroup id="ImportWSCHourly" name="WSC Stations Hourly">
