@@ -7,6 +7,8 @@
 	<qualifier id="min" name="min"/>
 	<qualifier id="25%" name="25%"/>
 	<qualifier id="75%" name="75%"/>
+	<qualifier id="33%" name="33%"/>
+	<qualifier id="66%" name="66%"/>
 	<!-- Additional Qualifiers-->
 	<qualifier id="Observed" name="Observed"/>
 	<qualifier id="GFS" name="GFS"/>

@@ -1,7 +1,6 @@
 <!-- edited with XMLSpy v2014 rel. 2 sp1 (http://www.altova.com) by Afdeling ICT (Stichting Deltares) -->
 <displayGroups xmlns="http://www.wldelft.nl/fews" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.wldelft.nl/fews http://fews.wldelft.nl/schemas/version1.0/displayGroups.xsd" version="1.0">
 	<!--Plot Templates Section-->
-
 	<!--Plot Templates - NWP Data -->
 	<plot id="plotECMWF">
 		<subplot>
@@ -37,6 +36,7 @@
 		<visibilityGroup>Ensemble Plumes</visibilityGroup>
 		<subplot>
 			<line>
+				<visibilityGroup>Ensemble Spaghetti</visibilityGroup>
 				<timeSeriesSet>
 					<moduleInstanceId>GeoframeHistorical</moduleInstanceId>
 					<valueType>scalar</valueType>
@@ -49,11 +49,6 @@
 				</timeSeriesSet>
 			</line>
 			<line>
-				<visibilityGroup>Ensemble Spaghetti</visibilityGroup>
-				<visibilityGroup>Ensemble Plumes</visibilityGroup>
-				<color>blue</color>
-				<lineStyle>solid;thick</lineStyle>
-				<visibleInLegend>true</visibleInLegend>
 				<timeSeriesSet>
 					<moduleInstanceId>GeoframeICON2Iensemble</moduleInstanceId>
 					<valueType>scalar</valueType>
@@ -61,11 +56,86 @@
 					<locationSetId>Q_stations_Brenta</locationSetId>
 					<timeSeriesType>simulated forecasting</timeSeriesType>
 					<timeStep unit="hour"/>
-					<relativeViewPeriod unit="day" start="-5" end="5"/>
+					<relativeViewPeriod unit="day" start="0" end="5"/>
 					<readWriteMode>read complete forecast</readWriteMode>
 					<ensembleId>icon2ieps</ensembleId>
 				</timeSeriesSet>
 			</line>
+		</subplot>
+		<subplot>
+			<line>
+				<visibilityGroup>Ensemble Plumes</visibilityGroup>
+				<color>black</color>
+				<lineStyle>dashed</lineStyle>
+				<visibleInLegend>true</visibleInLegend>
+				<timeSeriesSet>
+					<moduleInstanceId>CalculateEnsembleStatisticsTemplate</moduleInstanceId>
+					<valueType>scalar</valueType>
+					<parameterId>Qout.forecast</parameterId>
+					<qualifierId>min</qualifierId>
+					<locationSetId>Q_stations_Brenta</locationSetId>
+					<timeSeriesType>simulated forecasting</timeSeriesType>
+					<timeStep unit="hour" multiplier="1"/>
+					<readWriteMode>read complete forecast</readWriteMode>
+				</timeSeriesSet>
+			</line>
+			<line>
+				<visibilityGroup>Ensemble Plumes</visibilityGroup>
+				<color>black</color>
+				<lineStyle>dashed</lineStyle>
+				<visibleInLegend>true</visibleInLegend>
+				<timeSeriesSet>
+					<moduleInstanceId>CalculateEnsembleStatisticsTemplate</moduleInstanceId>
+					<valueType>scalar</valueType>
+					<parameterId>Qout.forecast</parameterId>
+					<qualifierId>max</qualifierId>
+					<locationSetId>Q_stations_Brenta</locationSetId>
+					<timeSeriesType>simulated forecasting</timeSeriesType>
+					<timeStep unit="hour" multiplier="1"/>
+					<readWriteMode>read complete forecast</readWriteMode>
+				</timeSeriesSet>
+			</line>
+			<line>
+				<visibilityGroup>Ensemble Plumes</visibilityGroup>
+				<color>red</color>
+				<lineStyle>dashed</lineStyle>
+				<visibleInLegend>true</visibleInLegend>
+				<timeSeriesSet>
+					<moduleInstanceId>CalculateEnsembleStatisticsTemplate</moduleInstanceId>
+					<valueType>scalar</valueType>
+					<parameterId>Qout.forecast</parameterId>
+					<qualifierId>mean</qualifierId>
+					<locationSetId>Q_stations_Brenta</locationSetId>
+					<timeSeriesType>simulated forecasting</timeSeriesType>
+					<timeStep unit="hour" multiplier="1"/>
+					<readWriteMode>read complete forecast</readWriteMode>
+				</timeSeriesSet>
+			</line>
+			<area>
+				<visibilityGroup>Ensemble Plumes</visibilityGroup>
+				<color>steel blue</color>
+				<opaquenessPercentage>50</opaquenessPercentage>
+				<timeSeriesSet>
+					<moduleInstanceId>CalculateEnsembleStatisticsTemplate</moduleInstanceId>
+					<valueType>scalar</valueType>
+					<parameterId>Qout.forecast</parameterId>
+					<qualifierId>25%</qualifierId>
+					<locationSetId>Q_stations_Brenta</locationSetId>
+					<timeSeriesType>simulated forecasting</timeSeriesType>
+					<timeStep unit="hour" multiplier="1"/>
+					<readWriteMode>read complete forecast</readWriteMode>
+				</timeSeriesSet>
+				<timeSeriesSet>
+					<moduleInstanceId>CalculateEnsembleStatisticsTemplate</moduleInstanceId>
+					<valueType>scalar</valueType>
+					<parameterId>Qout.forecast</parameterId>
+					<qualifierId>75%</qualifierId>
+					<locationSetId>Q_stations_Brenta</locationSetId>
+					<timeSeriesType>simulated forecasting</timeSeriesType>
+					<timeStep unit="hour" multiplier="1"/>
+					<readWriteMode>read complete forecast</readWriteMode>
+				</timeSeriesSet>
+			</area>
 		</subplot>
 	</plot>
 
@@ -186,7 +256,7 @@
 					<valueType>scalar</valueType>
 					<parameterId>PC.nwp</parameterId>
 					<locationSetId>DisplayMeteoStations</locationSetId>
-					<timeSeriesType>external forecasting</timeSeriesType>
+					<timeSeriesType>simulated forecasting</timeSeriesType>
 					<timeStep unit="hour" multiplier="1"/>
 					<readWriteMode>read only</readWriteMode>
 				</timeSeriesSet>
@@ -199,7 +269,7 @@
 					<valueType>scalar</valueType>
 					<parameterId>TA.nwp</parameterId>
 					<locationSetId>DisplayMeteoStations</locationSetId>
-					<timeSeriesType>external forecasting</timeSeriesType>
+					<timeSeriesType>simulated forecasting</timeSeriesType>
 					<timeStep unit="hour" multiplier="1"/>
 					<readWriteMode>read only</readWriteMode>
 				</timeSeriesSet>
@@ -214,7 +284,7 @@
 					<valueType>scalar</valueType>
 					<parameterId>PC.nwp</parameterId>
 					<locationSetId>DisplayMeteoStations</locationSetId>
-					<timeSeriesType>external forecasting</timeSeriesType>
+					<timeSeriesType>simulated forecasting</timeSeriesType>
 					<timeStep unit="hour" multiplier="3"/>
 					<readWriteMode>read only</readWriteMode>
 				</timeSeriesSet>
@@ -227,7 +297,7 @@
 					<valueType>scalar</valueType>
 					<parameterId>TA.nwp</parameterId>
 					<locationSetId>DisplayMeteoStations</locationSetId>
-					<timeSeriesType>external forecasting</timeSeriesType>
+					<timeSeriesType>simulated forecasting</timeSeriesType>
 					<timeStep unit="hour" multiplier="3"/>
 					<readWriteMode>read only</readWriteMode>
 				</timeSeriesSet>
@@ -245,7 +315,7 @@
 					<valueType>scalar</valueType>
 					<parameterId>PC.nwp.acc</parameterId>
 					<locationSetId>DisplayMeteoStations</locationSetId>
-					<timeSeriesType>external forecasting</timeSeriesType>
+					<timeSeriesType>simulated forecasting</timeSeriesType>
 					<timeStep unit="hour" multiplier="3"/>
 					<readWriteMode>read only</readWriteMode>
 					<ensembleId>REPS</ensembleId>
@@ -264,7 +334,7 @@
 					<parameterId>PC.nwp.acc</parameterId>
 					<qualifierId>mean</qualifierId>
 					<locationSetId>DisplayMeteoStations</locationSetId>
-					<timeSeriesType>external forecasting</timeSeriesType>
+					<timeSeriesType>simulated forecasting</timeSeriesType>
 					<timeStep unit="hour" multiplier="3"/>
 					<readWriteMode>read complete forecast</readWriteMode>
 				</timeSeriesSet>
@@ -279,7 +349,7 @@
 					<parameterId>PC.nwp.acc</parameterId>
 					<qualifierId>25%</qualifierId>
 					<locationSetId>DisplayMeteoStations</locationSetId>
-					<timeSeriesType>external forecasting</timeSeriesType>
+					<timeSeriesType>simulated forecasting</timeSeriesType>
 					<timeStep unit="hour" multiplier="3"/>
 					<readWriteMode>read complete forecast</readWriteMode>
 				</timeSeriesSet>
@@ -289,7 +359,7 @@
 					<parameterId>PC.nwp.acc</parameterId>
 					<qualifierId>75%</qualifierId>
 					<locationSetId>DisplayMeteoStations</locationSetId>
-					<timeSeriesType>external forecasting</timeSeriesType>
+					<timeSeriesType>simulated forecasting</timeSeriesType>
 					<timeStep unit="hour" multiplier="3"/>
 					<readWriteMode>read complete forecast</readWriteMode>
 				</timeSeriesSet>
@@ -304,7 +374,7 @@
 					<parameterId>PC.nwp.acc</parameterId>
 					<qualifierId>min</qualifierId>
 					<locationSetId>DisplayMeteoStations</locationSetId>
-					<timeSeriesType>external forecasting</timeSeriesType>
+					<timeSeriesType>simulated forecasting</timeSeriesType>
 					<timeStep unit="hour" multiplier="3"/>
 					<readWriteMode>read complete forecast</readWriteMode>
 				</timeSeriesSet>
@@ -314,7 +384,7 @@
 					<parameterId>PC.nwp.acc</parameterId>
 					<qualifierId>max</qualifierId>
 					<locationSetId>DisplayMeteoStations</locationSetId>
-					<timeSeriesType>external forecasting</timeSeriesType>
+					<timeSeriesType>simulated forecasting</timeSeriesType>
 					<timeStep unit="hour" multiplier="3"/>
 					<readWriteMode>read complete forecast</readWriteMode>
 				</timeSeriesSet>
@@ -332,7 +402,7 @@
 					<valueType>scalar</valueType>
 					<parameterId>TA.nwp</parameterId>
 					<locationSetId>DisplayMeteoStations</locationSetId>
-					<timeSeriesType>external forecasting</timeSeriesType>
+					<timeSeriesType>simulated forecasting</timeSeriesType>
 					<timeStep unit="hour" multiplier="3"/>
 					<readWriteMode>read only</readWriteMode>
 					<ensembleId>REPS</ensembleId>
@@ -351,7 +421,7 @@
 					<parameterId>TA.nwp</parameterId>
 					<qualifierId>mean</qualifierId>
 					<locationSetId>DisplayMeteoStations</locationSetId>
-					<timeSeriesType>external forecasting</timeSeriesType>
+					<timeSeriesType>simulated forecasting</timeSeriesType>
 					<timeStep unit="hour" multiplier="3"/>
 					<readWriteMode>read complete forecast</readWriteMode>
 				</timeSeriesSet>
@@ -366,7 +436,7 @@
 					<parameterId>TA.nwp</parameterId>
 					<qualifierId>25%</qualifierId>
 					<locationSetId>DisplayMeteoStations</locationSetId>
-					<timeSeriesType>external forecasting</timeSeriesType>
+					<timeSeriesType>simulated forecasting</timeSeriesType>
 					<timeStep unit="hour" multiplier="3"/>
 					<readWriteMode>read complete forecast</readWriteMode>
 				</timeSeriesSet>
@@ -376,7 +446,7 @@
 					<parameterId>TA.nwp</parameterId>
 					<qualifierId>75%</qualifierId>
 					<locationSetId>DisplayMeteoStations</locationSetId>
-					<timeSeriesType>external forecasting</timeSeriesType>
+					<timeSeriesType>simulated forecasting</timeSeriesType>
 					<timeStep unit="hour" multiplier="3"/>
 					<readWriteMode>read complete forecast</readWriteMode>
 				</timeSeriesSet>
@@ -391,7 +461,7 @@
 					<parameterId>TA.nwp</parameterId>
 					<qualifierId>min</qualifierId>
 					<locationSetId>DisplayMeteoStations</locationSetId>
-					<timeSeriesType>external forecasting</timeSeriesType>
+					<timeSeriesType>simulated forecasting</timeSeriesType>
 					<timeStep unit="hour" multiplier="3"/>
 					<readWriteMode>read complete forecast</readWriteMode>
 				</timeSeriesSet>
@@ -401,7 +471,7 @@
 					<parameterId>TA.nwp</parameterId>
 					<qualifierId>max</qualifierId>
 					<locationSetId>DisplayMeteoStations</locationSetId>
-					<timeSeriesType>external forecasting</timeSeriesType>
+					<timeSeriesType>simulated forecasting</timeSeriesType>
 					<timeStep unit="hour" multiplier="3"/>
 					<readWriteMode>read complete forecast</readWriteMode>
 				</timeSeriesSet>
@@ -417,14 +487,15 @@
 		</singleLocationDisplays>
 	</displayGroup>
 	<displayGroup id="QoutForecast" name="Discharge ECMWF forecast">
-		<nodeId>QoutForecast</nodeId>
+		<nodeId>GeoframeECMWF</nodeId>
 		<singleLocationDisplays>
 			<locationSetId>Q_stations_Brenta</locationSetId>
 			<plotId>plotECMWF</plotId>
 		</singleLocationDisplays>
 	</displayGroup>	
 	<displayGroup id="QoutForecast" name="Discharge ICON2I ensemble forecast">
-		<nodeId>QoutForecast</nodeId>
+		<!--nodeId>GeoframeICON2Iensemble</nodeId-->
+		<nodeId>StatICON2Iensemble</nodeId>
 		<singleLocationDisplays>
 			<locationSetId>Q_stations_Brenta</locationSetId>
 			<plotId>plotICON2Iensemble</plotId>

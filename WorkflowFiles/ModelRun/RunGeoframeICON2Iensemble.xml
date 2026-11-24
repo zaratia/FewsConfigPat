@@ -55,5 +55,17 @@
 		<runIndependent>true</runIndependent>	  
 		<moduleInstanceId>MergeGeoframeICON2Iensemble</moduleInstanceId>
 	</activity>
-
+	<!-- Calculate statistics -->
+	<activity>
+		<properties>
+			<string key="ParameterId" value="Qout.forecast"/>
+			<string key="LocationSetId" value="Q_stations_Brenta"/>
+			<string key="TimeSeriesType" value="simulated forecasting"/>
+			<string key="EnsembleId" value="icon2ieps"/>
+			<string key="InputModuleInstanceId" value="GeoframeICON2Iensemble"/>
+		</properties>
+		<runIndependent>true</runIndependent>
+		<moduleInstanceId>CalculateEnsembleStatisticsTemplate</moduleInstanceId>
+		<moduleConfigFileName>CalculateEnsembleStatisticsTemplate</moduleConfigFileName>
+	</activity>
 </workflow>

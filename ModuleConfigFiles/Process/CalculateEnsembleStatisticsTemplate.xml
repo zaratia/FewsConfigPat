@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformationModule xmlns="http://www.wldelft.nl/fews" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.wldelft.nl/fews http://fews.wldelft.nl/schemas/version1.0/transformationModule.xsd" version="1.0">
 	<!-- This template is used to calculate summary statistics for a ensemble scalar input-->
-	<!--Tags required are: $InputModuleInstanceId$, $ParameterId$, $LocationSetId$, $TimeSeriesType$, $TimeStepHour$, $EnsembleId$-->
+	<!--Tags required are: $InputModuleInstanceId$, $ParameterId$, $LocationSetId$, $TimeSeriesType$, $EnsembleId$-->
 	<!--Inputs-->
 	<variable>
 		<variableId>input_variable</variableId>
@@ -11,7 +11,7 @@
 			<parameterId>$ParameterId$</parameterId>
 			<locationSetId>$LocationSetId$</locationSetId>
 			<timeSeriesType>$TimeSeriesType$</timeSeriesType>
-			<timeStep unit="hour" multiplier="$TimeStepHour$"/>
+			<timeStep unit="hour" multiplier="1"/>
 			<readWriteMode>read complete forecast</readWriteMode>
 			<ensembleId>$EnsembleId$</ensembleId>
 		</timeSeriesSet>
@@ -20,65 +20,65 @@
 	<variable>
 		<variableId>output_mean</variableId>
 		<timeSeriesSet>
-			<moduleInstanceId>$MODULE_INSTANCE_ID$</moduleInstanceId>
+			<moduleInstanceId>CalculateEnsembleStatisticsTemplate</moduleInstanceId>
 			<valueType>scalar</valueType>
 			<parameterId>$ParameterId$</parameterId>
 			<qualifierId>mean</qualifierId>
 			<locationSetId>$LocationSetId$</locationSetId>
 			<timeSeriesType>$TimeSeriesType$</timeSeriesType>
-			<timeStep unit="hour" multiplier="$TimeStepHour$"/>
+			<timeStep unit="hour" multiplier="1"/>
 			<readWriteMode>read complete forecast</readWriteMode>
 		</timeSeriesSet>
 	</variable>
 	<variable>
 		<variableId>output_max</variableId>
 		<timeSeriesSet>
-			<moduleInstanceId>$MODULE_INSTANCE_ID$</moduleInstanceId>
+			<moduleInstanceId>CalculateEnsembleStatisticsTemplate</moduleInstanceId>
 			<valueType>scalar</valueType>
 			<parameterId>$ParameterId$</parameterId>
 			<qualifierId>max</qualifierId>
 			<locationSetId>$LocationSetId$</locationSetId>
 			<timeSeriesType>$TimeSeriesType$</timeSeriesType>
-			<timeStep unit="hour" multiplier="$TimeStepHour$"/>
+			<timeStep unit="hour" multiplier="1"/>
 			<readWriteMode>read complete forecast</readWriteMode>
 		</timeSeriesSet>
 	</variable>
 	<variable>
 		<variableId>output_min</variableId>
 		<timeSeriesSet>
-			<moduleInstanceId>$MODULE_INSTANCE_ID$</moduleInstanceId>
+			<moduleInstanceId>CalculateEnsembleStatisticsTemplate</moduleInstanceId>
 			<valueType>scalar</valueType>
 			<parameterId>$ParameterId$</parameterId>
 			<qualifierId>min</qualifierId>
 			<locationSetId>$LocationSetId$</locationSetId>
 			<timeSeriesType>$TimeSeriesType$</timeSeriesType>
-			<timeStep unit="hour" multiplier="$TimeStepHour$"/>
+			<timeStep unit="hour" multiplier="1"/>
 			<readWriteMode>read complete forecast</readWriteMode>
 		</timeSeriesSet>
 	</variable>
 	<variable>
 		<variableId>output_25</variableId>
 		<timeSeriesSet>
-			<moduleInstanceId>$MODULE_INSTANCE_ID$</moduleInstanceId>
+			<moduleInstanceId>CalculateEnsembleStatisticsTemplate</moduleInstanceId>
 			<valueType>scalar</valueType>
 			<parameterId>$ParameterId$</parameterId>
 			<qualifierId>25%</qualifierId>
 			<locationSetId>$LocationSetId$</locationSetId>
 			<timeSeriesType>$TimeSeriesType$</timeSeriesType>
-			<timeStep unit="hour" multiplier="$TimeStepHour$"/>
+			<timeStep unit="hour" multiplier="1"/>
 			<readWriteMode>read complete forecast</readWriteMode>
 		</timeSeriesSet>
 	</variable>
 	<variable>
 		<variableId>output_75</variableId>
 		<timeSeriesSet>
-			<moduleInstanceId>$MODULE_INSTANCE_ID$</moduleInstanceId>
+			<moduleInstanceId>CalculateEnsembleStatisticsTemplate</moduleInstanceId>
 			<valueType>scalar</valueType>
 			<parameterId>$ParameterId$</parameterId>
 			<qualifierId>75%</qualifierId>
 			<locationSetId>$LocationSetId$</locationSetId>
 			<timeSeriesType>$TimeSeriesType$</timeSeriesType>
-			<timeStep unit="hour" multiplier="$TimeStepHour$"/>
+			<timeStep unit="hour" multiplier="1"/>
 			<readWriteMode>read complete forecast</readWriteMode>
 		</timeSeriesSet>
 	</variable>

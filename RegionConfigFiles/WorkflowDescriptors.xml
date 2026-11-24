@@ -20,8 +20,8 @@
 		<workflowDescriptor id="Import_ICON_Ensemble_OAnc" name="Import ICON OA netcdf" visible="true" forecast="false" autoApprove="false" allowApprove="false">
 			<cardinalTimeStep timeZone="GMT" unit="hour" multiplier="1"/>
 		</workflowDescriptor>
+		<workflowDescriptor id="ProcessICON2Iensemble" name="Process ICON2I Ensemble" visible="true" forecast="true" autoApprove="false" allowApprove="false"/>
 	<!--PAT-->
-	
 	<!-- OPEN ARCHIVE PAT-->
 	<workflowDescriptor id="OpenArchive_Import" name="Import station data from OA" visible="true" forecast="false">
 		<description>OpenArchive_Import</description>
@@ -29,8 +29,6 @@
 	<!--workflowDescriptor id="OpenArchive_Export" name="Export a OpenArchive" visible="true" forecast="false">
 		<description>OpenArchive_Export</description>
 	</workflowDescriptor-->
-
-	<!--Processing-->
 
 	<rootNode>
 		<node name="Import PAT station data">
@@ -41,10 +39,11 @@
 			<workflowId>Import_ECMWF_OAnc</workflowId>
 			<workflowId>Import_ICON_Ensemble_OAnc</workflowId>
 		</node>
-		<node name="Run Geoframe">
+		<node name="Run and process Geoframe">
 			<workflowId>RunGeoframeHistoric</workflowId>
 			<workflowId>RunGeoframeECMWF</workflowId>
 			<workflowId>RunGeoframeICON2Iensemble</workflowId>
+			<workflowId>ProcessICON2Iensemble</workflowId>
 		</node>
 		<node name="Export PAT station data to OpenArchive">
 			<workflowId>Export_timeseries_OA_NETCDF</workflowId>

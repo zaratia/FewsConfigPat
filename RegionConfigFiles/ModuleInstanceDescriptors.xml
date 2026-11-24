@@ -28,7 +28,9 @@
 	<moduleInstanceDescriptor id="GeoframeICON2Iensemble"/>
 	<!--Process PAT-->
 	<moduleInstanceDescriptor id="InterpolateForecastNearest_ECMWF"/>	
-	<moduleInstanceDescriptor id="InterpolateForecastNearest_ICON2I_Ensemble"/>	
+	<moduleInstanceDescriptor id="InterpolateForecastNearest_ICON2I_Ensemble"/>
+	<moduleInstanceDescriptor id="AccumulateForecastPrecipTemplate"/>	
+	<moduleInstanceDescriptor id="CalculateEnsembleStatisticsTemplate"/>	
 	<!-- Process -->
 	<moduleInstanceDescriptor id="MergeHistoricGrids"/>
 	<moduleInstanceDescriptor id="ModifyHistoricGrids"/>

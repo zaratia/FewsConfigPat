@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workflow xmlns="http://www.wldelft.nl/fews" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.wldelft.nl/fews http://fewsdocs.deltares.nl/schemas/version1.0/workflow.xsd" version="1.1">
+	<!--activity>
+		<properties>
+			<string key="Parameter" value="Q.forecast"/>
+			<string key="LocationSetId" value="Q_stations_Brenta"/>
+			<string key="TimeSeriesType" value="scalar"/>
+			<string key="EnsembleId" value="icon2ieps"/>
+			<string key="OutputParameterId" value="Q.acc.forecast"/>
+		</properties>
+		<runIndependent>true</runIndependent>
+		<moduleInstanceId>AccumulateForecastPrecipTemplate</moduleInstanceId>
+		<moduleConfigFileName>AccumulateForecastPrecipTemplate</moduleConfigFileName>
+	</activity-->
+	<activity>
+		<properties>
+			<string key="ParameterId" value="Qout.forecast"/>
+			<string key="LocationSetId" value="Q_stations_Brenta"/>
+			<string key="TimeSeriesType" value="simulated forecasting"/>
+			<string key="EnsembleId" value="icon2ieps"/>
+			<string key="InputModuleInstanceId" value="GeoframeICON2Iensemble"/>
+		</properties>
+		<runIndependent>true</runIndependent>
+		<moduleInstanceId>CalculateEnsembleStatisticsTemplate</moduleInstanceId>
+		<moduleConfigFileName>CalculateEnsembleStatisticsTemplate</moduleConfigFileName>
+	</activity>
+	<!--activity>
+		<properties>
+			<string key="ParameterId" value="P.acc.forecast"/>
+			<string key="LocationSetId" value="Q_stations_Brenta"/>
+			<string key="TimeSeriesType" value="scalar"/>
+			<string key="EnsembleId" value="icon2ieps"/>
+			<string key="InputModuleInstanceId" value="AccumulateForecastPrecipTemplate"/>			
+		</properties>
+		<runIndependent>true</runIndependent>
+		<moduleInstanceId>CalculateEnsembleStatisticsTemplate</moduleInstanceId>
+		<moduleConfigFileName>CalculateEnsembleStatisticsTemplate</moduleConfigFileName>
+	</activity-->
+</workflow>

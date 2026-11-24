@@ -58,20 +58,12 @@
 		<node id="GeoframeECMWF" name="Geoframe ECMWF forecast">
 			<workflowId>RunGeoframeECMWF</workflowId>
 			<graceTime unit="hour" multiplier="6"/>
-			<gridDisplaySelection>
-				<groupId>RDPA</groupId>
-				<plotId>RDPAPrecipitation</plotId>
-			</gridDisplaySelection>
 			<localRun>false</localRun>
 			<showRunApprovedForecastButton>true</showRunApprovedForecastButton>
 		</node>
 		<node id="GeoframeICON2Iensemble" name="Geoframe ICON2I ensemble forecast">
 			<workflowId>RunGeoframeICON2Iensemble</workflowId>
 			<graceTime unit="hour" multiplier="6"/>
-			<!--gridDisplaySelection>
-				<groupId>RDPA</groupId>
-				<plotId>RDPAPrecipitation</plotId>
-			</gridDisplaySelection-->
 			<localRun>false</localRun>
 			<showRunApprovedForecastButton>true</showRunApprovedForecastButton>
 		</node>
